@@ -1,0 +1,825 @@
+======================================================================================GHI CHÚ VỀ HTML=======================================================================================
+1/ Mẫu chương trình HTML
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Một trang HTML</title>
+</head>
+<body>
+	<h1 align="center">Tiêu đề được căn giữa</h1>
+	Đây là một đường siêu liên kết (hyperlink):
+	<a href="http://www.somesite.com/">Click me!</a><br/>
+	<p>
+	<font face="Verdana">
+	Đoạn văn bản này có font chữ là Verdana!
+	</font>
+	</p>
+	<table border="1">
+	<tr>
+	<td>Đoạn văn bản này nằm trong một bảng. Bảng này có 1 dòng 2 cột. Cột bên phải là một hình ảnh.</td>
+	<td><img src="https://tek4.vn/_next/image?url=%2Fimages%2Flogo-2.png&w=256&q=75"/> </td>
+	</tr>
+	</table>
+</body>
+</html>
+
+============================================================================================================================================================================================
+2/
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+      <title>Học HTML CSS </title>
+  </head>
+  
+  <body>
+    <h1>CÔ ĐƠN LÀ GÌ? TẠI SAO CHÚNG TA AI CŨNG SỢ CÔ ĐƠN</h1>
+    <h2>Khái niệm về cô đơn?</h2>
+    <h3>Cô đơn là gì?</h3>
+    <h3>Nguyên nhân của cảm giác cô đơn là gì?</h3>
+    <h3>Ảnh hưởng của cô đơn là gì?</h3>
+    <h4>Sức khỏe tâm thần</h4>
+    <h4>Sức khỏe thể chất</h4>
+  </body>
+</html>
+
+============================================================================================================================================================================================
+3/ Một số thẻ làm nổi bật văn bản
+	3.1/ Sử dụng thẻ <strong> để làm đậm văn bản
+Trong thẻ strong, trình duyệt sẽ áp dụng thuộc tính font-weight: bold; mặc định hiển thị nội dung bên trong thẻ <strong> bằng font chữ đậm. Tuy nhiên, việc hiển thị có thể thay đổi tùy thuộc vào stylesheet được áp dụng cho trang web hoặc các quy tắc CSS khác.
+	3.2/ Sử dụng thẻ <u> để gạch dưới văn bản
+Mặc dù thẻ <u> thường được sử dụng để định dạng các từ gạch chân, nhưng nên lưu ý rằng việc sử dụng gạch chân có thể bị hiểu sai hoặc gây nhầm lẫn, vì nó có thể bị nhầm với liên kết (<a>), thông tin gạch chân (<ins>) hoặc cấu trúc dữ liệu (<u>). Để định dạng văn bản theo ý muốn, thường tốt hơn là sử dụng CSS để tạo kiểu cho văn bản thay vì dùng thẻ <u>.
+	3.3/ Sử dụng thẻ <em> để in nghiêng văn bản
+Trong thẻ em, trình duyệt sẽ áp dụng thuộc tính font-style: italic;. Nếu chúng ta chỉ định cách hiển thị khác trong CSS thì chúng sẽ không còn kiểu hiển thị mặc định này nữa.
+	3.4/ Sử dụng thẻ <s> để gạch ngang (gạch bỏ) văn bản
+Lưu ý rằng hiển thị cụ thể của thẻ <s> có thể khác nhau tùy thuộc vào trình duyệt hoặc CSS được áp dụng. Một số trình duyệt có thể hiển thị nó với kiểu chữ gạch ngang xuyên qua (tương ứng với thuộc tính CSS là: text-decoration: line-through;), trong khi trình duyệt khác có thể hiển thị nó với kiểu chữ mờ hoặc dạng khác.
+	3.5/ Tạo một đường ngang bằng phần thẻ <hr>
+Thẻ <hr> là một phần tử không đóng, nghĩa là nó không có thẻ đóng tương ứng. Thông thường, đường ngang được hiển thị theo kiểu mặc định của trình duyệt, là một đường ngang ngang bình thường giữa hai phần nội dung. Bạn cũng có thể tùy chỉnh kiểu hiển thị của đường ngang bằng cách sử dụng CSS hoặc các thuộc tính của thẻ <hr>, như color, size, width, và align.
+
+============================================================================================================================================================================================
+4/ Lý thuyết về HTML5
+-HTML5 được thiết kế đáp ứng các mục tiêu chính dưới đây
+	+Làm cho mã dễ đọc và thân thiện hơn khi hiển thị
+	+Giảm sự chồng chéo giữa HTML, CSS và JavaScript
+	+Cải thiện khả năng đáp ứng và tính nhất quán của thiết kế trên các trình duyệt
+	+Hỗ trợ các đối tượng tài liệu đa phương tiện mà không cần cài đặt Flash hoặc các plugin khác
+-HTML5 cung cấp rất nhiều lợi ích so với các phiên bản HTML trước đó 
+	+Tương thích trên các trình duyệt
+	+Cho phép duyệt web ngoại tuyến
+	+Cho phép viết mã sạch hơn
+	+Dễ tiếp cận hơn
+-Template cơ bản:
+
+<!DOCTYPE html>
+<html lang=”en” manifest="/cache.appcache">
+	<head>
+		<title>This is the Title of the Page</title>
+		<meta charset="utf-8">  <!--chỉ định bộ ký tự mà trình duyệt sẽ sử dụng khi hiển thị trang. Nói chung, các trang được viết bằng tiếng Anh sử dụng UTF-8 -->
+		<link rel="stylesheet" rel="noopener" target="_blank" href="bootstrap/css/bootstrap.min.css"> <!--liên kết đến các tài liệu trang trí .css bên ngoài mà bạn muốn sử dụng. Trong ví dụ trên là đường link nếu sử dụng thư viện Bootstrap CSS -->
+		<!-- This link is only necessary if you’re using an external stylesheet -->
+		<style>
+		/* These style tags are only necessary if you’re adding internal CSS */
+		</style>
+	</head>
+	<body>
+		<main>
+			<h1>This is a Heading</h1>
+			<p>This is a paragraph.</p>
+		</main>
+	</body>
+</html>
+
+============================================================================================================================================================================================
+5/Làm việc với thẻ <img>
+	5.1/ Chèn hình ảnh
+Để thêm hình ảnh vào trang Web, chúng ta sẽ sử dụng thẻ img và gắn đường dẫn URL của một hình ảnh cụ thể cho thuộc tính src như sau: 
+	<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80">
+img là một thẻ tự đóng
+Tất cả các thẻ img đều cần phải có thuộc tính alt. Văn bản bên trong thuộc tính alt giúp cải thiện khả năng tiếp cận cho người dùng và được hiển thị trong trường hợp hình ảnh không thể tải về do lỗi đường truyền.
+Trong ví dụ dưới đây, chúng ta sẽ thêm 1 thuộc tính alt vào thẻ img như sau:
+	<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="Programming">
+
+	5.2/ Thêm văn bản thay thế để chú thích ảnh
+Phần tử img chứa thuộc tính alt, trong đó, đoạn văn bản trong thuộc tính alt mô tả nội dung của hình ảnh và được gọi là văn bản thay thế cho hình ảnh đó. Thuộc tính này rất hữu ích trong trường hợp không tải về được hình ảnh hoặc người dùng không thể nhìn thấy hình ảnh. Ngoài ra, văn bản này giúp các công cụ tìm kiếm hiểu những gì một hình ảnh đó chứa để đưa vào kết quả tìm kiếm.
+
+--> Note: Mặc dù thuộc tính alt là bắt buộc, tuy nhiên có những trường hợp: hình ảnh đã được chú thích đầy đủ trong hình / hình chỉ mang tính tượng trưng thì việc thêm văn bản thay thế đôi lúc là dư thừa. Lúc này vẫn sử dụng thuộc tính alt, nhưng lại gán cho nó giá trị rỗng: alt="". Ví dụ như đoạn chương trình dưới đây:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML</title>
+</head>
+
+<body>
+  <h1>5 phương pháp để học tập hiệu quả hơn trong lĩnh vực công nghệ</h1>
+  <main>
+    <article>
+      <h2>Tìm nguồn học uy tín</h2>
+      <p>Chúng ta đều biết rằng nguồn tài liệu học tập hiện nay là vô cùng phong phú đa dạng. Chỉ cần nhập bất cứ cái gì liên quan đến code hay chủ đề về công nghệ vào Google và bạn sẽ nhận được vô số kết quả cùng với link tham khảo, nhiều đến mức không thể xem hết được. Và đây chính là trở ngại đầu tiên mà ta gặp phải.</p>
+    </article>
+    <img src="decoration.jpeg" alt=""> <!-- Thêm văn bản thay thế cho ảnh tại đây -->
+    <article>
+      <h2>Thực hành với các dự án thực tiễn</h2>
+      <p>Chắc hẳn bạn cũng biết rằng nếu chỉ học lý thuyết mà không thực hành thì cũng chỉ là vô ích. Điều này cũng áp dụng tương tự với lĩnh vực công nghệ. Bạn muốn tận dụng kiến thức học từ khóa học? Hãy bắt đầu thực hành sớm nhất có thể.</p>
+    </article>
+  </main>
+</body>
+
+</html>
+
+	5.3/ Chèn link vào hình ảnh
+Chúng ta có thể chuyển đổi các thẻ trong trang Web thành các đường dẫn liên kết bằng cách chèn các thẻ đó vào bên trong thẻ a. Dưới đây là ví dụ về cách chèn hình ảnh vào thẻ a:
+	<a href="#"><img src="https://tek4.vn/public_files/9cee3318-9fad-4565-af3c-92ce8165dd09" alt="Programming."></a>
+Ở đây thay vì nội dung văn bản hiển thị của thẻ <a>, chúng ta đã sử dụng hình ảnh hiển thị. Khi click vào hình ảnh này trên trình duyệt, chúng ta sẽ chuyển hướng đến đường dẫn là giá trị của thuộc tính href trong thẻ a.
+
+============================================================================================================================================================================================
+6/ Làm việc với thẻ a
+	6.1/ Tạo External link
+Trong HTML, thẻ <a> định nghĩa một siêu liên kết, được sử dụng để liên kết một trang web này sang một trang web khác.
+Chúng ta có thể sử dụng thẻ a (viết tắt của anchor) để tạo đường dẫn liên kết với các nội dung bên ngoài trang Web. Thẻ <a> có thuộc tính href chứa địa chỉ của trang Web mà chúng ta muốn liên kết và một đoạn văn bản cho đường dẫn liên kết:
+	<a href="url">Văn bản hiển thị</a>
+Thuộc tính quan trọng nhất của phần tử <a> chính là thuộc tính href, nó chỉ đến đường dẫn liên kết mà chúng ta chỉ định. Theo mặc định, các đường dẫn sẽ xuất hiện dưới dạng sau trên hầu hết mọi trình duyệt:
+	-Các liên kết chưa được truy cập sẽ có màu xanh và được gạch chân dưới.
+	-Các liên kết đã được truy cập qua sẽ có màu tím và gạch dưới.
+
+	6.2/ Tạo Internal link
+Ngoài việc tạo liên kết ra trang web bên ngoài, chúng ta có thể sử dụng thẻ a để tạo các đường dẫn nội bộ giúp di chuyển đến các nội dung khác nhau trong cùng một trang Web.
+Để tạo đường dẫn nội bộ, chúng ta sẽ gán ký hiệu # cho thuộc tính href và kết hợp giá trị của thuộc tính id, tức là phần nội dung mà chúng ta muốn di chuyển đến. Sau đó, chúng ta sẽ cần thêm một thuộc tính id cho phần tử mà chúng ta muốn di chuyển đến. Mỗi thẻ trong HTML có một thuộc tính id nhất định. Dưới đây là ví dụ về đường dẫn liên kết nội bộ và các thẻ của nó:
+
+	<a href="#heading">Docker là gì?</a>
+	...
+
+	<h1>Heading thứ nhất này không được nhảy đến</h1>
+	<h2 id="heading">Docker là gì?</h2>
+	<h2>Heading thứ hai này cũng không được nhảy đến vì nó không có thuộc tính id trong giá trị của href</h2>
+
+Khi kích chuột vào đường dẫn Docker là gì?, nó sẽ nhảy tới phần nội dung với tiêu đề <h2> với thuộc tính id="heading" trong trang Web đó. Thuộc tính target="_blank" sẽ điều hướng đến trang Web trong một tab mới.
+
+	6.3/ Chèn thẻ a vào trong đoạn văn bản
+Xem dòng code sau để hiểu:
+
+	<p>Đây là <a target="_blank" href="https://www.tek4.vn"> đường dẫn liên kết tới trang Web tek4.vn</a>.</p> 
+
+Bài tập mẫu:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML</title>
+</head>
+<body>
+    <h1>Học lập trình HTML cơ bản</h1>
+    <h2>Xây dựng ứng dụng Web cơ bản</h2>
+    <main>
+      <p>Welcome!<a href="https://tek4.vn/hoc-tap"></a></p>
+      <a href="https://www.tek4.vn" target="_blank">TEK4.VN</a>
+      <img src="https://tek4.vn/public_files/9cee3318-9fad-4565-af3c-92ce8165dd09" alt="Programming">
+      <p>Phẩm chất quan trọng nhất của lập trình viên là tính nhất quán. Thực ra mà nói, yếu tố này cũng đóng vai trò thiết yếu trong bất kỳ lĩnh vực ngành nghề nào. Nếu bạn không duy trì việc nâng cấp bản thân mỗi ngày thì không thể phát triển theo thời gian. Nhưng đối với lập trình viên như chúng ta, tính kiên định mang lại rất nhiều lợi ích bởi đôi khi nó cũng mang đến vô vàn thách thức. Hãy trau dồi bản thân mỗi ngày và bạn sẽ nhận được thành quả xứng đáng.</p>
+    </main>
+</body>
+</html>
+
+	6.4/ Tạo thẻ a trống
+Đôi khi chúng ta cần thêm một thẻ a vào trang Web của mình nhưng chưa biết sẽ đặt đường dẫn cần điều hướng cho thẻ a đó, trong trường hợp này, chúng ta sẽ sử dụng ký hiệu dấu # trong thuộc tính href để tạo một đường dẫn tạm thời.
+
+============================================================================================================================================================================================
+7/ Tạo lists 
+	7.1/ Unordered list
+HTML chứa một thẻ đặc biệt giúp tạo danh sách không theo thứ tự (unordered lists). Unordered lists thường bắt đầu bằng một thẻ mở <ul>, tiếp đó là các thẻ <li> con bên trong và kết thúc bằng thẻ đóng </ul> như ví dụ dưới đây:
+
+<ul>
+  <li>Học Toán</li>
+  <li>Học Lý</li>
+  <li>Học Hóa</li>
+</ul>
+
+--> Gọi là thẻ danh sách không có thứ tự vì không có đánh số thứ tự 1,2,3
+	
+	7.2/ Ordered list
+Ordered list được bắt đầu bằng thẻ <ol>, tiếp đến là các thẻ <li> con bên trong nó và kết thúc bằng thẻ </ol> như trong ví dụ dưới đây:
+<ol>
+  <li>Bài số 1</li>
+  <li>Bài số 2</li>
+</ol>
+	
+============================================================================================================================================================================================
+8/ Cách tạo trường văn bản
+Sử dụng thẻ <input> để tạo một phần tử đầu vào
+Một số thuộc tính thường được sử dụng với thẻ <input>
+	-type: xác định loại đầu vào. Các gúa trị thông dụng bao gồm:
+		+"text": đầu vào văn bản
+		+"password": đầu vào mật khẩu
+		+"number": đầu vào số
+		+"email": đầu vào email
+		+"checkbox": đầu vào dạng hộp tick chọn
+		+"radio": đầu vào dạng nút radio button. Một số thông tin bổ sung thêm:
+			*Dùng để thiết kế kiểu câu hỏi trắc nghiệm với nhiều lựa chọn nhưng chỉ cho phép người dùng chọn 1 trong số những lựa chọn đó. Các thẻ input này được lồng vào bên trong thẻ label.
+			*Khi thẻ input nằm trong thẻ label, nó sẽ tự động liên kết dữ liệu đầu vào với thẻ label đó. Các thẻ input có kiểu radio trong 1 câu hỏi sẽ có cùng giá trị cho thuộc tính name để tạo thành một tập hợp các câu trả lời cho người dùng.
+			*Khi người dùng chọn một đáp án thì những đáp án khác sẽ tự động được loại bỏ để đảm bảo rằng người dùng chỉ chọn một lựa chọn trong số nhiều lựa chọn. Đây là đặc tính của đối tượng radio. Tức là chỉ được chọn 1.
+		+....
+ 	VD: <input type="text">
+	-name: xác định tên của đầu vào. Dữ liệu nhập vào sẽ được gửi đến máy chủ với tên này khi người dùng gửi biểu mẫu.
+	VD: <input type="text" name="username">
+	-value: xác định giá trị mặc định của đầu vào. Giá trị này sẽ được hiển thị trong ô nhập liệu ban đầu (lưu ý đây chỉ là giá trị ban đầu, có thể bị thay đổi khi người dùng tương tác với phần tử <input>)
+	VD: <input type="text" value="John Doe">
+	-placeholder: xác định đề mục hiển thị trong ô nhập liệu khi không có giá trị nào
+	VD: <input type="text" placeholder="Nhập tên của bạn">
+	-required: xác định xem đầu vào có yêu cầu dữ liệu bắt buộc hay không. Nếu được đặt, người dùng phải nhập vào đầu vào trước khi gửi biểu mẫu.
+	VD: <input type="text" required>
+Còn rất nhiều thuộc tính khác như: disabled, readonly, min, max, step,..
+
+-->Note: thẻ <input> là thẻ tự đóng
+
+============================================================================================================================================================================================
+9/ Tạo thẻ form
+Dành khi người dùng cần nhập nhiều dữ liệu cùng lúc
+--> Nhóm các đối tượng <input> vào cùng một khối gọi là Biểu Mẫu (FORM) --> sử dụng thẻ <form>
+Thẻ <form> bao bọc các phần tử đầu vào (các thẻ <input>), nút gửi, các phần tử mô tả (label) và các phần tử khác liên quan đến biểu mẫu.
+Cú pháp cơ bản:
+
+	<form action="url_xu_ly" method="phuong_thuc">
+  		<!-- Các phần tử đầu vào, nút gửi và phần tử khác trong biểu mẫu -->
+	</form>
+
+Các thuộc tính quan trọng của thẻ <form>
+	-action: xác định URL hoặc đường dẫn của tệp xử lý dữ liệu biểu mẫu khi người dùng gửi nó. Thông thường bạn sẽ cung cấp một đường dẫn đến một tệp xử lý dữ liệu phía máy chủ hoặc một URL của một trang xử lý dữ liệu.
+	-method: xác định phương thức HTTP được sử dụng để gửi dữ liệu mẫu. có 2 phương thức phổ biến là:
+		+"GET": sử dụng các tham số được gán vào URL và thường được sử dụng cho các biểu mẫu không nhạy cảm hoặc yêu cầu dữ liệu ít.
+		+"POST": gửi dữ liệu như một phần của yêu cầu HTTP và thường được sử dụng cho các biểu mẫu chứa các thông tin nhạy cảm hoặc yêu cầu dữ liệu lớn.
+Bên trong thẻ <form> có thể thêm các phần tử đầu vào như: <input>, <select>, <textarea>; các nút như <button> và các phần tử mô tả bằng cách sử dụng thẻ <label>
+
+============================================================================================================================================================================================
+10/ Tạo nút Submit trong biểu mẫu
+Nút "submit" trong thẻ <form> được sử dụng để gửi biểu mẫu khi người dùng đã hoàn thành nhập liệu và muốn gửi dữ liệu đến máy chủ để xử lý. Đây là một phần tử đầu vào đặc biệt có thuộc tính type="submit". Dưới đây là một ví dụ về cách sử dụng nút "submit" trong thẻ <form>:
+
+<form action="/xuly.php" method="post">
+  <!-- Các phần tử đầu vào khác trong biểu mẫu -->
+  <input type="text" id="fname" name="fname" value="John"><br>
+  <input type="text" id="lname" name="lname" value="Doe"><br><br>
+
+  <button type="submit">Gửi</button>
+</form>
+
+--> Có thể thay thế bằng cách sử dụng thẻ <input> qua đoạn code sau:
+
+	<input type="submit" value="Gửi">
+
+--> Tuy nhiên, có một số khác biệt giữa thẻ <button> và thẻ <input type="submit">:
+	-Nội dung:
+		+Thẻ <button>: cho phép đặt nội dung phong phú: văn bản, hình ảnh hoặc thậm chí các thẻ HTML khác
+		+Thẻ <input type="submit">: chỉ cho phép đặt văn bản trong thuộc tính value, và văn bản này sẽ hiển thị trên nút
+	-Sự linh hoạt:
+		+Thẻ <input> có ít sự linh hoạt hơn và dễ bị giới hạn hơn
+		+Thẻ <button> có thể được tùy chỉnh mạnh mẽ hơn, không chỉ về nội dung mà còn về kiểu dáng, vì nó có thể chứa các thẻ HTML khác và được điều chỉnh bằng CSS phức tạp hơn.
+	-Mặc định:
+		+Khi không chỉ định thuộc tính type, thẻ <button> có giá trị mặc định là submit, tương tự như <input type="submit">
+		+Tuy nhiên, cũng có thể có type="button" (không thực hiện chức năng gì khi được nhấn) hoặc type="reset" (đặt lại tất cả các trường nhập liệu về giá trị mặc định).
+
+--> Chọn giữa 2 thẻ trên phụ thuộc vào yêu cầu cụ thể về nội dung và kiểu dáng.
+
+============================================================================================================================================================================================
+11/ Ví dụ sử dụng radio button
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML</title>
+</head>
+<body>
+    <h1>Học lập trình HTML cơ bản</h1>
+    <h2>Xây dựng ứng dụng Web cơ bản</h2>
+    <main>
+ 
+    <p>Bạn hãy click vào đường dẫn để xem các khóa học<a href="#"> tek4.vn</a>.</p>
+    <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="Programming">
+    <p>Những kiến thức bạn có thể học:</p>
+    
+    <ul>
+       <li>HTML</li>
+       <li>CSS</li>
+       <li>JavaScript</li>
+    </ul>
+    
+    <p>Lập trình Web</p>
+    
+    <ol>
+       <li>Front-end</li>
+       <li>Back-end</li>
+       <li>Full-stack</li>
+    </ol>
+      <form action="https://www.tek4.vn/submit">
+        <input type="text" placeholder="Nhập ngôn ngữ lập trình mà bạn muốn"><br>
+        <!--Gồm 2 radio button là FrontEnd Dev và BackEnd Dev có cùng thuộc tính name là web-dev. Sử dụng thẻ <br> để xuống dòng-->
+        <label>
+          <input type="radio" name="web-dev" value="fe">FrontEnd Dev
+        </label> <br>
+        <label>
+          <input type="radio" name="web-dev" value="be">BackEnd Dev
+        </label> <br>
+	      <button type="submit">Gửi biểu mẫu</button>
+      </form>
+    </main>
+</body>
+</html>
+
+============================================================================================================================================================================================
+12/ Cải thiện khả năng truy cập trường biểu mẫu với thẻ label
+Mục đích chính của thẻ <label> là cung cấp mô tả hoặc tiêu đề cho các phần tử nhập liệu (input elements). Điều này giúp tăng khả năng truy cập của trang web, vì nếu người dùng nhấp vào văn bản trong thẻ <label>, hệ thống sẽ tự động tập trung vào phần tử mà nhãn này mô tả. Thẻ <label> có thể được liên kết với một phần tử nhập liệu bằng một trong hai cách sau:
+	-Cách thứ nhất: Đặt phần tử cần gán nhãn bên trong thẻ <label>:
+
+		<label>First Name:
+  			<input type="text" name="first-name" />
+		</label>
+
+	-Cách thứ hai: Sử dụng thuộc tính for của thẻ <label> để chỉ đến id của phần tử cần gán nhãn:
+
+		<label for="first-name">First Name:</label>
+		<input type="text" id="first-name" name="first-name" />
+
+============================================================================================================================================================================================
+13/ Tạo đối tượng CheckBox
+Sử dụng khi muốn chọn nhiều đối tượng cùng lúc >< đối tượng radio
+Tương tự như kiểu radio, mỗi checkbox sẽ được lồng vào thẻ label của chính nó. Khi thẻ input nằm trong thẻ label, nó sẽ tự động liên kết các checkbox đầu vào với thẻ label đó. Các checkbox trong cùng 1 câu hỏi sẽ có cùng thuộc tính name.
+Để tạo một checkbox trong HTML, bạn có thể sử dụng thẻ <input> với thuộc tính type="checkbox". Dưới đây là ví dụ về cách tạo checkbox:
+
+	<label for="css"><input id="css" type="checkbox" name="Programming">CSS</label>
+
+Hoặc bạn cũng có thể tách các thẻ input và label như sau:
+
+	<input type="checkbox" name="option" value="value_of_option" id="checkbox_id">
+	<label for="checkbox_id">Text of the checkbox</label>
+
+Có thể tạo nhiều checkbox trong một form bằng cách sử dụng các tên khác nhau cho thuộc tính name, nhưng cùng chung một giá trị cho thuộc tính id để liên kết với các nhãn tương ứng.
+
+============================================================================================================================================================================================14/ Sử dụng thuộc tính cho radio button và checkbox
+	14.1/ Thuộc tính checked
+Để đánh dấu trước một radio button hoặc checkbox trong biểu mẫu, bạn có thể sử dụng thuộc tính checked. Để thực hiện, bạn sẽ chèn từ checked vào bên trong thẻ input như ví dụ dưới đây:
+
+	<input type="radio" name="test" checked>
+
+	14.2/ Thuộc tính value
+Thuộc tính value thường được sử dụng với các phần tử form như <input>, <button>, và <option>. Nó định nghĩa giá trị ban đầu của một phần tử hoặc giá trị sẽ được gửi khi form được gửi.
+Khi người dùng gửi biểu mẫu, dữ liệu trong biểu mẫu sẽ được gửi đến máy chủ. Các phần tử input có kiểu radio và checkbox sẽ lưu trữ giá trị thông qua thuộc tính value.
+Ví dụ:
+	<label for="ans1">
+  		<input id="FrontEnd Dev" value="FrontEnd Dev" type="radio" name="answer">FrontEnd Dev
+	</label>
+
+	<label for="ans2">
+  		<input id="BackEnd Dev" value="BackEnd Dev" type="radio" name="answer">BackEnd Dev
+	</label>
+
+Trong ví dụ trên, chúng ta có 2 phần tử input có kiểu radio. Khi người dùng chọn FrontEnd Dev và gửi biểu mẫu, dữ liệu gửi lên máy chủ là answer = FrontEnd Dev.  Ngược lại, nếu không sử dụng thuộc tính value như ví dụ trên thì dữ liệu của biểu mẫu được gửi về sẽ có giá trị mặc định “on", dữ liệu trả về máy chủ là answer = on thay vì answer = FrontEnd Dev  .Tuy nhiên, kết quả đó sẽ không có giá trị. Vì vậy, bạn cần sử dụng thuộc tính value để xác định giá trị cụ thể cho phép người dùng lựa chọn.
+
+-->Trong ví dụ gốc, giá trị của 2 id lần lượt là id="ans1" và id="ans2", giá trị value vẫn giữ nguyên vậy. Tuy nhiên vẫn nên theo quy tắc đặt value trùng với giá trị của id để tạo sự liên kết, ở đây đã sửa giá trị của id để phù hợp hơn.
+
+============================================================================================================================================================================================15/ Chèn các thẻ vào trong thẻ <div>
+Trong HTML, thẻ <div> được sử dụng để tạo ra một khối chứa (container) để nhóm các phần tử HTML lại với nhau. Thẻ <div> không có ý nghĩa ngữ nghĩa (semantic) mà chỉ dùng để định dạng và tổ chức cấu trúc các phần tử trong trang web. Nó là thẻ được sử dụng phổ biến nhất trong các thẻ HTML. Tương tự như các loại thẻ khác, phần tử div bao gồm thẻ mở <div> và thẻ đóng </div>.
+Ví dụ:	
+
+<div>
+  <h1>Tiêu đề</h1>
+  <p>Nội dung của đoạn văn bản.</p>
+  <img src="image.jpg" alt="Hình ảnh">
+</div>
+
+Một vài ví dụ về việc sử dụng thẻ <div>:
+	+Tạo layout và cấu trúc trang web.
+	+Nhóm các phần tử lại với nhau để áp dụng CSS hoặc JavaScript.
+	+Tạo các khu vực (sections) khác nhau trong trang web như header, footer, sidebar, content,...
+Tuy nhiên, chúng ta không nên lạm dụng việc sử dụng thẻ <div>. Cần lưu ý rằng nếu có thể, nên sử dụng các thẻ ngữ nghĩa phù hợp như <header>, <footer>, <section>, <article>,... để tạo cấu trúc trang web có ý nghĩa hơn. Sử dụng thẻ <div> quá nhiều có thể làm cho cấu trúc trang web trở nên khó hiểu và khó bảo trì.
+
+============================================================================================================================================================================================
+16/ Gói nội dung trong thẻ <article>
+Dưới đây là một số đặc điểm của phần tử <article>:
+	+Phần tử <article> được sử dụng để chứa các nội dung độc lập, có thể tồn tại riêng biệt mà không làm mất đi ý nghĩa của nó, như một bài đăng blog, một bài báo trên trang tin tức, một bình luận, một forum post, hoặc bất kỳ phần nào khác của trang web có thể được định danh và phân tách ra khỏi phần còn lại của site.
+	+Phần tử này thường bao gồm tiêu đề, thường được đánh dấu bằng thẻ <header> hoặc thẻ heading như <h1>, <h2>, vv.
+	+<article> có thể chứa nhiều thẻ <section> khác nhau, nhưng mỗi <section> nên đại diện cho một phần cụ thể hoặc một phần con của nội dung mà <article> bao gồm.
+
+--> Lưu ý: Phần tử section là 1 phần tử HTML5 mới và có một số điểm khác biệt với phần tử article như sau:
+
+Phần tử article chứa nội dung độc lập, trong khi đó, phần tử section chứa những nhóm nội dung có liên quan theo chủ đề. Hai phần tử này có thể được sử dụng lồng với nhau. Ví dụ, nếu một cuốn sách được biểu diễn dưới dạng một phần tử article, thì mỗi chương trong quyển sách là một phần tử section. Trong trường hợp không có mối quan hệ giữa các nhóm nội dung, chúng ta sẽ sử dụng phần tử div. Để xác định một phần nội dung có thể được tách ra đứng độc lập hay không, chúng ta có thể loại bỏ các yếu tố ngữ cảnh xung quanh và xem xét nội dung đó có ý nghĩa hay không. Chúng ta cần xác định đúng các loại phần tử và nội dung bởi dựa vào chúng, những người sử dụng thiết bị công nghệ hỗ trợ sẽ hiểu rõ hơn về bố cục và nội dung của trang Web.
+Dưới đây là một ví dụ về cách sử dụng thẻ <article> trong HTML:
+
+<article>
+  <h2>Tiêu đề bài viết</h2>
+  <p>Nội dung bài viết...</p>
+</article>
+
+Dưới đây là phần tổng kết cơ bản về chức năng của các phần tử:
+	+<div> được sử dụng trong việc nhóm các nội dung với nhau
+	+<section> được sử dụng nhằm bao hàm các nội dung liên quan đến nhau
+	+<article> được sử dụng để nhóm các nội dung độc lập.
+
+============================================================================================================================================================================================
+17/ Thẻ điều hướng <nav>
+Thẻ <nav> được sử dụng để định nghĩa một khu vực chứa các liên kết đến các phần của trang web hoặc các trang web khác. Thẻ <nav> thường được sử dụng để tạo menu điều hướng trên trang web, giúp người dùng dễ dàng di chuyển giữa các trang và phần của trang web.
+Dưới đây là một ví dụ đơn giản về cách sử dụng thẻ <nav> trong HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang web của tôi</title>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Trang chủ</a></li>
+      <li><a href="#">Giới thiệu</a></li>
+      <li><a href="#">Dịch vụ</a></li>
+      <li><a href="#">Liên hệ</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <!-- Nội dung chính của trang web -->
+  </main>
+  
+  <footer>
+    <!-- Chân trang của trang web -->
+  </footer>
+</body>
+</html>
+
+--> Trong ví dụ trên, thẻ <nav> bao gồm một danh sách không sắp xếp (<ul>) chứa các mục menu (<li>) và các liên kết (<a>) tương ứng. Bằng cách sử dụng các thẻ này, bạn có thể tạo các liên kết điều hướng và đặt chúng trong một khu vực menu trên trang web của bạn.
+
+--> Nếu các đường dẫn liên kết được lặp lại ở cuối trang, chúng ta không cần sử dụng phần tử nav. Trong những trường hợp này, chúng ta sử dụng phần tử footer (sẽ học sau)
+
+============================================================================================================================================================================================
+18/ Thẻ header, footer và main
+	18.1/ Thẻ <header>
+ược sử dụng để định nghĩa phần tiêu đề của một trang web hoặc phần tiêu đề của một phần tử trang cụ thể. Thẻ <header> thường chứa các phần tử như tiêu đề, logo, slogan, v.v. và thường được đặt ở đầu trang web.
+Dưới đây là một ví dụ đơn giản về cách sử dụng thẻ <header> trong HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang web của tôi</title>
+</head>
+<body>
+  <header>
+    <h1>Tiêu đề trang web</h1>
+    <p>Mô tả trang web của bạn tại đây</p>
+  </header>
+  
+  <main>
+    <!-- Nội dung chính của trang web -->
+  </main>
+  
+  <footer>
+    <!-- Chân trang của trang web -->
+  </footer>
+</body>
+</html>
+
+--> Trong ví dụ trên, thẻ <header> chứa một tiêu đề (<h1>) và một đoạn mô tả (<p>) về trang web. Bạn có thể sử dụng các phần tử khác như hình ảnh, logo, hoặc các phần tử trình bày khác để tạo nội dung phù hợp cho phần tiêu đề của trang web.
+
+--> Lưu ý rằng thẻ <header> thường được sử dụng trong cấu trúc tổng quan của trang web, cùng với các phần tử khác như <main> (nội dung chính) và <footer> (chân trang).
+
+--> Note: Phần tử header được đặt nằm trong phần tử body của tệp tài liệu HTML. Nó khác với phần tử head, chứa tiêu đề của trang, các thông tin bổ sung.
+
+	18.2/ Thẻ <footer>
+Thẻ <footer> được sử dụng để định nghĩa phần chân trang của một trang web hoặc phần chân trang của một phần tử trang cụ thể. Thẻ <footer> thường chứa các thông tin liên quan đến chân trang, chẳng hạn như thông tin liên hệ, liên kết đến các trang liên quan, bản quyền, v.v.
+Dưới đây là một ví dụ đơn giản về cách sử dụng thẻ <footer> trong HTML:
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Trang web của tôi</title>
+</head>
+<body>
+  <header>
+    <!-- Phần tiêu đề của trang web -->
+  </header>
+  
+  <main>
+    <!-- Nội dung chính của trang web -->
+  </main>
+  
+  <footer>
+    <p>Bản quyền © 2023 Trang web của tôi. Mọi quyền được bảo lưu.</p>
+    <nav>
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#">Giới thiệu</a></li>
+        <li><a href="#">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </footer>
+</body>
+</html>
+
+	18.3/ Kết hợp thẻ <header>, <footer> và <header>
+Thông thường, một trang web thuộc loại "cơ bản nhất" sẽ có ba thành phần: header, main, footer. Trong đó:
+	+Header là phần đầu trang, nó chủ yếu chứa một vài thông tin, tiêu đề, logo, liên hệ, ....
+	+Main là phần thân trang, nó thường được dùng để chứa các nội dung chính của trang web. Phần tử main được sử dụng nhằm chứa nội dung chính của trang Web, bao gồm các thông tin liên quan đến chủ đề trọng tâm, và phần tử này không được phép bao gồm các phần tử lặp lại trên trang như đường dẫn điều hướng hoặc các bảng banner quảng cáo. Mỗi một trang chỉ nên có một phần tử main. Ngoài ra, phần tử main giúp các thiết bị công nghệ hỗ trợ chuyển hướng đến phần nội dung chính một cách nhanh chóng.
+	+Footer là phần chân trang, nó chứa thông tin bản quyền, liên hệ, tác giả, ....
+Việc sử dụng các phần tử này đúng cách sẽ mang lại ý nghĩa nhiều hơn đối với trang Web. Tên của mỗi phần tử cho biết kiểu thông tin mà nó chứa, giúp làm nổi bật cho nội dung. Do đó, các thiết bị công nghệ hỗ trợ có thể sử dụng thông tin này để cung cấp phần nội dung tóm tắt tốt hơn cho người dùng.
+
+============================================================================================================================================================================================
+19/ Thẻ <audio> - phần tử âm thanh
+Theo dõi đoạn code sau để biết chi tiết:
+
+<audio id="nhacVang" controls>
+  <source src="audio/nhac.mp3" type="audio/mpeg">
+  <source src="audio/nhac.ogg" type="audio/ogg">
+  Trình duyệt của bạn không hỗ trợ phần tử audio.
+</audio>
+
+--> Trong ví dụ trên, chúng ta sử dụng thuộc tính src để chỉ định đường dẫn đến tệp âm thanh (nhac.mp3). Thuộc tính controls được sử dụng để hiển thị các nút điều khiển như nút phát, tạm dừng, tua, v.v.
+
+Ngoài ra, bạn cũng có thể tùy chỉnh thêm các thuộc tính và sự kiện cho phần tử <audio>. Ví dụ:
+
+<audio id="nhacVang" controls loop autoplay>
+  <source src="audio/nhac.mp3" type="audio/mpeg">
+  <source src="audio/nhac.ogg" type="audio/ogg">
+  Trình duyệt của bạn không hỗ trợ phần tử audio.
+</audio>
+
+Trong ví dụ trên, chúng ta đã thêm thuộc tính loop để lặp lại phát lại âm thanh, autoplay để tự động phát âm thanh khi trang web được tải, và một văn bản dự phòng "Trình duyệt của bạn không hỗ trợ phần tử audio" nếu trình duyệt không hỗ trợ phần tử <audio>. Bên cạnh việc sử dụng thuộc tính src để chỉ định một tệp âm thanh, bạn cũng có thể sử dụng các thuộc tính khác như controls, loop, autoplay, volume, preload, v.v. để tùy chỉnh và kiểm soát phát âm thanh theo nhu cầu của bạn.
+Trong HTML5, phần tử audio được sử dụng để bổ sung nội dung cho các tệp âm thanh. Nội dung âm thanh cũng cần có một đoạn văn bản thay thế để những người khiếm thính cũng có thể tiếp cận được. Văn bản thay thế này có thể được đặt ngay cạnh trong phần chú thích hoặc dưới dạng một đường dẫn liên kết dẫn đến nó.
+
+============================================================================================================================================================================================
+20/ Biểu diễn biểu đồ với thẻ figure
+Trong HTML5, thẻ <figure> và <figcaption> được sử dụng để định rõ một nội dung trực quan bằng hình ảnh nào đó (như hình ảnh, biểu đồ, đoạn mã, vv.) cùng với mô tả chú thích của nó. Việc kết hợp 2 phần tử này với nhau làm tăng khả năng tiếp cận gấp đôi khi có nhóm tập hợp các nội dung liên quan đến nhau và cung cấp một văn bản thay thế để chú thích cho biểu đồ.
+Thẻ <figure> được sử dụng để chứa nội dung trực quan hình ảnh, trong khi thẻ <figcaption> được dùng để cung cấp mô tả cho nội dung này. Mô tả này có thể đặt ở trên hoặc dưới nội dung trực quan, tuỳ thuộc vào vị trí của thẻ <figcaption> trong thẻ <figure>.
+Đối với các biểu đồ trực quan hóa dữ liệu, phần chú thích thường được sử dụng nhằm đưa ra thông tin tóm tắt về xu hướng hoặc các thông tin kết luận đối với người dùng khiếm thị. Dưới đây là một ví dụ về cách sử dụng 2 phần tử figure và figcaption, trong đó, phần tử figcaption nằm bên trong phần tử figure và có thể được kết hợp với các phần tử khác:
+
+<figure>
+  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Data analyst">
+  <br>
+  <figcaption>
+    Phân tích dữ liệu cơ bản
+  </figcaption>
+</figure>
+
+Trong ví dụ này, thẻ <img> là nội dung trực quan được bao quanh bởi thẻ <figure>. Thẻ <figcaption> cung cấp một mô tả chú thích cho hình ảnh. Cặp thẻ này giúp cải thiện ngữ nghĩa của trang web, giúp công cụ tìm kiếm và công nghệ hỗ trợ hiểu rõ hơn về nội dung trực quan trên trang web.
+
+Đoạn code phối hợp sử dụng các thẻ, bao gồm thẻ <section>:
+
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML CSS </title>
+</head>
+
+<body>
+  <header>
+    <h1>Học lập trình HTML cơ bản</h1>
+    <nav>
+      <ul>
+        <li><a href="#front_end">Front-end Dev</a></li>
+        <li><a href="#back_end">Back-end Dev</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <section>
+      <!-- Bạn hãy thay đổi đoạn mã bên dưới -->
+      <figure>
+        <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="Programming" width="320px">
+        <br>
+        <figcaption>
+          Học lập trình Web cơ bản HTML CSS
+        </figcaption>
+      <!-- Bạn hãy thay đổi đoạn mã bên trên -->
+      </figure>
+ 
+    <section id="#front_end">
+      <h2>Lập trình Front-end</h2>
+      <article>Các ngôn ngữ cơ bản trong lập trình Front-end bao gồm HTML, CSS và JavaScript</article>
+    </section>
+    <section id="#back_end">
+      <h2>Lập trình Back-end</h2>
+      <article>Các ngôn ngữ cơ bản trong lập trình Back-end bao gồm PHP, Python và Java</article>
+    </section>
+  </main>
+  <section id="last">Copyright ©2022 TEK4.VN</section>
+</body>
+
+============================================================================================================================================================================================
+21/ Bọc các radio button trong field set - thẻ <fieldset>
+Thẻ <fieldset> trong HTML được sử dụng để nhóm các phần tử liên quan trong một form. Thông thường, nó sẽ hiển thị một khung xung quanh các phần tử mà nó bao quanh, tạo ra một phân chia rõ ràng trong giao diện của form.
+Thẻ <legend> thường được sử dụng cùng với <fieldset> để cung cấp một tiêu đề cho nhóm các phần tử này. Tiêu đề này sẽ hiển thị trong khung tạo bởi thẻ <fieldset>.
+Dưới đây là một ví dụ về cách sử dụng thẻ <fieldset> và <legend>:
+
+<form>
+  <fieldset>
+    <legend>Chọn giới tính:</legend>
+    <label>
+      <input type="radio" name="gender" value="male"> Male
+    </label><br>
+    <label>
+      <input type="radio" name="gender" value="female"> Female
+    </label><br>
+    <label>
+      <input type="radio" name="gender" value="other"> Other
+    </label>
+  </fieldset>
+</form>
+
+Ví dụ trong bài học:
+
+<head>
+  <meta charset="UTF-8">
+  <title>Học HTML CSS </title>
+</head>
+
+<body>
+  <header>
+    <h1>Học lập trình HTML cơ bản</h1>
+    <nav>
+      <ul>
+        <li><a href="#front_end">Front-end Dev</a></li>
+        <li><a href="#back_end">Back-end Dev</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <section id="#front_end">
+      <h2>Lập trình Front-end</h2>
+      <article><div>Các ngôn ngữ cơ bản trong lập trình Front-end bao gồm HTML, CSS và JavaScript</div></article>
+    </section>
+    <section id="#back_end">
+      <h2>Lập trình Back-end</h2>
+      <article><div>Các ngôn ngữ cơ bản trong lập trình Back-end bao gồm PHP, Python và Java</div></article>
+    </section>
+ 
+    <section>
+    <form>
+    <!-- Bạn hãy thay đổi đoạn mã bên dưới -->
+      <fieldset>
+        <legend>Lựa chọn con đường của bạn là gì?</legend>
+        <input id="front" type="radio" name="path" value="frontend">
+        <label for="front">Front-end</label><br>
+        <input id="back" type="radio" name="path" value="backend">
+        <label for="back">Back-end</label><br>
+        <input id="full" type="radio" name="path" value="fullstack">
+        <label for="full">Fullstack</label>
+      </fieldset>
+    <!-- Bạn hãy thay đổi đoạn mã bên trên -->
+    
+      <legend>Bạn hãy nhập ngôn ngữ lập trình mà bạn muốn.</legend>
+      <label>Ngôn ngữ:</label>
+      <input type="text" id="lang" name="lang">
+      <input type="submit" name="submit" value="Gửi">
+    </form>
+  </section>
+  </main>
+  <section id="last">Copyright ©2022 TEK4.VN</section>
+</body>
+
+============================================================================================================================================================================================
+22/ Các thẻ chọn về thời gian
+	22.1/ Thẻ <date>
+HTML5 cung cấp một giá trị khác là date nhằm chỉ định kiểu dữ liệu thời gian bao gồm ngày, tháng và năm. Tùy thuộc vào mỗi trình duyệt khác nhau, việc sử dụng phần tử input với thuộc tính type có giá trị date sẽ hiển thị danh sách ngày tháng cho phép người dùng lựa chọn một cách dễ dàng.
+Đối với những trình duyệt cũ, thuộc tính type có giá trị mặc định là text nhằm cho phép người dùng nhập dữ liệu theo định dạng ngày, tháng và năm.
+Dưới đây là ví dụ về cách định dạng trường ngày tháng trong biểu mẫu:
+
+<label for="registration_date">Bạn hãy nhập vào thời gian đăng ký khóa học:</label>
+<input type="date" id="registration_date" name="regisDate">
+
+	22.2/ Thẻ <time>
+Thẻ <time> trong HTML5 được sử dụng để đại diện cho thời gian (một ngày, một thời điểm trong ngày, một khoảng thời gian...).
+Thẻ <time> cũng hỗ trợ thuộc tính datetime, cho phép bạn chỉ định một ngày/thời gian theo định dạng chuẩn ISO 8601.
+Dưới đây là một số ví dụ về cách sử dụng thẻ <time>:
+
+	+Đại diện cho một ngày cụ thể:
+		<p>Hôm nay là ngày <time datetime="2023-06-03">3 tháng 6 năm 2023</time>.</p>
+	+Đại diện cho một thời điểm cụ thể trong ngày:
+		<p>Bữa tiệc bắt đầu vào lúc <time datetime="19:00">7 giờ tối</time>.</p>
+	+Đại diện cho một khoảng thời gian:
+		<p>Thế chiến thứ hai kéo dài từ <time datetime="1939">1939</time> đến <time datetime="1945">1945</time>.</p>
+Nội dung giữa cặp thẻ <time> và </time> không cần phải tuân theo bất kỳ định dạng cụ thể nào - bạn có thể hiển thị thời gian hoặc ngày tháng theo bất kỳ cách nào bạn muốn. Thuộc tính datetime được sử dụng để cung cấp một phiên bản có thể được máy tính hiểu được.
+
+============================================================================================================================================================================================
+23/ Sử dụng thuộc tính tabindex
+Thuộc tính tabindex trong HTML được sử dụng nhằm xác định thứ tự nhấn mạnh cho các phần tử khi thực hiện nhấn nút “Tab” trên bàn phím. Đây là một phần quan trọng của việc tạo ra nội dung web hợp với chuẩn tiếp cận. Chúng ta có thể thiết lập giá trị là các số dương, bao gồm 1 hoặc các số lớn hơn.
+Có ba giá trị chính của tabindex:
+	+Giá trị dương: Nếu bạn đặt tabindex thành một số dương, bạn đang chỉ định thứ tự mà người dùng sẽ chuyển đến khi họ nhấn phím Tab. Tuy nhiên, việc sử dụng giá trị dương nên cẩn thận vì có thể gây ra khó khăn cho người dùng và làm rối thứ tự di chuyển tự nhiên của trang.
+	+Giá trị 0: Nếu bạn đặt tabindex="0", phần tử đó sẽ được thêm vào dòng điều hướng phím Tab mặc định. Điều này có thể hữu ích khi bạn muốn một phần tử không phải là phần tử mặc định có thể tương tác (ví dụ: <div> hoặc <span>) để có thể tương tác được.
+	+Giá trị âm: Đặt tabindex="-1" sẽ làm cho phần tử không thể truy cập được bằng phím Tab, nhưng vẫn có thể được chọn thông qua lập trình JavaScript. Điều này có thể hữu ích khi bạn muốn ngăn chặn người dùng từ việc tương tác với một phần tử nhất định.
+Ví dụ về cách sử dụng tabindex:
+
+	<button tabindex="0">Có thể tương tác được</button>
+	<div tabindex="0">Tôi cũng có thể tương tác được!</div>
+	<button tabindex="-1">Bạn không thể tương tác với tôi bằng phím Tab</button>
+
+Một số phần tử tương tác được với người dùng, chẳng hạn như liên kết và các biểu mẫu, sẽ tự động nhận thứ tự khi người dùng bấm phím tab qua một trang theo đúng thứ tự xuất hiện của nó trong mã HTML. Nếu chúng ta muốn thay đổi thứ tự này, chúng ta cần cung cấp cho các phần tử khác, chẳng hạn như div, span và p, thiết đặt thuộc tính tabindex="0" trên chúng. Đây là một ví dụ:
+
+	<div tabindex="0">I need keyboard focus!</div>
+
+--> Note: Giá trị tabindex âm (thường là -1) cho biết rằng một phần tử có thể được đặt tiêu điểm nhưng không thể truy cập bằng bàn phím. Phương pháp này thường được sử dụng để tập trung vào nội dung (chẳng hạn như khi một div được sử dụng để kích hoạt một cửa sổ pop-up).
+
+Nếu chúng ta thiết lập tabindex=“1”, việc nhấn mạnh sẽ được áp dụng cho phần tử đó đầu tiên. Và sau đó, nó sẽ lặp qua một chuỗi các giá trị bao gồm 2, 3, 4 và cứ tiếp tục như vậy.
+
+	<div tabindex="1">Phần tử nhấn mạnh đầu tiên.</div>
+Điều quan trọng cần lưu ý là khi thứ tự nhấn mạnh cho các phần tử thông qua việc nhấn nút Tab được thiết lập, nó sẽ ghi đè thứ tự mặc định. Điều này có thể gây khó khăn trong việc tiếp cận theo dõi nội dung đối với một số người dùng nhất định. Hãy cẩn thận trước khi áp dụng nó. Hãy nhớ rằng việc sử dụng tabindex nên cẩn thận và cố gắng giữ cho việc di chuyển của phím Tab tự nhiên và dễ dàng hiểu nhất có thể.
+
+Ví dụ trong bài sử dụng tabindex với input:
+
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML CSS </title>
+</head>
+
+<body>
+  <header>
+    <h1>Học lập trình HTML cơ bản</h1>
+    <nav>
+      <ul>
+        <li><a href="#front_end">Front-end Dev</a></li>
+        <li><a href="#back_end">Back-end Dev</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <section id="#front_end">
+      <h2>Lập trình Front-end</h2>
+      <article><div>Các ngôn ngữ cơ bản trong lập trình Front-end bao gồm HTML, CSS và JavaScript</div></article>
+    </section>
+    <section id="#back_end">
+      <h2>Lập trình Back-end</h2>
+      <article><div>Các ngôn ngữ cơ bản trong lập trình Back-end bao gồm PHP, Python và Java</div></article>
+    </section>
+    <br>
+    <section>
+      <form>
+          <input type="text" name="programming" tabindex="1">
+  
+          <input type="submit" name="submit" value="Gửi" tabindex="2">
+        
+      </form>
+    </section>
+  </main>
+  <br>
+  <section>Copyright ©2022 TEK4.VN</section>
+ 
+</body>
+
+============================================================================================================================================================================================
+24/ Làm cho các liên kết có thể điều hướng được bằng các phím tắt
+accesskey là một thuộc tính trong HTML cho phép bạn gán một phím tắt bàn phím cho một phần tử trên trang web. Điều này có thể hỗ trợ việc tương tác với trang web thông qua bàn phím, cung cấp một tiếp cận thuận tiện hơn cho người dùng chỉ sử dụng bàn phím, đặc biệt là những người dùng khuyết tật.
+Giá trị của "accesskey" là một ký tự duy nhất, thường là một chữ cái hoặc số.
+Để sử dụng accesskey, bạn chỉ cần thêm thuộc tính vào một phần tử HTML, cùng với một ký tự duy nhất làm giá trị. Ký tự này sẽ là phím tắt được gán cho phần tử đó.
+Ví dụ:
+
+	<button accesskey="s">Lưu</button>
+
+Trong ví dụ trên, phím "s" được gán làm phím tắt để kích hoạt nút Lưu. Cách để kích hoạt phím tắt này phụ thuộc vào hệ điều hành và trình duyệt web mà bạn đang sử dụng. Ví dụ, trên một số trình duyệt, bạn có thể nhấn Alt + [phím tắt] (Windows) hoặc Control + Option + [phím tắt] (Mac) để kích hoạt phần tử.
+Tuy nhiên, cần lưu ý rằng accesskey có thể gây ra các vấn đề về khả năng tương tác với trang web. Nếu phím tắt mà bạn chọn trùng với một phím tắt mặc định của trình duyệt hoặc hệ điều hành, điều này có thể gây ra hiểu lầm hoặc khó khăn cho người dùng. Do đó, nên cẩn thận khi sử dụng accesskey.
+HTML5 cho phép thuộc tính này được áp dụng trên tất cả các thẻ, và nó đặc biệt hữu ích đối với các phần tử tương tác với người dùng như đường dẫn liên kết, nút nhấn và các trường trong biểu mẫu. Dưới đây là ví dụ về cách sử dụng thuộc tính accesskey đối với một đường dẫn:
+
+	<a href="#" accesskey="tag">Đường dẫn liên kết</a>
+
+Khi người dùng nhấn tổ hợp phím tắt liên quan đến "tag" thì sẽ truy cập đến đường dẫn liên kết.
+
+Ví dụ trong bài học:
+
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML CSS </title>
+</head>
+
+<body>
+  <header>
+    <h1>Lập trình ứng dụng Web cơ bản</h1>
+  </header>
+  <article>
+    <h2><a href="#" id="fe" accesskey="fn">Lập trình Front-end</a></h2>
+    <p>Lập trình Front-end, còn được gọi là phát triển giao diện, liên quan đến việc tạo và thiết kế giao diện người dùng trên các trang web hoặc ứng dụng. Nói cách khác, nó liên quan đến tất cả những thứ mà người dùng nhìn thấy và tương tác trực tiếp trên trang web hoặc ứng dụng.</p>
+    <p>Các ngôn ngữ chính được sử dụng trong phát triển Front-end bao gồm:</p>
+    <ol>
+      <li><strong>HTML (Hyper Text Markup Language)</strong>: Đây là ngôn ngữ đánh dấu được sử dụng để tạo cấu trúc của trang web. Nó bao gồm các thẻ như header, footer, div, span v.v.</li>
+      <li><strong>CSS (Cascading Style Sheets)</strong>: Đây là ngôn ngữ được sử dụng để tạo kiểu và bố cục cho trang web. Nó điều khiển các yếu tố như màu sắc, kích thước, font chữ, vị trí và nhiều thuộc tính trực quan khác của trang.</li>
+      <li><strong>JavaScript</strong>: Đây là ngôn ngữ lập trình để thực hiện tính năng tương tác trên trang web. Nó giúp tạo ra trải nghiệm người dùng mượt mà và phản ứng nhanh chóng, từ việc kiểm tra form đến việc tạo các hiệu ứng hình ảnh và nhiều hơn nữa.</li>
+    </ol>
+    <p>Ngoài ra, người phát triển Front-end thường cần sử dụng các thư viện và khung công việc (framework) phổ biến như React.js, Angular, Vue.js, Bootstrap, và jQuery để giúp tăng tốc và tối ưu hóa quá trình phát triển.</p>
+    <p>Công việc của người phát triển Front-end không chỉ giới hạn ở việc viết mã. Họ cũng cần phải có sự hiểu biết về thiết kế và trải nghiệm người dùng, khả năng giải quyết vấn đề, và kỹ năng làm việc nhóm tốt vì họ thường phải hợp tác chặt chẽ với các nhóm thiết kế, phát triển Back-end, và kiểm thử.</p>
+  </article>
+ 
+  <article>
+    <h2><a href="#" id="be" accesskey="3">Lập trình Back-end</a></h2>
+    <p>Lập trình Back-end, còn được gọi là phát triển máy chủ, liên quan đến việc xây dựng và duy trì công nghệ mà sức mạnh của trang web hoặc ứng dụng, cho phép các thành phần front-end hoạt động. Các nhà phát triển Back-end tạo ra, duy trì và thử nghiệm các cơ sở dữ liệu, máy chủ và các hệ thống khác mà trang web hoặc ứng dụng cần để hoạt động mượt mà.</p>
+    <p>Người phát triển Back-end sử dụng các ngôn ngữ lập trình như:</p>
+    <ol>
+      <li><strong>Java</strong>: Một ngôn ngữ lập trình đa năng, được sử dụng rộng rãi trong các ứng dụng doanh nghiệp.</li>
+      <li><strong>Python</strong>: Một ngôn ngữ lập trình đa mục đích, thân thiện với người mới học và rất mạnh mẽ, thường được sử dụng trong khoa học dữ liệu và phát triển web.</li>
+      <li><strong>JavaScript (Node.js)</strong>: Node.js là môi trường chạy mã JavaScript phía máy chủ, cho phép JavaScript được sử dụng phía Back-end.</li>
+      <li><strong>Ruby, PHP, .NET, Go</strong>: Những ngôn ngữ lập trình khác được sử dụng trong phát triển Back-end.</li>
+    </ol>
+    <p>Ngoài ra, người phát triển Back-end thường phải làm việc với các hệ thống quản lý cơ sở dữ liệu như MySQL, PostgreSQL, MongoDB, v.v.</p>
+    <p>Nhiệm vụ của người phát triển Back-end bao gồm xử lý các yêu cầu từ phía Front-end, tiếp tục xử lý logic phía máy chủ, quản lý cơ sở dữ liệu, và đảm bảo rằng tất cả các dữ liệu được trao đổi giữa Front-end và Back-end là chính xác và an toàn. Họ cũng cần phải quan tâm đến việc tối ưu hóa hiệu suất và bảo mật.</p>
+  </article>
+</body>
+
+====================================================================================END=====================================================================================================
+
+
+
