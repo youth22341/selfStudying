@@ -1,0 +1,1641 @@
+===================================================================================GHI CHÚ VỀ CSS (BASIC)===================================================================================1/ Tổng quan
+Mục đích của CSS là khôi phục HTML về trạng thái ban đầu của nó như một ngôn ngữ cấu trúc. Nói cách khác, các bảng kiểu mẫu là một cách định dạng bố cục trang, văn bản, phông chữ, hình ảnh và  hầu hết các yếu tố khác để kiểm soát cảm giác và hiệu ứng trên trang web. Điều này cho phép HTML tập trung vào việc cấu trúc trang web.
+CSS hoạt động bằng cách áp dụng các quy tắc (rules) cho các phần tử HTML. Mỗi quy tắc trong CSS bao gồm một bộ chọn (selector) và một tập hợp các thuộc tính (properties) và giá trị (values). Bằng cách chọn các phần tử HTML cụ thể và định rõ các thuộc tính và giá trị, bạn có thể điều chỉnh màu sắc, kích thước, khoảng cách, phông chữ, độ trong suốt,... của các phần tử trên trang web.
+
+Ví dụ sau đây ta tiến hành dùng CSS để định dạng một phần tử <h1> thành màu đỏ và kiểu chữ in đậm:
+
+h1 {
+  color: red;
+  font-weight: bold;
+}
+
+Việc sử dụng CSS, xoay quanh 3 khái niệm:
+	+Bộ chọn (selector): Đây là thành phần quan trọng nhất để trình duyệt hiểu được rằng lập trình viên đang cố gắng thực thi định kiểu (format) cho đối tượng nào trong trang. Đó có thể là thẻ <h1> như ví dụ trên, hoặc bất kỳ đối tượng nào khác trong trang. Tóm lại bộ chọn sẽ đóng vai trò chỉ định phần tử cần trang trí, định kiểu trong trang. CSS cung cấp nhiều cách chọn phần tử khác nhau từ chọn theo tên thẻ (như thẻ <h1> ở ví dụ trên) đến tên lớp (class), id, thuộc tính (attribute), hoặc cấu trúc cây HTML. Điều này cho phép bạn có thể tạo kiểu cho từng phần tử cụ thể hoặc theo nhóm các phần tử với nhau.
+	+Thuộc tính (properties): Là thuộc tính định kiểu mà lập trình viên muốn can thiệp và chỉ định cho đối tượng được chọn từ selector. CSS cung cấp nhiều thuộc tính để điều chỉnh kiểu dáng và hiển thị của các phần tử trên trang web. Đó có thể là màu sắc (color, background-color), phông chữ (font-family, font-size, font-weight), đường viền (border, border-radius, outline), vị trí (position, top, right, bottom, left),...
+	+Giá trị (value): Mỗi thuộc tính có thể có các giá trị được chỉ định. Ví dụ ở trên chúng ta chỉ định thuộc tính màu (color) có giá trị là red (đỏ), và thuộc tính kiểu chữ font-weight có giá trị là in đậm (bold).
+
+Cú pháp CSS gồm 2 phần:
+	+Chỉ định bộ chọn selector:
+		*Chọn theo tên thẻ HTML: h1, p, div, ...
+		*Chọn theo lớp (class): .class-name
+		*Chọn theo id: #id-name
+		*Chọn con bên trong phần tử khác: parent-element child-element
+	+Viết quy tắc định kiểu cho bộ chọn:
+		*Sử dụng cặp dấu ngoặc nhọn {} để bao quanh quy tắc CSS.
+		*Mỗi quy tắc của một bộ chọn sẽ bao gồm một tập hợp các thuộc tính và giá trị tương ứng với thuộc tính đó.
+Ví dụ:
+
+h1 {
+  color: blue;
+  font-size: 24px;
+}
+
+.my-class {
+  background-color: yellow;
+  padding: 10px;
+}
+
+#my-id {
+  border: 1px solid black;
+}
+
+Cú pháp CSS cũng hỗ trợ các đơn vị đo lường như px (pixel), % (phần trăm), em, rem, v.v. Đồng thời, có thể sử dụng các giá trị khác nhau cho thuộc tính CSS tùy thuộc vào yêu cầu thiết kế và kiểu dáng mong muốn.
+
+CSS cũng có khả năng kế thừa và ưu tiên. Nếu có các quy tắc xung đột, quy tắc có ưu tiên cao hơn (thông qua cách chọn phần tử, lớp, id, hoặc ưu tiên đặt trước) sẽ được áp dụng.
+Một cách thông thường để sử dụng CSS là tạo một tệp riêng biệt có phần mở rộng .css, sau đó liên kết nó với tài liệu HTML bằng cặp thẻ <link> trong phần head của trang web.
+
+CSS cũng hỗ trợ các khái niệm như kế thừa (inheritance), ưu tiên (specificity) và áp dụng các hiệu ứng động sử dụng CSS animations và CSS transitions. Ngoài ra, có nhiều thuộc tính và giá trị CSS khác để tùy chỉnh giao diện trang web theo ý muốn.
+
+CSS có thể giúp cải thiện hiệu suất tải trang web bằng cách cho phép bạn tách biệt kiểu dáng và tối ưu hóa tệp CSS. Bạn có thể nén và gộp các tệp CSS thành một tệp duy nhất, giúp giảm thời gian tải và tăng tốc độ hiển thị trang web.
+
+CSS không chỉ giới hạn ở việc thay đổi màu sắc của tiêu đề. Nó cho phép bạn kiểm soát trang hoàn toàn đến từng pixel. CSS cho phép:
+	+Tạo bố cục trang: Các kỹ thuật tạo bố cục trang bằng CSS cung cấp một cách hiệu quả để bố trí, căn chỉnh và phân phối không gian giữa các phần tử trong tài liệu, ngay cả khi khung nhìn và kích thước của các phần tử là động hoặc không xác định. Một số kỹ thuật bố trí trang cần thiết bao gồm Flexbox và Grid.
+	+Hoạt ảnh: CSS cung cấp cách tạo hoạt ảnh cho các phần tử HTML mà không cần sử dụng JavaScript hoặc Flash! Vì vậy, bạn có thể di chuyển các vật thể bằng CSS thuần túy.
+
+2/ Cách thức sử dụng CSS
+Chúng ta sẽ có ba cách sử dụng CSS trong HTML là:
+	2.1/ Inline: mã CSS viết ngay tại thuộc tính Style của phần tử HTML
+Sử dụng inline CSS (CSS nội tuyến) khi bạn muốn áp dụng kiểu dáng cho một phần tử cụ thể mà không cần sử dụng lại kiểu đó ở nơi khác trong trang web. Dưới đây là một số tình huống thường gặp khi nên sử dụng inline CSS:
+		+Inline CSS sử dụng để tạo kiểu dáng duy nhất cho một phần tử:
+Khi bạn chỉ muốn tạo kiểu cho một phần tử duy nhất mà không cần sử dụng lại kiểu đó cho các phần tử khác trong trang, bạn có thể sử dụng inline CSS. Ví dụ, khi bạn muốn định dạng một tiêu đề <h1> một cách duy nhất:
+
+	<h1 style="color: blue; font-size: 24px;">Tiêu đề</h1>
+
+		+Inline CSS sử dụng để tạo kiểu dáng được tạo động:
+Khi bạn muốn tạo kiểu dáng cho một phần tử dựa trên dữ liệu động từ nguồn dữ liệu hoặc thông tin từ máy chủ, inline CSS có thể là sự lựa chọn phù hợp. Ví dụ, khi bạn muốn thay đổi màu chữ của một phần tử dựa trên một giá trị động:
+
+	<p style="color: <?php echo $dynamicColor; ?>">Nội dung động</p>
+
+		+Thử nghiệm kiểu dáng:
+Khi đang thử nghiệm và chỉnh sửa kiểu dáng trong quá trình phát triển trang web, inline CSS có thể giúp dễ dàng thấy những thay đổi ngay lập tức trên trình duyệt mà không cần chỉnh sửa các tệp CSS riêng biệt. Tuy nhiên, khi xây dựng trang web lớn hoặc có nhiều phần tử cần kiểu dáng, nên xem xét sử dụng các phương pháp khác như internal CSS hoặc external CSS để tạo kiểu một cách phù hợp và dễ bảo trì. Việc sử dụng inline CSS trong những trường hợp này có thể làm mã nguồn trở nên rối rắm và khó quản lý.
+
+--> Inline CSS không hiệu quả và không có khả năng mở rộng vì mỗi thẻ riêng lẻ sẽ phải chèn CSS riêng biệt. Do đó, nó thường ít được sử dụng.
+
+	2.2/ Internal: mã CSS trong chính văn bản HTML, nằm trong khối thẻ <style>
+Bạn có thể sử dụng thẻ <style> trong phần <head> của HTML nhúng CSS trực tiếp vào tài liệu nhằm định dạng một số thẻ cụ thể. Trong ví dụ dưới đây, tất cả các tiêu đề h3 được định dạng màu xanh dương. Phương pháp này tốt hơn so với việc sử dụng CSS inline vì code ít trùng lặp, dễ đọc và viết và hiệu suất tổng thể tốt hơn.
+
+<html>
+ <head>
+  <style>
+   h3 {color: blue;}
+  </style>
+ </head>
+ <body>
+   <h3>Internal CSS</h3>
+ </body>
+</html>
+
+Sử dụng internal CSS (CSS nội bộ) khi bạn muốn áp dụng kiểu dáng cho một số phần tử trong trang web cụ thể và không cần sử dụng lại kiểu đó ở các trang khác. Điều này xảy ra khi 1 website có nhiều webpage và bạn chỉ muốn áp dụng kiểu CSS lên 1 webpage cụ thể chứ không phải toàn bộ website. Dưới đây là một số tình huống thường gặp khi nên sử dụng internal CSS:
+		+Internal CSS tạo kiểu dáng cho một trang web đơn lẻ:
+Khi bạn chỉ muốn tạo kiểu cho trang web duy nhất và không cần sử dụng lại kiểu đó cho các trang khác, bạn có thể sử dụng internal CSS. Bạn có thể nhúng CSS trực tiếp vào phần head của trang web bằng cặp thẻ <style>. Ví dụ:
+
+<head>
+  <style>
+    h1 {
+      color: blue;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tiêu đề</h1>
+</body>
+
+		+Kiểu dáng tạm thời trong quá trình phát triển
+		+Kiểu dáng cho các phần tử đặc biệt
+
+	2.3/ External: mã CSS ở một file riêng biệt sau đó nạp vào trong HTML bằng phần tử <link>
+CSS thường được viết trong một file riêng biệt và liên kết với HTML. Ưu điểm của cách này là CSS có thể được tái sử dụng bởi các file HTML khác, do đó, việc cập nhật trở nên đơn giản hơn và các trang web có thể được tùy chỉnh cho những người dùng, trình duyệt và nền tảng khác nhau.
+Bạn có thể làm điều đó bằng cách viết thẻ liên kết tự đóng <link> trong phần head của HTML như sau:
+
+	<link rel="stylesheet" href="cssfilename.css">
+
+Thuộc tính rel của phần tử liên kết trên cho biết HTML sẽ nhập file CSS.
+
+<html>
+ <head>
+   <link rel="stylesheet" href="styles.css">
+ </head>
+ <body>
+   <h3>External CSS</h3>
+ </body>
+</html>
+
+Sử dụng external CSS (CSS bên ngoài) khi bạn muốn áp dụng kiểu dáng cho nhiều trang trong trang web hoặc khi bạn muốn quản lý kiểu dáng một cách tách biệt và dễ bảo trì. Dưới đây là một số tình huống khi nên sử dụng external CSS:
+		+Áp dụng kiểu dáng cho nhiều trang
+Khi bạn muốn áp dụng kiểu dáng cho nhiều trang trong trang web, sử dụng external CSS là lựa chọn tốt. Bạn có thể tạo một tệp CSS riêng biệt với phần mở rộng .css và sau đó liên kết nó với các trang HTML bằng cặp thẻ <link>. Điều này giúp bạn tái sử dụng kiểu dáng trên các trang khác nhau và giảm lặp lại mã.
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Nội dung trang -->
+</body>
+
+		+Quản lý kiểu dáng một cách tách biệt
+		+Tích hợp CSS từ các nguồn khác nhau
+		+Tối ưu hóa hiệu suất và bộ nhớ cache
+
+============================================================================================================================================================================================
+3/ Thay đổi màu của văn bản
+Thuộc tính có nhiệm vụ thực hiện thay đổi màu sắc của đoạn văn bản bên trong một phần tử HTML là thuộc tính color. Dưới đây là ví dụ về cách đổi màu văn bản trong thẻ h2 thành màu xanh lam:
+
+	<h2 style="color: blue;">Lập trình Web cơ bản</h2>
+
+--> Note: Sau khi kết thúc dòng khai báo của thuộc tính style, chúng ta sẽ sử dụng dấu ;
+
+============================================================================================================================================================================================
+4/ Sử dụng CSS Selectors để tạo kiểu cho các phần tử
+Có thể tạo kiểu cho các thẻ <hx> trong văn bản (với x = 1,2,3,..) bằng việc tạo phần tử <style> </style> ở 2 đầu và ở giữa là selector cho tất cả các thẻ <hx>. Ví dụ:
+
+<style>
+  h2 {
+    color: red;
+  }
+</style>
+
+--> Note:
+		+Các quy tắc chỉ định kiểu của thẻ sẽ nằm trong 2 dấu ngoặc nhọn { } 
+		+Các loại thẻ HTML sẽ nằm trong thẻ đóng và thẻ mở của phần tử style
+		+Sử dụng dấu chấm phẩy ở cuối mỗi quy tắc
+
+============================================================================================================================================================================================
+5/ Sử dụng CSS Class để tạo kiểu cho một phần tử
+Thuộc tính "class" trong HTML được sử dụng để gán một tên lớp cho một phần tử HTML. Điều này cho phép bạn xác định các phần tử thuộc cùng một nhóm hoặc loại và áp dụng CSS hoặc JavaScript cho tất cả các phần tử trong cùng một lớp. Để sử dụng thuộc tính "class" trong HTML, bạn cần thực hiện các bước sau:
+	+Bước 1: Trong mã HTML, thêm thuộc tính "class" vào phần tử mà bạn muốn gán một tên lớp. Gán giá trị cho thuộc tính "class" trong các phần tử mà bạn muốn nhóm lại với nhau. Giá trị của thuộc tính "class" có thể là một tên duy nhất hoặc một danh sách các tên được phân tách bằng khoảng trắng.
+Ví dụ:
+
+<p class="highlight">Đây là một đoạn văn bản được làm nổi bật.</p>
+
+<div class="container">
+  <h1>Tiêu đề</h1>
+  <p>Nội dung</p>
+</div>
+
+Trong ví dụ trên, phần tử <p> có thuộc tính "class" được đặt tên là "highlight", trong khi phần tử <div> có thuộc tính "class" được đặt là "container".
+
+	+Bước 2: Sau khi đã định nghĩa tên lớp cho các phần tử, bạn có thể áp dụng CSS hoặc JavaScript (sẽ được trình bày ở khóa học sau) cho tất cả các phần tử có cùng tên lớp. Trong CSS, tạo một quy tắc cho các lớp được xác định bằng thuộc tính "class" bằng cách sử dụng dấu chấm "." trước tên lớp:
+
+.highlight {
+  color: red;
+  font-weight: bold;
+}
+
+.container {
+  background-color: lightgray;
+  padding: 10px;
+}
+
+Trong ví dụ trên, chúng ta đã tạo hai quy tắc CSS. Quy tắc đầu tiên áp dụng màu chữ đỏ và đậm cho các phần tử có lớp "highlight". Quy tắc thứ hai đặt màu nền xám nhạt và khoảng cách lề cho các phần tử có lớp "container".
+
+--> Note: Điều quan trọng khi sử dụng thuộc tính "class" là tên lớp phải được đặt sao cho nó phù hợp và mô tả được mục đích và nội dung của các phần tử được nhóm lại.
+
+Bằng cách sử dụng tên lớp trong CSS hoặc JavaScript, bạn có thể lựa chọn, tác động và xử lý các phần tử HTML tương ứng.
+Chúng ta có thực hiện thêm class "highlight" vào thẻ h2 như sau:
+
+	<h2 class="highlight">Luyện tập HTML cơ bản</h2>
+
+Và khi đó, thẻ <h2> này cũng sẽ có chữ màu đỏ đậm. Tất cả các đối tượng có cùng tên lớp khi được áp dụng cùng quy tắc CSS sẽ cho kết quả hiển thị như nhau, bất chấp đó là đối tượng gì, có khác nhau về ngữ nghĩa hay không.
+
+--> Note: Trong phần tử style của CSS, tên của class sẽ bắt đầu bằng dấu chấm (.). Tuy nhiên, tên của nó trong các thẻ HTML sẽ KHÔNG có dấu chấm (.).
+
+============================================================================================================================================================================================
+6/ Tạo kiểu cho nhiều phần tử với một lớp CSS
+CSS hỗ trợ các quy tắc áp dụng kiểu cho các lớp (class). Lớp là một thuộc tính của các phần tử bất kỳ trong HTML do đó có nhiều phần tử có thể cùng tên lớp. Khi đó, chúng ta có thể áp dụng cùng một quy tắc CSS cho toàn bộ các phần tử có cùng tên lớp này.
+
+Có thể sử dụng thuộc tính class để triển khai cùng một kiểu CSS trên nhiều thẻ HTML. Ví dụ về cách sử dụng:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Học HTML</title>
+  
+  <style>
+    .coral-text {
+      color: coral;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Học lập trình HTML cơ bản</h1>
+  <h2 class="coral-text">Xây dựng ứng dụng Web cơ bản</h2>
+  <main>
+  <p class="coral-text">Bạn hãy click vào đường dẫn để xem các khóa học<a href="#"> tek4.vn</a>.</p>
+  <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="Programming">
+  <p>Những kiến thức bạn có thể học:</p>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+  <p>Lập trình Web</p>
+  <ol>
+    <li>Front-end</li>
+    <li>Back-end</li>
+    <li>Full-stack</li>
+  </ol>
+  <form action="https://www.tek4.vn/submit">
+      <label for="ans1"><input id="ans1" type="radio" name="option" value="frontend">FrontEnd Dev</label>
+      <label for="ans2"><input id="ans2" type="radio" name="option" value="backend" checked>BackEnd Dev</label><br>
+      <label for="html_css"><input id="html_css" type="checkbox" name="programming" value="htmlcss" checked>HTML CSS</label>
+      <label for="javascript"><input id="javascript" type="checkbox" name="programming" value="javascript">JavaScript</label>
+      <label for="php"><input id="php" type="checkbox" name="programming" value="php">PHP</label><br>
+      <input type="text" placeholder="Nhập ngôn ngữ lập trình mà bạn muốn" required>
+      <button type="submit">Gửi biểu mẫu</button>
+  </form>
+  </main>
+</body>
+</html>
+
+============================================================================================================================================================================================
+7/ Thay đổi cỡ chữ của một phần tử
+Sử dụng thuộc tính font-size. Ví dụ:
+
+h1 {
+  font-size: 30px;
+}
+
+Các đơn vị kích thước chữ:
+	+Pixel (px): Đây là đơn vị tuyệt đối và không phụ thuộc vào bất kỳ yếu tố nào khác trên trang. Ví dụ, nếu bạn đặt font-size: 16px;, kích thước chữ sẽ luôn là 16 pixel, không phụ thuộc vào kích thước chữ của phần tử cha hoặc cài đặt của trình duyệt.
+	+Phần trăm (%): Đây là đơn vị tương đối, dựa trên kích thước font của phần tử cha. Ví dụ, nếu phần tử cha có kích thước font là 16px và bạn đặt font-size: 50%; cho một phần tử con, kích thước font của phần tử con sẽ là 8px.
+	+Em: Đơn vị này cũng tương đối, dựa trên kích thước font của phần tử cha. Ví dụ, nếu phần tử cha có kích thước font là 16px và bạn đặt font-size: 2em; cho một phần tử con, kích thước font của phần tử con sẽ là 32px (16px * 2).
+	+Rem: Đơn vị này tương đối, nhưng nó dựa trên kích thước font gốc của trang, không phụ thuộc vào kích thước font của phần tử cha. Ví dụ, nếu kích thước font gốc của trang là 16px và bạn đặt font-size: 1.5rem; cho một phần tử, kích thước font của phần tử đó sẽ là 24px (16px * 1.5).
+
+--> px là đơn vị tuyệt đối, [a (%),b (em), c (rem)] là đơn vị tương đối, trong đó các giá trị a%,b,c là hệ số nhân với kích thước phần tử cha để được kích thước phần tử con.
+
+--> Note: tùy trường hợp mà chúng ta sẽ nên sử dụng đơn vị nào phù hợp nhất. Điều này rất quan trọng để tạo nên 1 trang web thống nhất, responsive tốt.
+
+============================================================================================================================================================================================
+8/ Đặt font-family cho một phần tử
+Thuộc tính font-family được sử dụng để chỉ định phông chữ cho một phần tử cụ thể. Có thể đặt nó thành một tên phông chữ cụ thể, như "Times New Roman", hoặc một tên gia đình phông chữ tổng hợp, như "serif" hoặc "sans-serif" (font chữ serif và sans-serif là font chữ mặc định của hệ thống).
+Một số ví dụ về cách sử dụng:
+
+	+Sử dụng 1 font chính:
+		*Font chỉ có 1 từ:
+ 			body {
+  				font-family: Arial, sans-serif;
+			}
+		--> Nếu phông chữ "Arial" không tồn tại hoặc không được hỗ trợ trên hệ thống, trình duyệt sẽ thay thế bằng phông chữ mặc định "sans-serif" của hệ thống.
+		*Font có nhiều từ:
+			body {
+  				font-family: "Times New Roman", sans-serif;
+			}
+		--> Tên font được đặt trong cặp dấu " "
+		--> Nếu không tìm thấy font "Times New Roman", hệ thống sẽ thay thế bằng phông chữ mặc định "serif" của hệ thống.
+	+List có nhiều font: liệt kê chúng, cách nhau bằng dấu phẩy, và trình duyệt sẽ sử dụng phông chữ đầu tiên có sẵn trong danh sách.
+
+============================================================================================================================================================================================
+9/ Nhập một Google Font
+Bên cạnh những kiểu phông chữ phổ biến đã được cài đặt sẵn trên hệ điều hành, chúng ta cũng có thể sử dụng các kiểu phông chữ tuỳ chỉnh trên một trang Web. Hiện nay, có rất nhiều nguồn có chứa các kiểu phông chữ Web. Trong bài tập này, chúng ta sẽ sử dụng thư viện Google Fonts.
+
+Google Fonts là một thư viện miễn phí cung cấp các kiểu phông chữ Web mà chúng ta có thể sử dụng trong CSS bằng cách tham chiếu đến địa chỉ URL của kiểu phông chữ đó.
+	+Đầu tiên, chúng ta chọn 1 kiểu phông chữ của Google (Trong trường hợp Google bị chặn ở quốc gia của bạn, bạn cần bỏ qua bước này.)
+	+Sau đó, chúng ta thực hiện sao chép địa chỉ URL của kiểu phông chữ từ thư viện Google fonts và sau đó gán nó vào trong tệp HTML của mình. 
+Ví dụ, khi muốn sử dụng kiểu chữ Lobster, chúng ta sẽ sao chép đoạn code sau và gán vào phần đầu trong tệp HTML (trước thẻ mở của thẻ style) như sau:
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+Sau đó, chúng ta sẽ có thể sử dụng phông chữ Lobster theo cú pháp như sau:
+
+	font-family: FAMILY_NAME, GENERIC_NAME;
+
+Trong đó:
+	+FAMILY_NAME là tên của kiểu phông chữ mà chúng ta sẽ sử dụng.
+	+GENERIC_NAME là một kiểu tùy chọn. Nó là kiểu phông chữ dự phòng trong trường hợp không có kiểu chữ được chỉ định FAMILY_NAME.
+
+============================================================================================================================================================================================
+10/ Kích thước hình ảnh
+CSS cung cấp thuộc tính width giúp chúng ta có thể điều chỉnh kích thước của các phần tử HTML. Tương tự như kiểu phông chữ, chúng ta sẽ sử dụng đơn vị px (pixel) để căn chỉnh chiều rộng của một hình ảnh.
+
+Một số ví dụ về cách sử dụng:
+
+<style>
+  .big-image {
+    width: 350px;
+  }
+</style>
+
+=========================================
+<style>
+ .AnhdepVN {
+   width: 150px;
+ }
+</style>
+
+<img class="AnhdepVN" src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80" alt="Xin Chao">
+
+=========================================
+img {
+  width: 300px; /* chiều rộng 300 pixel */
+  height: 200px; /* chiều cao 200 pixel */
+}
+
+--> Việc xác định kích thước ảnh bằng việc chỉ định bộ selector là các thẻ <image> không được khuyến khích dùng vì sẽ dẫn đến tất cả các ảnh sẽ có chung kích thước, điều này làm performance không được linh hoạt (tùy vị trí ảnh trong văn bản mà có kích thước khác nhau).
+
+============================================================================================================================================================================================
+11/ Thêm đường viền xung quanh các phần tử
+Sử dụng để đóng khung một đối tượng nào đó để phân biệt nó với các đối tượng khác hoặc để nhìn cho đẹp --> Dùng thuộc tính border
+
+Cách sử dụng và cấu trúc thuộc tính border:
+
+	selector {
+  		border: [border-width] [border-style] [border-color];
+	}
+
+Trong đó:
+	+[border-width] xác định độ dày của đường viền, có thể là giá trị số (vd: 1px, 2px) hoặc từ khóa (vd: thin, medium, thick).
+	+[border-style] xác định kiểu đường viền, có thể là từ khóa (vd: solid, dotted, dashed, double) hoặc giá trị tùy chỉnh (vd: groove, ridge, inset, outset).
+	+[border-color] xác định màu sắc của đường viền, có thể là tên màu (vd: red, blue) hoặc giá trị hex (vd: #ff0000, #0000ff).
+Ví dụ:
+
+	/* Đường viền 1 pixel, kiểu đứt, màu đỏ */
+	.element {
+  		border: 1px dotted red;
+	}
+
+Hoặc có thể tạo class và đặt thuộc tính cho từng yếu tố (border-width, border-style, border-color)
+Ví dụ:
+
+	<style>
+  		.create-border {
+    			border-color: coral;
+    			border-width: 3px;
+   			border-style: solid;
+  		}
+	</style>
+
+Ngoài ra còn các thuộc tính liên quan đến đường viền khác như:
+	+border-radius (tạo góc bo) 
+	+border-image (sử dụng hình ảnh cho đường viền) 
+cũng có thể được sử dụng để tạo hiệu ứng đặc biệt cho đường viền của phần tử.
+
+--> Note: cần sử dụng cách chỉ định rõ ràng từng thuộc tính thay vì viết tắt border, bởi cách viết này sẽ giúp dễ bảo trì và dễ hiểu hơn sau này.
+
+--> Note: có thể sử dụng nhiều class CSS cho 1 thẻ HTML bằng cách sử dụng thuộc tính class và phân tách tên của các class với một khoảng trắng như ví dụ dưới đây:
+
+	<img class="class1 class2">
+
+============================================================================================================================================================================================
+12/ Làm việc với border-radius
+	12.1/ Tạo góc tròn
+Cú pháp:
+
+	selector {
+  		border-radius: value;
+	}
+
+Trong đó, value là giá trị bán kính (radius) được sử dụng để làm tròn góc. Giá trị này có thể là một số duy nhất hoặc một danh sách các số, được phân tách bởi dấu cách. Số đại diện cho bán kính của góc.
+Một số ví dụ về cách dùng:
+
+.rectangle {
+  border-radius: 10px;
+}
+
+=========================================
+.rectangle {
+  border-top-left-radius: 5px;
+}
+
+=========================================
+.circle {
+  border-radius: 50%;
+}
+
+--> Khi sử dụng border-radius với giá trị bán kính dưới dạng phần trăm (%), nó sẽ làm tròn góc của phần tử dựa trên phần trăm của kích thước của phần tử. Giá trị phần trăm được tính toán dựa trên chiều rộng và chiều cao của phần tử.
+	12.2/ Tạo hình ảnh tròn
+Là một dạng phát triển thêm của tạo góc tròn. Phần bổ sung có thể là chỉ định kích thước ảnh, và value của border-radius là % (kích thước thực sẽ tự tính theo kích thước ảnh) hoặc kích thước cụ thể. Ví dụ:
+
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+============================================================================================================================================================================================
+13/ Đặt màu nền
+Sử dụng thuộc tính backgroud-color. Cú pháp sử dụng:
+
+	selector {
+  		background-color: color;
+	}
+
+Trong đó, color là giá trị màu mà muốn áp dụng. Điều này có thể là một tên màu (ví dụ: "red", "blue", "green"), một giá trị HEX (ví dụ: "#FF0000" cho màu đỏ), hoặc một giá trị RGB (ví dụ: "rgb(255, 0, 0)" cho màu đỏ).
+
+============================================================================================================================================================================================
+14/ Điều chỉnh phần đệm (Padding) của phần tử
+padding là một thuộc tính được sử dụng để định rõ khoảng cách giữa nội dung bên trong của một phần tử và viền xung quanh nó. Thuộc tính padding cho phép bạn tạo ra một khoảng trống (padding) xung quanh nội dung của phần tử.
+
+--> Note: khi tăng giá trị cho thuộc tính padding, chúng ta sẽ tăng khoảng cách giữa phần nội dung của phần tử và phần đường viền xung quanh nó.
+
+Cú pháp sử dụng padding như sau:
+
+	selector {
+  		padding: value;
+	}
+
+Trong đó, value là giá trị khoảng cách được áp dụng cho các phía của phần tử. Giá trị này có thể là một số duy nhất hoặc một danh sách các số, được phân tách bởi dấu cách. Số đại diện cho khoảng cách (padding) được áp dụng cho các phía theo thứ tự: trên, bên phải, dưới, bên trái (nếu để ý thì thứ tự này theo chiều kim đồng hồ).
+	+Nếu chỉ có một số, nó sẽ được áp dụng cho tất cả các phía. 
+	+Nếu có hai số, số đầu tiên áp dụng cho phía trên/dưới và số thứ hai áp dụng cho phía trái/phải. 
+	+Nếu có ba số, số đầu tiên áp dụng cho phía trên, số thứ hai áp dụng cho phía trái/phải, và số thứ ba áp dụng cho phía dưới.
+
+Một số ví dụ về cách sử dụng:
+
+.my-element {
+  padding: 10px;
+}
+
+=========================================
+.my-element {
+  padding: 10px 20px 15px 5px;
+}
+
+--> Cách này có thể gây khó nhớ vì thứ tự (tương tự như khi xài thuộc tính border)
+--> Chỉ định giá trị cụ thể cho từng thuộc tính với cú pháp sau:
+
+	selector {
+  		padding-top: value;
+  		padding-right: value;
+  		padding-bottom: value;
+  		padding-left: value;
+	}
+
+============================================================================================================================================================================================
+15/ Làm việc với Margin để điều chỉnh lề
+	15.1/ Tổng quan
+Cú pháp sử dụng:
+
+	selector {
+  		margin: value;
+	}
+
+Trong đó, giá trị value mang ý nghĩa, đặc tính tương tự như khi xài thuộc tính padding.
+
+--> Note: khi tăng giá trị cho thuộc tính margin, chúng ta sẽ làm tăng khoảng cách giữa đường viền của khối đó với các khối khác xung quanh. 
+
+Ví dụ trong bài học:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Học HTML</title>
+  
+  <style>
+ .box {
+   border-style: solid;
+   border-color: black;
+   border-width: 8px;
+   text-align: center;
+ }
+ 
+ .orange-box {
+   background-color: orange;
+   padding: 25px;
+ }
+ 
+ .green-box {
+   background-color: green;
+   color: #fff;
+   padding: 15px;
+   margin: 25px;
+ }
+ 
+ .gray-box {
+   background-color: gray;
+   color: #fff;
+   padding: 15px;
+   margin: 25px;     
+ }
+</style>
+</head>
+
+<body>
+<main>
+<div class="box orange-box">
+ Phần tử cha
+ <h5 class="box green-box">Phần tử con 1</h5>
+ <h5 class="box gray-box">Phần tử con 2</h5>
+</div>
+</main>
+</body>
+</html>
+
+	15.2/ Thêm lề âm (Negative Margin) vào một phần tử
+Thuộc tính margin của một phần tử HTML biểu diễn khoảng không gian giữa đường viền của phần tử với các phần tử khác xung quanh nó. Nếu bạn đặt thuộc tính margin bằng với một giá trị âm, phần tử HTML sẽ tăng kích thước lớn hơn.
+
+Thuộc tính margin của một phần tử HTML biểu diễn khoảng không gian giữa đường viền của phần tử với các phần tử khác xung quanh nó. Nếu bạn đặt thuộc tính margin bằng với một giá trị âm, phần tử HTML sẽ tăng kích thước lớn hơn.
+
+Negative margin (margin âm) là một kỹ thuật trong CSS cho phép bạn tạo ra khoảng cách âm (kéo phần tử gần lại với phần tử khác) bằng cách đặt giá trị margin âm cho một phần tử. Kỹ thuật này cho phép bạn kiểm soát được vị trí và khoảng cách giữa các phần tử một cách linh hoạt.
+Khi bạn đặt giá trị margin âm, phần tử sẽ dịch chuyển ngược hướng của margin đó, gần với phần tử bên cạnh hoặc phần tử cha của nó. Điều này có thể dẫn đến các hiệu ứng và bố cục đặc biệt.
+
+--> Note: khi sử dụng negative margin, bạn cần kiểm tra và đảm bảo rằng phần tử đích không bị tràn qua các phần tử khác hoặc tạo ra hiệu ứng không mong muốn. Kỹ thuật negative margin cần được sử dụng một cách cẩn thận và hiểu rõ để đảm bảo hiệu quả và khả năng tương thích với các trình duyệt khác nhau.
+
+============================================================================================================================================================================================
+16/ Căn lề với thuộc tính text-align
+Thuộc tính text-align trong CSS được sử dụng để căn chỉnh văn bản bên trong một phần tử HTML. Nó xác định cách mà các đoạn văn bản và nội dung trong phần tử được căn chỉnh theo chiều ngang.
+
+Cú pháp sử dụng:
+
+	selector {
+ 		 text-align: value;
+	}
+
+Trong đó, value là giá trị của thuộc tính text-align, có thể là một trong các giá trị sau:
+	+left: Căn lề văn bản về phía trái. Đây là giá trị căn lề mặc định. Nếu chúng ta không chỉ định text-align thì văn bản sẽ mặc định luôn căn trái.
+	+right: Căn lề văn bản về phía phải.
+	+center: Căn lề văn bản vào giữa.
+	+justify: Căn lề văn bản theo cả hai phía, tạo ra các dòng văn bản có chiều dài bằng nhau.
+	+initial: Đặt giá trị của thuộc tính text-align về giá trị mặc định.
+	+inherit: Kế thừa giá trị của thuộc tính text-align từ phần tử cha.
+
+Một số ví dụ về cách sử dụng:
+
+p {
+  text-align: center;
+}
+
+h1 {
+  text-align: right;
+}
+
+.container {
+  text-align: justify;
+}
+
+============================================================================================================================================================================================
+17/ Điều chỉnh kích thước của phần tử bằng các thuộc tính 
+	17.1/ Điều chỉnh chiều rộng - thuộc tính width
+Thuộc tính width xác định không gian ngang mà phần tử chiếm trong một khung (container) hoặc không gian ngang của nội dung bên trong phần tử.
+Cú pháp:
+
+	selector {
+  		width: value;
+	}
+
+Có một số giá trị phổ biến cho thuộc tính width:
+	+auto: Giá trị mặc định, phần tử sẽ tự động điều chỉnh kích thước của mình dựa trên nội dung bên trong.
+	+<length>: Định rõ kích thước theo đơn vị đo lường. Giá trị này có thể được đo bằng đơn vị tương đối (ví dụ: em) hoặc đơn vị tuyệt đối (ví dụ: px) hoặc bằng đơn vị % của phần tử cha.
+	+inherit: Kế thừa giá trị của thuộc tính width từ phần tử cha.
+	+initial: Đặt giá trị của thuộc tính width về giá trị mặc định.
+Một số ví dụ về cách sử dụng:
+
+.container {
+  width: 500px;
+}
+
+#header {
+  width: 80%;
+}
+
+.box {
+  width: auto;
+}
+
+--> Note: (.container,.box) là các class, còn (#header) là id
+
+	17.2/ Điều chỉnh chiều cao - thuộc tính height
+Thuộc tính height trong CSS được sử dụng để xác định chiều cao của một phần tử HTML. Nó xác định không gian dọc mà phần tử chiếm trong một khung (container) hoặc chiều cao của nội dung bên trong phần tử.
+
+Cú pháp:
+
+	selector {
+  		height: value;
+	}
+
+Các giá trị phổ biến của thuộc tính height tương tự như của thuộc tính width
+Một số ví dụ về cách sử dụng:
+
+.container {
+  height: 300px;
+}
+
+#sidebar {
+  height: 50%;
+}
+
+.box {
+  height: auto;
+}
+
+--> Note: (.container,.box) là các class, còn (#sidebar) là id
+
+============================================================================================================================================================================================
+18/ Sử dụng Attribute Selectors cho các kiểu phần tử
+Thuộc tính id và class mà chúng ta sử dụng để tạo kiểu cho các phần tử HTML còn được gọi là id và class selector. Ngoài cách sử dụng các selector này, CSS còn cung cấp selector giúp tạo kiểu cho các phần tử HTML theo nhóm giá trị. Chúng được gọi là các bộ chọn dựa trên thuộc tính (attribute selector).
+
+Attribute Selectors (Bộ chọn dựa trên thuộc tính) trong CSS là một cách để chọn các phần tử HTML dựa trên giá trị của các thuộc tính của chúng. Điều này cho phép bạn áp dụng các quy tắc CSS cho các phần tử có thuộc tính cụ thể hoặc giá trị thuộc tính nhất định.
+
+Cụ thể, chúng ta sẽ sử dụng bộ chọn thuộc tính có dạng [attr=value]. Selector này được sử dụng cho các phần tử có 1 giá trị thuộc tính cụ thể. Khi một đối tượng có thuộc tính trùng khớp bới selector, các quy tắc CSS được chỉ định tương ứng với nó sẽ được áp dụng.
+
+Ví dụ sau đây đưa ra quy tắc CSS tùy chỉnh margin cho các phần tử có kiểu là radio trong trang Web:
+
+	[type='radio'] {
+  		margin: 20px 0px 20px 0px;
+	}
+
+Tương tự như vậy, quy tắc CSS dưới đây được áp dụng cho các phần tử input có thuộc tính type="text", tức là các ô nhập liệu dạng:
+
+	input[type="text"] {
+  		/* Quy tắc CSS được áp dụng cho các phần tử input có thuộc tính type="text" */
+	}
+
+Chúng ta cũng có thể chọn phần tử có thuộc tính có giá trị cụ thể:
+
+	a[href="https://example.com"] {
+  		/* Quy tắc CSS được áp dụng cho các phần tử a có thuộc tính href="https://example.com" */
+	}
+
+Hoặc phần tử có thuộc tính bắt đầu với một giá trị nhất định:
+
+	img[src^="images/"] {
+  		/* Quy tắc CSS được áp dụng cho các phần tử img có thuộc tính src bắt đầu bằng "images/" */
+	}
+
+Hay phần tử có thuộc tính kết thúc với một giá trị nhất định:
+
+	a[href$=".pdf"] {
+  		/* Quy tắc CSS được áp dụng cho các phần tử a có thuộc tính href kết thúc bằng ".pdf" */
+	}
+
+Và thậm chí phần tử có thuộc tính chứa một giá trị nhất định:
+
+	input[value~="red"] {
+  		/* Quy tắc CSS được áp dụng cho các phần tử input có thuộc tính value chứa từ "red" */
+	}
+
+Đây chỉ là một số ví dụ cơ bản về cách sử dụng Attribute Selectors trong CSS. Attribute Selectors cung cấp một cách mạnh mẽ để chọn các phần tử dựa trên thuộc tính và giá trị của chúng, giúp bạn tạo các quy tắc CSS linh hoạt và tùy chỉnh hơn.
+
+============================================================================================================================================================================================
+19/ Đơn vị tương đối và tuyệt đối
+	+Đơn vị tương đối: 2 đơn vị tương đối phổ biến nhất là em và rem.
+		*Đơn vị (em): được tính toán dựa trên kích thước của phần tử cha hoặc phần tử gần nhất có thuộc tính font-size. Giá trị 1em tương đương với kích thước font chứa nó.
+		*Đơn vị (rem): được tính toán dựa trên kích thước của phần tử gốc (root element), thường là phần tử <html>. Giá trị 1rem tương đương với kích thước font chứa nó trong phần tử gốc.
+	+Đơn vị tuyệt đối: là các đơn vị có giá trị cố định, không thay đổi dựa trên ngữ cảnh hay phần tử gần liền kề. Các đơn vị tuyệt đối phổ biến bao gồm px (pixel), pt (point), in (inch), cm (centimeter), mm (millimeter), và pc (pica).
+
+Khi nào sử dụng đơn vị tương đối và tuyệt đối?
+	+Đơn vị tương đối: thích hợp khi bạn muốn xây dựng các thiết kế linh hoạt, có khả năng điều chỉnh kích thước dựa trên ngữ cảnh và phụ thuộc vào các phần tử gần nhất hoặc phần tử gốc.
+		*Định dạng văn bản: Khi bạn muốn điều chỉnh kích thước font chữ, đơn vị em hoặc rem thường được sử dụng. Ví dụ, bạn có thể sử dụng em để xác định kích thước font chữ của một phần tử dựa trên kích thước font chữ của phần tử cha.
+		*Thiết kế linh hoạt (Responsive design): Đơn vị tương đối giúp tạo ra thiết kế linh hoạt, tự động điều chỉnh theo kích thước màn hình hoặc phần tử cha. Khi sử dụng đơn vị em hoặc rem để thiết lập kích thước, phần tử sẽ tự động thay đổi theo kích thước của phần tử cha hoặc phần tử gốc.
+		*Đặt khoảng cách và độ rộng/cao: Đơn vị tương đối cũng có thể được sử dụng để định rõ khoảng cách, độ rộng và chiều cao của phần tử dựa trên các phần tử gần nhất. Ví dụ, sử dụng em hoặc rem để thiết lập padding hoặc margin của phần tử sẽ định rõ khoảng cách dựa trên kích thước của phần tử gần nhất.
+		*Thiết lập tỉ lệ: Đơn vị tương đối có thể được sử dụng để thiết lập các tỉ lệ, ví dụ như tỷ lệ chiều rộng và chiều cao. Bằng cách sử dụng đơn vị em hoặc rem, bạn có thể điều chỉnh tỷ lệ một phần tử dựa trên kích thước của phần tử gần nhất hoặc phần tử gốc.
+	
+	+Đơn vị tuyệt đối: không linh hoạt như đơn vị tương đối, nhưng nó cho phép bạn định rõ kích thước, vị trí và hiệu ứng một cách cố định và chính xác trong trang web của bạn.
+Kích thước cố định: Đơn vị tuyệt đối thích hợp khi bạn muốn đặt kích thước cố định cho một phần tử mà không muốn nó thay đổi theo các yếu tố khác như phần tử cha hay phần tử gần nhất. Bằng cách sử dụng đơn vị px (pixel), bạn có thể xác định một kích thước cụ thể cho phần tử.
+		*Định vị tuyệt đối: Đơn vị tuyệt đối thường được sử dụng để định vị chính xác một phần tử trong không gian trang web. Bằng cách sử dụng đơn vị px, bạn có thể xác định vị trí và khoảng cách một cách cụ thể.
+		*Hiệu ứng và hoạt động: Đơn vị tuyệt đối thường được sử dụng trong các hiệu ứng CSS và các thuộc tính liên quan đến hoạt động. Ví dụ, khi bạn muốn chuyển động một phần tử từ một vị trí tuyệt đối đến một vị trí khác, đơn vị px thường được sử dụng để xác định các giá trị tọa độ và khoảng cách.
+		*Đo lường chính xác: Đơn vị tuyệt đối thích hợp khi bạn cần đo lường các kích thước, khoảng cách và tỷ lệ một cách chính xác, ví dụ như trong trường hợp in ấn hoặc các yêu cầu đo lường chính xác khác.
+
+============================================================================================================================================================================================
+20/ Thay đổi và làm việc với thẻ <body>
+	20.1/ Đổi màu nền cho trang
+Trong CSS, bạn có thể áp dụng các thuộc tính cho thẻ <body> để tùy chỉnh các kiểu dáng và thuộc tính của trang web của bạn. Dưới đây là một số ví dụ về cách áp dụng CSS cho thẻ <body>:
+
+body {
+  background-color: #f2f2f2;
+  color: #333333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 20px;
+  line-height: 1.5;
+}
+
+=========================================
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+=========================================
+body {
+  background-image: url('background.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+	20.2/ Kế thừa Styles từ Body Element
+Khi định nghĩa các kiểu dáng cho thẻ <body>, các phần tử con bên trong thẻ <body> sẽ kế thừa các kiểu dáng đó mặc định. Điều này có nghĩa có thể định nghĩa kiểu dáng cho thẻ <body> và các phần tử con sẽ kế thừa những kiểu dáng đó, trừ khi ghi đè lên chúng.
+
+Ví dụ, nếu đặt màu chữ và kiểu phông chữ cho thẻ <body>, các phần tử con trong thẻ <body> sẽ mặc định sử dụng màu chữ và kiểu phông chữ đó:
+
+body {
+  color: #333333;
+  font-family: Arial, sans-serif;
+}
+
+Phần tử con:
+
+<body>
+  <h1>Đây là một tiêu đề</h1>
+  <p>Đây là một đoạn văn bản.</p>
+</body>
+
+--> Note: đôi khi, một phần tử HTML sẽ có rất nhiều thuộc tính CSS tạo kiểu mà chúng có thể nhận, điều này dẫn đến sự xung đột lẫn nhau. Ví dụ, phần tử h1 không thể có văn bản vừa màu trắng và màu tím. Khi đó thứ tự ưu tiên của các quy tắc CSS sẽ được áp dụng.
+
+Ví dụ có đoạn chương trình sau:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML</title>
+    
+    <style>
+    body {
+      background-color: coral;
+      font-family: monospace;
+      color: white;
+    }
+    
+    .purple-text{
+      color: purple;
+    }
+ 
+</style
+</head>
+
+<body>
+<h1 class="purple-text">Nội dung tiêu đề h1</h1>
+</body>
+</html>
+
+--> Thẻ <h1> nằm trong thẻ <body>, theo lý thuyết thì nội dung trong h1 sẽ mang thuộc tính của body, tuy nhiên trong h1 cũng có class quy định style của font chữ, đặc biệt là thuộc tính color. Lúc này hệ thống sẽ ưu tiên thuộc tính color của h1 chứ không lấy theo thuộc tính color của body.
+
+--> Ghi đè
+
+--> Tuy nhiên, nếu một phần tử nhận hai quy tắc cùng cấp độ thì nó sẽ ưu tiên như thế nào? 
+
+Ví dụ dưới đây thiết lập các thuộc tính class về màu chữ (trong thẻ style):
+
+<style>
+      body {
+        background-color: coral;
+        font-family: monospace;
+        color: white;
+      }
+
+      .purple-text {
+        color: purple;
+      }
+      
+      .orange-text{
+        color: orange;
+      }
+ </style>
+
+Và nếu ví dụ ta áp dụng cả 2 class này vào thẻ <h1> thì 2 đoạn chương trình này như nhau:
+
+	<h1 class="purple-text orange-text">Nội dung</h1> 
+với
+	<h1 class="orange-text purple-text">Nội dung</h1> 
+
+--> Thứ tự được khai báo trong thẻ style mới quan trọng (không phải thứ tự khai báo class trong thẻ ứng dụng). Thuộc tính cùng cấp độ sau sẽ ghi đè lên thuộc tính trước.
+
+--> Trình duyệt sẽ đọc CSS theo thứ tự khai báo từ trên xuống dưới. Và khi xảy ra xung đột giữa các Selector, trình duyệt sẽ sử dụng Selector được khai báo cuối cùng. Mặc dù, class purple-text được đặt trước class orange-text trong phần tử h1 nhưng trình duyệt vẫn xem xét thứ tự khai báo chứ không xem xét thứ tự các class.
+
+============================================================================================================================================================================================
+21/ Ghi đè các khai báo 
+	21.1/ Bằng các thuộc tính ID Attributes
+Vẫn giữ nguyên ví dụ trên về việc ghi đè màu chữ tím và cam phía trên. Ta thêm một id green-text để đổi màu chữ về màu xanh (có thể thử thay đổi vị trí khai báo id green-text).
+
+Phần khai báo trong thẻ style sẽ như sau:
+
+<style>
+      body {
+        background-color: coral;
+        font-family: monospace;
+        color: white;
+      }
+
+      .purple-text {
+        color: purple;
+      }
+      
+      .orange-text{
+        color: orange;
+      }
+
+      #green-text{
+        color: green;
+      }
+ </style>
+
+Tiếp tục ứng dụng vào thẻ h1 (vẫn giữ nguyên 2 class trước):
+
+	<h1 class="orange-text purple-text" id="green-text">Nội dung</h1> 
+
+--> Không quan trọng thứ tự khai báo id trong thẻ style, thuộc tính của id vẫn sẽ ghi đè
+
+--> Thuộc tính id là thuộc tính có mức ưu tiên cao hơn, nên thứ tự khai báo của thuộc tính này không quan trọng bên trên hay bên dưới dòng khai báo cuối cùng.
+
+	21.2/ Bằng kiểu Inline
+Bên cạnh thuộc tính id, chúng ta còn có thể sử dụng Inline CSS để ghi đè các thuộc tính được khai báo trong class hoặc id.
+
+Ôn lại cú pháp kiểu inline:
+
+	<h1 style="color: ...; ..">Nội dung</h1>
+
+Vẫn giữ ví dụ trên về việc ghi đề class bằng id, ta thêm kiểu style vào, được:
+
+	<h1 style="color: white;" id="green-text" class="purple-text orange-text">Nội dung tiêu đề h1</h1>
+
+--> Kiểu inline được ưu tiên thực hiện hơn các kiểu còn lại
+
+	21.3/ Bằng thuộc tính !important
+Ngoài thuộc tính id và Inline CSS, chúng ta có thể sử dụng thuộc tính !important để ghi đè tất cả các thuộc tính CSS khác kể cả class, id và Inline CSS. Đây là cách thức viết CSS có mức độ ưu tiên lớn nhất trong 3 cách mà chúng ta đã tìm hiểu.
+
+Cú pháp:
+
+	selector {
+  		property1: value1 !important;
+  		property2: value2 !important;
+  		/* Các thuộc tính CSS khác */
+	}
+
+Trong đó:
+	+"property1" và "property2" là tên các thuộc tính CSS như color, font-size, background-color, v.v.
+	+"value1" và "value2" là giá trị tương ứng cho các thuộc tính CSS.
+	+"!important" là từ khóa được thêm vào sau giá trị của thuộc tính để chỉ định rằng thuộc tính đó được ưu tiên sử dụng và ghi đè lên bất kỳ giá trị nào khác.
+
+Ví dụ về cách sử dụng:
+
+div {
+  color: red !important;
+  font-size: 16px !important;
+  background-color: blue;
+  /* Các thuộc tính CSS khác */
+}
+
+--> Các thuộc tính CSS "color" và "font-size" sẽ được ghi đè bằng từ khóa "!important", trong khi thuộc tính "background-color" sẽ không bị ảnh hưởng. Mọi phần tử div trên trang sẽ có màu chữ đỏ và kích thước chữ là 16px, bất kể các giá trị khác có thể có.
+
+--> Có thể áp dụng important trong inline CSS như sau:
+
+	<div style="color: red !important; font-size: 16px !important; background-color: blue;">Nội dung</div>
+
+--> Lưu ý rằng việc sử dụng từ khóa "!important" cần được cân nhắc và chỉ nên sử dụng khi cần thiết. Nên sử dụng nó một cách cẩn thận để tránh ghi đè quá mức và gây khó khăn trong việc bảo trì và quản lý mã CSS của trang web.
+
+	21.4/ Tổng kết thứ tự ưu tiên
+Trong CSS, có một số nguyên tắc để xác định thứ tự ưu tiên của các quy tắc CSS khi áp dụng cho cùng một phần tử. Thứ tự ưu tiên được sắp xếp từ cao đến thấp như sau:
+	+!important: Quy tắc CSS được đánh dấu bằng từ khóa "!important" có độ ưu tiên cao nhất. Tuy nhiên, lưu ý rằng việc sử dụng quá nhiều !important có thể gây khó khăn trong việc quản lý mã CSS và làm mất đi tính linh hoạt.
+									>>
+	+Inline CSS: Quy tắc CSS nằm trong phần tử HTML thông qua thuộc tính "style" có độ ưu tiên cao hơn so với các quy tắc bên ngoài.
+									>>
+	+ID selectors: Quy tắc CSS áp dụng cho một phần tử thông qua ID selector có độ ưu tiên cao hơn so với lớp (class) hoặc các selector khác.
+									>>
+	+Lớp (Class) selectors: Quy tắc CSS áp dụng cho một phần tử thông qua lớp (class) selector có độ ưu tiên thấp hơn so với ID selector nhưng cao hơn so với các selector tiếp theo.
+									>>
+	+Element selectors: Quy tắc CSS áp dụng cho một loại phần tử cụ thể (ví dụ: div, p, ul, li, v.v.) có độ ưu tiên thấp hơn so với lớp (class) hoặc ID selectors.
+									>>
+	+Universal selectors: Quy tắc CSS áp dụng cho tất cả các phần tử trong tài liệu có độ ưu tiên thấp nhất.
+									>>
+	+Quy tắc cuối cùng: Nếu các quy tắc trên có cùng độ ưu tiên, quy tắc được khai báo cuối cùng trong tệp CSS sẽ được áp dụng.
+
+Ngoài ra, còn một số yếu tố khác có thể ảnh hưởng đến thứ tự ưu tiên, chẳng hạn như specificity (độ đặc thù) của các selector và quy tắc kế thừa. Tuy nhiên, nguyên tắc cơ bản về thứ tự ưu tiên được nêu trên đây giúp hiểu cách CSS áp dụng quy tắc và ưu tiên các quy tắc khác nhau.
+
+Về các phương pháp sử dụng CSS thì thứ tự ưu tiên như sau:
+
+	+Inline
+	+Internal
+	+External
+
+Nhìn chung việc xác định thứ tự áp dụng của các quy tắc CSS thường tổng kết lại dưới những nguyên tắc sau:
+	+Specificity (Độ đặc thù): Độ đặc thù của selector đóng vai trò quan trọng trong việc xác định thứ tự ưu tiên. Độ đặc thù được đo bằng cách đếm số lượng và loại các selector trong quy tắc. Các selector có độ đặc thù cao hơn sẽ có ưu tiên hơn. Ví dụ:
+		*ID selector (ví dụ: #myElement) có độ đặc thù cao hơn so với lớp (class) selector và element selector.
+		*Lớp (class) selector (ví dụ: .myClass) có độ đặc thù cao hơn so với element selector.
+		*Nếu có cùng độ đặc thù, thì quy tắc được khai báo sau cùng sẽ có ưu tiên.
+	+Quy tắc kế thừa: Một số thuộc tính CSS có khả năng kế thừa từ phần tử cha đến các phần tử con. Điều này có nghĩa là giá trị của thuộc tính được xác định cho phần tử cha có thể áp dụng cho các phần tử con nếu các phần tử con không có quy tắc CSS riêng cho thuộc tính đó. Tuy nhiên, các quy tắc CSS được áp dụng trực tiếp cho phần tử con sẽ có ưu tiên hơn quy tắc kế thừa từ phần tử cha.
+	+Sự ưu tiên của các tệp CSS bên ngoài: Nếu có nhiều tệp CSS được liên kết đến cùng một trang HTML, thì thứ tự mà các tệp CSS được liên kết sẽ ảnh hưởng đến thứ tự ưu tiên. Các tệp CSS được liên kết sau cùng sẽ có ưu tiên hơn các tệp CSS được liên kết trước đó nếu có các quy tắc CSS trùng lặp.
+
+============================================================================================================================================================================================
+22/ Thay đổi màu sắc - những cấp độ sắc màu có tên gọi đơn giản (white, black, green,..) và cao hơn
+	22.1/ Sử dụng mã Hex cho các màu cụ thể
+Trong CSS, chúng ta có thể sử dụng 6 chữ số thập lục phân để biểu thị màu, mỗi cặp 2 chữ số được sử dụng để biểu diễn 3 thành phần màu sắc chính bao gồm màu đỏ (R), xanh lục (G) và xanh lam (B). 
+
+Cú pháp của mã Hex là "#RRGGBB", trong đó "RR" biểu thị thành phần màu đỏ, "GG" biểu thị thành phần màu xanh lá cây, và "BB" biểu thị thành phần màu xanh dương. Dưới đây là một số ví dụ về mã Hex cho các màu cụ thể:
+
+	+Màu đỏ: #FF0000
+	+Màu xanh lá cây: #00FF00
+	+Màu xanh dương: #0000FF
+	+Màu đen: #000000
+	+Màu trắng: #FFFFFF
+	+Màu xám: #808080
+	+Màu vàng: #FFFF00
+
+	22.2/ Sử dụng mã Hex để trộn màu
+Để có màu cam, chúng ta sẽ pha màu đỏ với một ít màu xanh lá cây và không sử dụng màu xanh lam. Như vậy, mã hex của màu cam là #FFA500.
+
+Trong đó, chữ số 0 biểu thị giá trị thấp nhất trong mã hex, tức là không có sự xuất hiện của màu đó. Chữ số F biểu thị giá trị lớn nhất trong mã hex, thể hiện độ sáng tối đa nhất có thể.
+
+Một số mã Hex màu khác:
+
+	+Coral (Màu cam đậm): #FF7F50
+	+Brown (Màu nâu): #A52A2A
+	+Chartreuse (Màu xanh cốm): #7FFF00
+
+	22.3/ Sử dụng mã Hex viết tắt
+Ví dụ mã hex của màu đỏ là #FF0000, sẽ được rút gọn thành #F00. Trong đó, một chữ số biểu thị màu đỏ, một chữ số biểu thị màu xanh lá cây và một chữ số biểu thị màu xanh lam. Việc rút gọn này làm giảm số lượng màu từ 16 triệu xuống còn khoảng 4000 màu. Tuy nhiên, trình duyệt vẫn sẽ hiểu #FF0000 và #F00 là cùng một màu.
+
+Một số màu và mã Hex viết tắt tương ứng:
+
+	+yellow: #FF0
+	+lime: #0F0
+	+fuchsia: #F0F
+
+	22.4/ Sử dụng các giá trị RGB cho các phần tử màu
+Ngoài bảng mã màu hex, chúng ta có thể hiển thị màu sắc bằng cách sử dụng các giá trị RGB dưới dạng các số thập phân của các thành phần màu (từ 0 đến 255). Ví dụ, giá trị RGB biểu diễn màu đen là rgb(0, 0, 0) và giá trị biểu diễn màu trắng là rgb(255, 255, 255).
+
+Trong CSS, bạn có thể sử dụng hàm rgb() để trộn màu bằng cách chỉ định các giá trị thập phân của thành phần màu đỏ (red), xanh lá cây (green) và xanh dương (blue). Dưới đây là một số ví dụ về cách sử dụng hàm rgb() để trộn màu:
+
+	selector {
+  		background-color: rgb(255, 0, 0); /* Màu đỏ */
+  		color: rgb(0, 255, 0); /* Màu xanh lá cây */
+	}
+
+Trong ví dụ trên, màu nền của phần tử được đặt là màu đỏ (rgb(255, 0, 0)) và màu chữ được đặt là màu xanh lá cây (rgb(0, 255, 0)).
+
+Ngoài hàm rgb(), trong CSS còn hỗ trợ hàm rgba() cho phép chỉ định mức độ trong suốt (opacity) của màu. Thuộc tính "opacity" được sử dụng để điều chỉnh độ trong suốt của một phần tử và các phần tử con bên trong nó. Giá trị của thuộc tính "opacity" nằm trong khoảng từ 0 đến 1, với 0 là hoàn toàn trong suốt và 1 là hoàn toàn không trong suốt. Chẳng hạn với độ trong suốt là 0.5 cho phép phần tử và nội dung bên trong nó hiển thị một cách mờ nhạt. Chúng ta có thể trộn màu có chỉ định độ trong suốt bằng cách sử dụng như sau:
+
+	selector {
+  		background-color: rgba(255, 0, 0, 0.5); /* Màu đỏ với độ trong suốt 50% */
+	}
+
+Trong ví dụ trên, chúng ta sử dụng hàm rgba() để đặt màu nền của phần tử là màu đỏ (rgb(255, 0, 0)) với độ trong suốt 50% (opacity).
+
+Chuyển màu từ mã Hex sang rgb? Convert online: https://www.rgbtohex.net/hex-to-rgb/
+
+============================================================================================================================================================================================23/ Sử dụng biến CSS để thay đổi nhiều thành phần cùng lúc
+Khi sử dụng biến thì số lượng code bị lặp lại được hạn chế và dễ dàng tùy chỉnh. Chỉ cần dùng biến và thay đổi giá trị biến thì tất cả các elements dùng biến đó đều thay đổi theo.
+Cú pháp:
+
+	selector{
+		--variable_name: value;
+	}
+
+Sau đó có thể sử dụng biến variable_name bằng từ khóa var.
+
+Đoạn chương trình mẫu trong bài học:
+
+<head>
+    <meta charset="UTF-8">
+    <title>Học HTML CSS </title>
+    
+    <style>
+    .parent {
+      --top: gray;
+      --middle: white;
+      --bottom: orange;
+    }
+
+    .top {
+      background: var(--top);
+    }
+
+    .middle {
+      background: var(--middle);
+    }
+
+    .bottom {
+      background: var(--bottom);
+    }
+
+    body {
+      background:#c6faf1;
+    }
+    </style>
+</head>
+
+<body>
+<div class="parent">
+  Phần tử cha
+  <div class="top">
+    Phần tử con 1
+  </div>
+  <div class="middle">
+    Phần tử con 2
+  </div>
+  <div class="bottom">
+    Phần tử con 3
+  </div>
+</div>
+</body>
+
+--> Note: Có thể đính kèm một giá trị dự phòng vào một biến CSS với từ khóa var cùng cú pháp: var(--variable_name, giá trị dự phòng) để trong trường hợp variable_name không được khai báo hoặc không có giá trị, giá trị dự phòng sẽ được sử dụng.
+
+============================================================================================================================================================================================
+24/ Cải thiện khả năng tương thích
+Trong CSS, chúng ta có thể gặp các vấn đề về khả năng tương thích của trình duyệt. Đó là lý do tại sao chúng ta nên cung cấp các giá trị dự phòng cho trình duyệt. Khi trình duyệt phân tích cú pháp CSS trong trang Web, nó sẽ bỏ qua những thuộc tính nào không hợp lệ hoặc không hỗ trợ.
+
+Nếu chúng ta sử dụng biến để chỉ định màu nền trên trang Web, trình duyệt Internet Explorer sẽ bỏ qua thuộc tính này vì nó không hỗ trợ. Trong trường hợp đó, trình duyệt sẽ không sử dụng bất kỳ giá trị nào của thuộc tính đó. Và nếu nó không tìm thấy một giá trị nào khác, nó sẽ sử dụng giá trị mặc định.
+
+============================================================================================================================================================================================
+25/ Kế thừa các biến CSS
+Trong CSS, không thể kế thừa trực tiếp các biến CSS từ một phần tử cha sang một phần tử con. Biến CSS không được truyền tự động qua các phần tử con trong cây DOM.
+
+Tuy nhiên, có thể tận dụng tính kế thừa của các thuộc tính CSS thông thường để áp dụng các giá trị biến tương tự trên các phần tử con. Bằng cách sử dụng các lớp (classes) hoặc thẻ cha bao bọc, có thể xác định các thuộc tính chung trong các quy tắc CSS và sử dụng các biến trong các giá trị đó.
+
+Ví dụ, giả sử có một biến --primary-color:
+
+	:root {
+  		--primary-color: blue;
+	}
+
+Có thể áp dụng giá trị biến này cho các phần tử con bằng cách sử dụng các lớp hoặc thẻ cha bao bọc:
+
+	.container {
+ 		color: var(--primary-color);
+	}
+
+	.container .child-element {
+  		background-color: var(--primary-color);
+	}
+
+Trong ví dụ trên, cả .container và .container .child-element đều sử dụng giá trị của biến --primary-color. Tuy nhiên, để các phần tử con thừa hưởng giá trị biến này, chúng cần được đặt trong các phần tử cha có áp dụng giá trị biến.
+
+Lưu ý rằng kế thừa thông qua các thuộc tính chung không áp dụng trực tiếp các biến CSS. Cần sử dụng các thuộc tính CSS thông thường để áp dụng giá trị biến cho các phần tử con.
+
+Để sử dụng tính kế thừa, các biến CSS thường sẽ được định nghĩa trong :root, là selector của phần tử html. Các biến trong :root sẽ được áp dụng trong phạm vi toàn cục và có thể được truy cập bên trong tất cả selector con. Điều này giúp chúng ta sử dụng dễ dàng hơn.
+	
+Code ví dụ trong bài học:
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+
+<style>
+ :root {
+    --global: coral;
+ }
+  .top {
+    background: var(--global);
+  }
+  .middle {
+    background: var(--global);
+  }
+  .bottom {
+    background: var(--global);
+  }
+  body {
+    background:#c6faf1;
+  }
+  .parent > div{
+    border: 1px solid black;
+    margin: 5px;
+  }
+</style>
+</head>
+
+<body>
+<div class="parent">
+  Phần tử cha
+  <div class="top">
+    Phần tử con 1
+  </div>
+  <div class="middle">
+    Phần tử con 2
+  </div>
+  <div class="bottom">
+    Phần tử con 3
+  </div>
+</div>
+</body>
+
+Giải thích đoạn code: .parent > div
+
+--> .parent > div - This selector targets <div> elements that are direct children of an element with the class or ID of .parent. The > symbol represents the direct child combinator, indicating that the following element should be a direct child of the element on the left.
+
+--> Nếu để .parent > div thì các thuộc tính trong parent chỉ áp dụng cho div chứ không áp dụng với class parent
+
+--> Nếu để .parent thôi thì tất cả các class (bao gồm class cha và con) đều mang thuộc tính của parent.
+
+============================================================================================================================================================================================
+26/ Ghi đè giá trị của biến
+Khi khai báo biến trong :root, giá trị của biến đó sẽ được áp dụng cho toàn bộ trang Web. Sau đó, chúng ta có thể ghi đè những biến này bằng cách đặt lại giá trị cho trong từng phần tử nhất định.
+
+Có thể ghi đè giá trị của biến trong CSS bằng cách thay đổi giá trị của biến đó trong các phần tử cụ thể. Có 2 cách để ghi đè giá trị của biến:
+
+	+Ghi đè trong phần tử cụ thể: Khi muốn ghi đè giá trị của biến trong một phần tử cụ thể, bạn có thể sử dụng thuộc tính --ten-bien và gán một giá trị mới cho nó. Ví dụ:
+
+	.my-element {
+  		--primary-color: red;
+	}
+
+Trong đoạn mã trên, giá trị của biến --primary-color trong phần tử có lớp .my-element đã được ghi đè thành màu đỏ.
+
+	+Ghi đè trong tầng cao hơn:
+Bạn cũng có thể ghi đè giá trị của biến trong tầng cao hơn, chẳng hạn như phần tử cha, để ảnh hưởng đến các phần tử con. Điều này có thể được thực hiện bằng cách thay đổi giá trị của biến trong phần tử cha hoặc trong phần tử có tác động lên toàn bộ trang web. Ví dụ:
+
+	:root {
+  		--primary-color: blue;
+	}
+
+	.my-element {
+  		color: var(--primary-color);
+	}
+
+	.my-parent-element {
+ 		 --primary-color: red;
+	}	
+Trong đoạn mã trên, giá trị của biến --primary-color được khai báo là màu xanh dương trong :root. Tuy nhiên, khi phần tử có lớp .my-parent-element xuất hiện và định nghĩa lại giá trị biến --primary-color thành màu đỏ, phần tử .my-element và các phần tử con khác trong phần tử .my-parent-element sẽ thừa hưởng giá trị màu đỏ.
+
+Lưu ý rằng việc ghi đè giá trị của biến chỉ ảnh hưởng đến các phần tử cụ thể và phần tử con của chúng. Các phần tử khác không bị ảnh hưởng bởi việc ghi đè giá trị của biến trong các phần tử khác.
+
+Code mẫu trong bài học:
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+    
+<style>
+  :root {
+    --penguin-skin: gray;
+    --penguin-belly: pink;
+    --penguin-beak: red;
+  }
+
+  body {
+    background: var(--penguin-belly, #c6faf1);
+  }
+
+  .penguin {
+    --penguin-belly: white;
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 5%;
+    width: 300px;
+    height: 300px;
+  }
+
+  .right-cheek {
+    top: 15%;
+    left: 35%;
+    background: var(--penguin-belly, pink);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .left-cheek {
+    top: 15%;
+    left: 5%;
+    background: var(--penguin-belly, pink);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .belly {
+    top: 60%;
+    left: 2.5%;
+    background: var(--penguin-belly, pink);
+    width: 95%;
+    height: 100%;
+    border-radius: 120% 120% 100% 100%;
+  }
+
+  .penguin-top {
+    top: 10%;
+    left: 25%;
+    background: var(--penguin-skin, gray);
+    width: 50%;
+    height: 45%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .penguin-bottom {
+    top: 40%;
+    left: 23.5%;
+    background: var(--penguin-skin, gray);
+    width: 53%;
+    height: 45%;
+    border-radius: 70% 70% 100% 100%;
+  }
+
+  .right-hand {
+    top: 0%;
+    left: -5%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 120% 30%;
+    transform: rotate(45deg);
+    z-index: -1;
+  }
+
+  .left-hand {
+    top: 0%;
+    left: 75%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 30% 120%;
+    transform: rotate(-45deg);
+    z-index: -1;
+  }
+
+  .right-feet {
+    top: 85%;
+    left: 60%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(-80deg);
+    z-index: -2222;
+  }
+
+  .left-feet {
+    top: 85%;
+    left: 25%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(80deg);
+    z-index: -2222;
+  }
+
+  .right-eye {
+    top: 45%;
+    left: 60%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .left-eye {
+    top: 45%;
+    left: 25%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .sparkle {
+    top: 25%;
+    left: 15%;
+    background: white;
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+  }
+
+  .blush-right {
+    top: 65%;
+    left: 15%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .blush-left {
+    top: 65%;
+    left: 70%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-top {
+    top: 60%;
+    left: 40%;
+    background: var(--penguin-beak, orange);
+    width: 20%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-bottom {
+    top: 65%;
+    left: 42%;
+    background: var(--penguin-beak, orange);
+    width: 16%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .penguin * {
+    position: absolute;
+  }
+</style>
+</head>
+
+<body>
+<div class="penguin">
+  <div class="penguin-bottom">
+    <div class="right-hand"></div>
+    <div class="left-hand"></div>
+    <div class="right-feet"></div>
+    <div class="left-feet"></div>
+  </div>
+  <div class="penguin-top">
+    <div class="right-cheek"></div>
+    <div class="left-cheek"></div>
+    <div class="belly"></div>
+    <div class="right-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="left-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="blush-right"></div>
+    <div class="blush-left"></div>
+    <div class="beak-top"></div>
+    <div class="beak-bottom"></div>
+  </div>
+</div>
+</body>
+
+============================================================================================================================================================================================
+27/ Sử dụng truy vấn media để thay đổi một biến
+Biến CSS có thể đơn giản hóa cách bạn sử dụng truy vấn media.
+
+Khi màn hình của bạn nhỏ hơn hoặc lớn hơn các điểm đánh dấu phạm vi giới hạn, bạn có thể thay đổi giá trị của biến và sau đó giá trị này sẽ được áp dụng ở bất kỳ nơi nào nó được sử dụng.
+
+Media query trong CSS là một cách để áp dụng các quy tắc CSS khác nhau dựa trên thuộc tính và trạng thái của thiết bị hoặc kích thước màn hình. Điều này cho phép bạn tạo ra giao diện web linh hoạt và thân thiện với nhiều loại thiết bị khác nhau.
+
+Cú pháp cơ bản của media query trong CSS như sau:
+
+	@media media-type and (media-feature) {
+  		/* Quy tắc CSS áp dụng cho điều kiện media query */
+	}
+Trong đó:
+	+media-type là loại phương tiện mà media query được áp dụng, như screen (màn hình), print (in ấn), speech (giọng nói), và nhiều loại khác.
+	+media-feature là các thuộc tính và trạng thái của thiết bị hoặc màn hình mà bạn muốn kiểm tra. Ví dụ: max-width, min-width, orientation, hover, color, vv.
+Dưới đây là một ví dụ về việc sử dụng media query để thay đổi kích thước phông chữ khi màn hình có chiều rộng nhỏ hơn 600px:
+
+	@media screen and (max-width: 600px) {
+  		body {
+    			font-size: 14px;
+  		}
+	}
+
+Trong ví dụ trên, khi màn hình có chiều rộng nhỏ hơn hoặc bằng 600px, quy tắc CSS font-size: 14px; sẽ được áp dụng cho phần tử body.
+
+Bạn có thể sử dụng cú pháp @media một cách rút gọn bằng cách chỉ ra kích thước max-width như dưới đây và sử dụng để điều chỉnh giá trị của biến. Điều này sẽ giúp áp dụng tất cả các giá trị thay đổi các đối tượng liên quan đến biến.
+
+:root {
+  --primary-color: blue;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --primary-color: red;
+  }
+}
+
+.my-element {
+  color: var(--primary-color);
+}
+
+Trong ví dụ trên, giá trị ban đầu của biến --primary-color là màu xanh dương (blue). Tuy nhiên, khi kích thước màn hình nhỏ hơn hoặc bằng 768px (điều kiện trong @media), giá trị của biến --primary-color được thay đổi thành màu đỏ (red). Do đó, màu chữ của phần tử có lớp .my-element sẽ thay đổi tương ứng.
+
+Code ví dụ trong bài học:
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+
+<style>
+  :root {
+    --penguin-size: 300px;
+    --penguin-skin: gray;
+    --penguin-belly: white;
+    --penguin-beak: red;
+  }
+
+  @media (max-width: 350px) {
+    :root {
+      --penguin-size: 200px;
+      --penguin-skin: black;
+    }
+  }
+
+  .penguin {
+    position: relative;
+    margin: auto;
+    display: block;
+    margin-top: 5%;
+    width: var(--penguin-size, 300px);
+    height: var(--penguin-size, 300px);
+  }
+
+  .right-cheek {
+    top: 15%;
+    left: 35%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .left-cheek {
+    top: 15%;
+    left: 5%;
+    background: var(--penguin-belly, white);
+    width: 60%;
+    height: 70%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .belly {
+    top: 60%;
+    left: 2.5%;
+    background: var(--penguin-belly, white);
+    width: 95%;
+    height: 100%;
+    border-radius: 120% 120% 100% 100%;
+  }
+
+  .penguin-top {
+    top: 10%;
+    left: 25%;
+    background: var(--penguin-skin, gray);
+    width: 50%;
+    height: 45%;
+    border-radius: 70% 70% 60% 60%;
+  }
+
+  .penguin-bottom {
+    top: 40%;
+    left: 23.5%;
+    background: var(--penguin-skin, gray);
+    width: 53%;
+    height: 45%;
+    border-radius: 70% 70% 100% 100%;
+  }
+
+  .right-hand {
+    top: 5%;
+    left: 25%;
+    background: var(--penguin-skin, black);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 120% 30%;
+    transform: rotate(130deg);
+    z-index: -1;
+    animation-duration: 3s;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+    transform-origin:0% 0%;
+    animation-timing-function: linear;
+  }
+
+  @keyframes wave {
+      10% {
+        transform: rotate(110deg);
+      }
+      20% {
+        transform: rotate(130deg);
+      }
+      30% {
+        transform: rotate(110deg);
+      }
+      40% {
+        transform: rotate(130deg);
+      }
+    }
+
+  .left-hand {
+    top: 0%;
+    left: 75%;
+    background: var(--penguin-skin, gray);
+    width: 30%;
+    height: 60%;
+    border-radius: 30% 30% 30% 120%;
+    transform: rotate(-45deg);
+    z-index: -1;
+  }
+
+  .right-feet {
+    top: 85%;
+    left: 60%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(-80deg);
+    z-index: -2222;
+  }
+
+  .left-feet {
+    top: 85%;
+    left: 25%;
+    background: var(--penguin-beak, orange);
+    width: 15%;
+    height: 30%;
+    border-radius: 50% 50% 50% 50%;
+    transform: rotate(80deg);
+    z-index: -2222;
+  }
+
+  .right-eye {
+    top: 45%;
+    left: 60%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .left-eye {
+    top: 45%;
+    left: 25%;
+    background: black;
+    width: 15%;
+    height: 17%;
+    border-radius: 50%;
+  }
+
+  .sparkle {
+    top: 25%;
+    left:-23%;
+    background: white;
+    width: 150%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  .blush-right {
+    top: 65%;
+    left: 15%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .blush-left {
+    top: 65%;
+    left: 70%;
+    background: pink;
+    width: 15%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-top {
+    top: 60%;
+    left: 40%;
+    background: var(--penguin-beak, orange);
+    width: 20%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  .beak-bottom {
+    top: 65%;
+    left: 42%;
+    background: var(--penguin-beak, orange);
+    width: 16%;
+    height: 10%;
+    border-radius: 50%;
+  }
+
+  body {
+    background:#c6faf1;
+  }
+
+  .penguin * {
+    position: absolute;
+  }
+</style>
+</head>
+
+<body>
+<div class="penguin">
+  <div class="penguin-bottom">
+    <div class="right-hand"></div>
+    <div class="left-hand"></div>
+    <div class="right-feet"></div>
+    <div class="left-feet"></div>
+  </div>
+  <div class="penguin-top">
+    <div class="right-cheek"></div>
+    <div class="left-cheek"></div>
+    <div class="belly"></div>
+    <div class="right-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="left-eye">
+      <div class="sparkle"></div>
+    </div>
+    <div class="blush-right"></div>
+    <div class="blush-left"></div>
+    <div class="beak-top"></div>
+    <div class="beak-bottom"></div>
+  </div>
+</div>
+</body>
+
+============================================================================================END=============================================================================================
+
+
+
