@@ -1,0 +1,377 @@
+/*
+
+	MUỐN THEO FRONT-END PHẢI NẮM VỮNG NHỮNG GÌ?
+-HTML/CSS
+-JS (hiểu và làm việc với các framework và thư viện phổ biến như: React, Angular, Vue.js)
+-Responsive Design: tạo giao diện phản hồi, thích nghi với các kích thước và các thiết bị khác nhau, thân thiện cho người dùng.
+-UI/UX: thiết kế giao diện người dùng. Làm việc với các công cụ thiết kế như: Adobe XD, Sketch, Figma.
+-Cross-Browser Compatibility: đảm bảo trang web tương thích trên nhiều trình duyệt khác nhau (Chorme, Firefox, Safari,..)
+-CSS Preprocessors: tiết kiệm thời gian code, bảo trì và phát triển. Các công cụ được sử dụng nhiều nhất hiện tại là LESS và SASS.
+-Version Control (Git): học cách sử dụng hệ thống quản lý phiên bản Git để theo dõi, quản lý mã nguồn dự án và làm việc cùng nhóm phát triển.
+-Performance Optimization: tối ưu hiệu suất trang web, tốc độ tải trang và giảm thời gian phản hồi.
+-Kỹ năng xử lý vấn đề: biết triển khai và thực hiện thiết kế như nào cho tốt, biết cách Fix bugs và nhận diện hoạt động của FE với BE đang được triển khai,..
+
+-Continous Learning: luôn cập nhật kiến thức và công nghệ mới trong lĩnh vực FE (tham gia vào các dự án thực tế để phát triển kỹ năng này).
+
+
+*/
+
+
+1/ Thụt đầu dòng: 
+	1.1/ tab-indent: value;
+	
+	1.2/ Thẻ <blockquote> </blockquote>
+
+2/ Thêm các thuộc tính cho thẻ <ol> - (mặc định thẻ này tạo ra các dòng được đánh số thứ tự từ 1):
+	+Định danh số thứ tự bắt đầu: <ol start="3"> thì dòng đầu tiên sẽ được đánh STT 3
+	+Đảo ngược thứ tự từ cao xuống thấp <ol reversed>
+	+Tạo danh sách chữ (không phải số như mặc định): <ol type="value">; các giá trị value hợp lệ là: a, A, i, I
+
+3/ Sidebar Hover Effect
+HTML code:
+
+<div className="sidebar">
+   <div className="item">
+       <img class="icon" src="/icon1"/>
+       <div className="text">The App</div>
+   </div>
+   <hr />
+   <div className="item">
+       <img class="icon" src="/icon2"/>
+       <div className="text">Dashboard</div>
+   </div>
+   <div className="item">
+       <img class="icon" src="/icon3"/>
+       <div className="text">Search</div>
+   </div>
+   <div className="item">
+       <img class="icon" src="/icon4"/>
+       <div className="text">Insights</div>
+   </div>
+   <div className="item">
+       <img class="icon" src="/icon5"/>
+       <div className="text">Docs</div>
+   </div>
+   <div className="item">
+       <img class="icon" src="/icon6"/>
+       <div className="text">Settings</div>
+   </div>
+</div>
+
+CSS code:
+
+.sidebar{
+   width: 60px;
+   height: 100px;
+   box-sizing: border-box;
+   padding: 10px;
+   background-color: #ffffff
+   transition: ease-in-out 0.3s;
+   overflow: hidden;
+}
+
+.sidebar:hover{
+   width: 200px;
+}
+
+.sidebar:hover > .item > .text{
+   opacity: 1;
+}
+
+hr{
+   height: 1px;
+   color: #919191;
+   margin: 15px 0;
+}
+
+.item{
+   display: flex;
+   align-items: center;
+   margin: 20px 0;
+}
+
+.item .icon{
+   width: 40px;
+   height: 35px;
+   flex-shrink: 0;
+   fill: #424242;
+}
+
+.item .text{
+   opacity: 0;
+   transition: ease-in-out 0.3s;
+   transition-delay: .2s;
+   margin-left: 15px;
+   whitespace: nowrap;
+}
+
+--> Có rất nhiều thuộc tính chưa từng biết, chưa từng dùng
+
+4/ CSS: Object fit - for <img> elements
+
+Cú pháp:
+
+img{
+   object-fit: value;
+}
+
+Các giá trị của value:
+	+fill: ảnh sẽ luôn vừa kích thước khung + nằm gọn trong khung, không bị mất/che bởi viền khung theo sự kéo dãn của mình (không có khoảng trắng dư ra)
+	+contain: khi thay đổi kích thước khung bằng cách kéo thả, kích thước ảnh sẽ thu lại theo tỉ lệ sao cho ảnh luôn nằm trong khung (có thể có khoảng trắng dư ra).
+	+cover: khi kéo dãn, thay đổi kích thước khung, ảnh sẽ kéo dãn theo, tuy nhiên ảnh lúc này sẽ không trọn vẹn mà có thể bị che mất bởi các viền khung (không có khoảng trắng dư ra).
+
+5/ CSS: flex-wrap
+
+Cú pháp:
+
+selector{
+   display: flex;
+   flex-wrap: value;
+}
+
+Ví dụ ta có một div chứa các hình ảnh nằm thẳng hàng theo phương ngang, sau đó thay đổi kích thước khung bằng cách kéo thả khung trình duyệt.
+
+Các giá trị của value:
+	+nowrap: dù kéo thả thế nào (co dãn khung bao) thì các phần tử cũng vẫn giữ nguyên tính chất là thẳng hàng, các phần tử sẽ thu nhỏ lại hoặc tràn ra ngoài khung chứa.
+	+wrap: khi kéo thả khung bao, các phần tử sẽ không còn giữ nguyên tính chất thẳng hàng nữa: từng phần tử sẽ xuống hàng mới (theo chiều từ phải sang trái) sau mỗi lần co dãn khung bao 
+	+wrap-reverse: khi kéo thả khung bao, từng phần tử sẽ xuống hàng mới như khi value = wrap, tuy nhiên điểm khác biệt là thứ tự ô sẽ không còn được giữ nguyên như ban đầu: thứ tự phần tử rớt xuống hàng mới sẽ theo thứ tự từ trái sang phải.
+
+6/CSS: overflow
+
+Nếu dịch nghĩa sang tiếng Việt, overflow mang nghĩa là tràn. Thuộc tính này được dùng để sử lý những đoạn văn bản dài: set up kích thước của một khung chứa văn bản và tùy cách ta điều chỉnh mà người dùng có thể tương tác để đọc nội dung. 
+
+Giả sử ta có một đoạn văn dài trong thẻ <p>, ta muốn khung bao chứa đoạn văn đó có kích thước cố định và scroll được, ta dùng cú pháp sau:
+
+p{
+  width: 200px;
+  height: 150px; 
+//nội dung sẽ thu lại theo kích thước của width (phương x), và tùy thuộc vào độ dài của đoạn văn mà kiểm soát được đoạn văn có nằm gọn luôn theo kích thước của height (phương y).
+  overflow: value;
+}
+
+Các giá trị của value:
+	+visible: toàn bộ đoạn văn sẽ được hiển thị. Nếu khung bao kích thước nhỏ hơn kích thước văn bản, ta vẫn sẽ thấy văn bản được hiển thị như bình thường. Đây là thuộc tính mặc định của overflow.
+	+hidden: những phần văn bản nằm ngoài khung bao kích thước sẽ không được hiển thị.
+	+scroll: sẽ tạo 2 thanh trượt (scroll bar) theo phương x và y.
+	+auto: chỉ tạo scroll bar tùy theo hoạt động của người sử dụng.
+
+6/ HTML: Selector
+
+Tổng hợp các dạng selector thường sử dụng:
+	*{}: universal selector
+	#id{}: ID selector
+	.class{}: class selector
+	h1, h2{}: type selector
+	h1 + p{}: adjacent sibling selector
+	ul > li{}: child selector
+	h1 ~ p{}: general sibling selector
+	p a{}: descendant selector
+	div[alt="val"]{}: attribute selector
+
+7/ CSS: z-index
+
+Thuộc tính này giúp xác định thứ tự chồng chéo của các element lên nhau. Xét theo hệ trục tọa độ Oxyz, trục z là trục vuông góc với màn hình, không gian làm việc trong màn hình là trục x,y.
+
+Một số khái niệm liên quan:
+
+	7.1/ stacking-context
+Ví dụ ta có thẻ div "Container" bọc thẻ "block-1", trong thẻ "box" lại bọc các div block element "item-1", "item-2", "item-3",...
+
+--> "Container" và thẻ con của nó là "block-1" tạo thành stacking-context. 
+
+--> "block-1" và các thẻ con của nó là "item-i" tạo thành stacking-context.
+
+--> Có thể hiểu stacking-context như sau: trên bàn ăn có nhiều món ăn. Khi di chuyển bàn tức cũng là di chuyển các món ăn.
+
+	7.2/ stacking-order
+Mặc định, theo thứ tự các element xuất hiện trong thẻ html, thẻ nào đứng sau thì sẽ nằm chồng lên thẻ trước.
+
+	7.3/ z-index
+z-index chỉ hoạt động với điều kiện là: block element được khai báo thuộc tính position có giá trị khác static (tức còn lại: relative, absolute và fixed).
+
+Ngoài ra:
+	+ block element nào có z-index cao hơn thì sẽ nằm chồng lên block element có z-index thấp hơn
+	+ z-index của block element sẽ bị giới hạn bởi z-index của phần tử cha
+
+Lấy ví dụ là các div block element "item-1","item-2","item-3" phía trên. Và giả sử trong thẻ html, thứ tự khai báo của các item-1, item-2, item-3 là như vậy.
+Ta khai báo thêm một div block element mang tên "block-2" cùng cấp với "block-1" và là thẻ con của div "Container". Ta biết rằng:
+
+		-item-2 là thẻ con của block-1
+		-block-2 và block-1 cùng cấp
+Giả sử ta khai báo z-index của block-2 > z-index của block-1 thì khi này, block-2 sẽ nằm trên block-1.
+Tiếp theo, ta khai báo z-index của item-2 > z-index của block-2 > z-index của phần tử cha là block-1
+
+--> item-2 vẫn nằm dưới block-2, không nằm chồng lên block-2 được.
+
+	+ Những block element nào có thuộc tính postion sẽ nằm chồng lên block element không có thuộc tính postion
+	+ Những thuộc tính như transform, opacity,.. sẽ tạo ra một stacking-context mới.
+
+Lấy ví dụ là các div block element "item-1","item-2","item-3" phía trên. Và giả sử trong thẻ html, thứ tự khai báo của các item-1, item-2, item-3 là như vậy. Bên cạnh đó, chỉ có item-1, item-2 là có thuộc tính position. Khi này, mặc định:
+
+	item-1 sẽ nằm dưới item-2 (theo thứ tự khai báo trong thẻ html), item-3 cũng sẽ nằm dưới item-2 (vì item-3 không có thuộc tính position.
+
+Lúc này, nếu trong css của item-3, ta cài đặt thuộc tính là:
+
+	.item-3{
+	   transform: rotateZ(45deg); //xoay quanh trục Z một góc 45 độ
+	}
+thì thuộc tính transform sẽ tạo ra một stacking-context mới, dẫn đến item-3 thay đổi từ nằm dưới item-2 thành nằm đè lên item-2.
+
+8/ CSS: tricks
+
+	8.1/ Lồng hình ảnh vào text
+Thêm background cho chữ:
+
+	h1{
+	   background-image: url('Path-to-file');
+ 	   background-clip: text;
+	   color: transparent; //sẽ tìm hiểu sau
+	   background-color: white;
+	}
+
+	8.2/ Xử lý image, video theo tỉ lệ khung
+
+
+	.img-container{
+	    width: 50%;
+            aspect-ratio: 16/9;
+	    overflow: hidden;
+	}        
+
+	.img-container img, .img-container video{
+	    width: 100%;
+	    height: 100%;
+	    object-fit: cover;
+        }	
+
+	8.3/ Tạo tương phản chữ và nền
+Sử dụng thuộc tính mix-blend-mode
+
+	body{
+  	   background-color: #000000;
+	}
+
+	h1{
+	   color: #ffffff;
+	   font-size: 10rem;
+	   mix-blend-mode: difference;
+	}
+
+	div{
+	   width: 80%;
+	   height: 400px;
+	   backgound: #ffffff;
+	}
+
+	8.4/ Tạo shape lồng hình ảnh
+Tạo hình dạng bất kỳ của một khối và lồng hình ảnh, màu nền thay đổi tùy ý với thuộc tính clip-path.
+
+	.shape{
+	   clip-path: circle(60%);
+	}
+
+	.shape{
+	    clip-path: polygon(50%,0,100% 50%, 50% 100%,0 50%);
+	}
+	
+	
+	8.5/ Custom con trỏ bằng hình ảnh
+
+	html{
+	  cursor: url('Path-to-file'), auto;
+	}
+
+	8.5/ Thay đổi hướng viết chữ
+Sử dụng thuộc tín writing mode để chỉ định các trình bày văn bản.
+
+	h1{
+	  writing-mode: sideaways-lrl;
+`	}
+
+	writing-mode: horizontal-tb;
+	writing-mode: vertical-rl;
+	writing-mode: vertical-lrl
+
+ 	8.6/ Thêm stroke (viền) cho text
+
+	h1{
+	  -webkit-text-gtroke: 5px crimson;
+	  -text-strol
+	}
+
+	8.6/ Chuyển đổi light mode và dark mode
+
+	:root{
+	   --bg-color: white;
+	   --text-color: black;
+	}
+
+	body{
+	   backgound-color: var(--bg-color);
+	   color: var(--text color);
+	}
+
+	@media (prefers-color-scheme: dark){
+	    :root{
+	     --bg-color: black;
+	     --text-color: white;
+        }
+
+	8.7/ responsive text
+
+Cú pháp:
+
+	clamp(minimum, preferred, maximum)
+
+Ví dụ:
+
+	
+	h1{
+	  font-size: clamp(2.25rem, 6vw, 4rem);
+	}
+
+	8.7/ Chia cột cho đoạn văn bản
+
+	h1{
+	  column-count: 3;
+	  column-gap: 4.45rem;
+	  column-rule: 2px dotted crimson;
+	}
+	
+	8.8/ Tạo dấu ấn cho text
+Dùng thuộc tính "text-emphasis" để áp dụng ký tự nhấn mạnh cho văn bản. Có thể chỉ định bất kỳ chuỗi nào bao gôm cả biểu tượng cảm xúc để làm giá trị.
+
+	h1{
+	  text-emphasis: "value";
+	}
+
+` 
+	8.9/ style cho ký tự đầu
+Có thể chọn ký tự đầu tiên với ::first-letter trong một câu hoặc trong một đoạn văn để style.
+
+	h1::first-letter{
+	  font-size: 2rem;
+	  color: #00AFAB;
+        }
+
+	8.10/ Tự động thêm 0 vào danh sách
+Giá trị decimal-leading-zero sẽ giúp tự động thêm 0 vào đầu mỗi dòng trong danh sách tăng dần khi dùng thẻ ul, li.
+
+	li{
+	  list-style-type: decimal-leading-zero;
+        }
+
+Ví dụ: 01.,02.,03.,...
+
+	8.11/ Kiểm tra thuộc tính
+Kiểm tra thuộc tính CSS đó có được hỗ trợ bởi trình duyệt hay không.
+
+	@supports (display: grid){
+	   main{
+	      display: grid;
+	   }
+	}
+
+
+	
+	  

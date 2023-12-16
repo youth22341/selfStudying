@@ -1,0 +1,681 @@
+=================================================================================GHI CHÚ VỀ CSS (ADVANCED)=================================================================================
+1/ Tạo Table
+Sử dụng thẻ <table>
+Tạo nội dung trong table:
+	+Thẻ <tr>: tạo một hàng
+	+Thẻ <td>: xác định nội dung của một hàng (qua từng cột)
+	+Thẻ <th>: xác định tiêu đề của từng cột
+
+Code mẫu:
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Họ và tên đệm</th>
+        <th>Tên</th>
+        <th>Email</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Nguyễn Minh</td>
+        <td>Đức</td>
+        <td>nguyenminhduc@mail.com</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Vũ Kim</td>
+        <td>Thoa</td>
+        <td>vukimthoa@mail.com</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Nguyễn Linh</td>
+        <td>Trang</td>
+        <td>nguyenlinhtrang@mail.com</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Vi Đại</td>
+        <td>Doanh</td>
+        <td>vidaidoanh@mail.com</td>
+    </tr>
+</table>
+	
+	1.1/ Thêm đường viền cho bảng
+
+Có thể thiết lập đường viền của table như sau:
+
+table, th, td {
+    border: 1px solid black;
+}
+
+Tuy nhiên, theo mặc định, trình duyệt vẽ một đường viền xung quanh bảng, cũng như xung quanh tất cả các ô với một khoảng trống ở giữa, điều này dẫn đến đường viền kép.
+
+Để thoát khỏi vấn đề trên, chỉ cần thu gọn các đường viền ô liền kề và tạo các đường viền đơn, gọi là Collapsing Border. Có 2 mô hình riêng biệt để thiết lập:
+
+	+Separate: là mặc định, mỗi ô của bảng có đường viền riêng --> đường viền kép xảy ra ở đoạn code trên.
+	+Collapse: các ô của bảng liền kề có chung một viền. Có thể thiết lập bằng việc sử dụng thuộc tính border-collapse. Đoạn code dưới đây sẽ thu gọn các viền ô của bảng (thay cho đoạn code thiết lập đường viền của table ở trên):
+
+table {
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+}
+
+	1.2/ Điều chỉnh không gian bên trong bảng
+		+Đối với chữ: sử dụng padding
+		+Đối với các cột: sử dụng border-spacing: value;
+	
+	1.3/ Điều chỉnh width và height của bảng
+
+	1.4/ Kiểm soát bố cục bảng
+Khi dữ liệu được điền vào trong bảng, bảng sẽ tự mở rộng miễn là còn có không gian. Tuy nhiên đôi khi cần phải thiết lập chiều rộng cố định cho bảng để quản lý bố cục thống nhất. Lúc này có thể sử dụng thuộc tính table-layout với các giá trị sau:
+		+auto: đây là giá trị mặc định. Với giá trị này độ rộng của bảng và các ô của nó được điều chỉnh để phù hợp với nội dung.
+		+fixed: với giá trị này bố cục ngang của bảng không phụ thuộc vào nội dung của các ô. Nó chỉ phụ thuộc vào chiều rộng của bảng, chiều rộng của các cột và đường viền hoặc khoảng cách các ô (trong cú pháp đi kèm phải có thông số của chiều rộng, tức thuộc tính width phải có giá trị)
+		+inherit: kế thừa thuộc tính của phần tử cha
+
+	1.5/ Sắp xếp nội dung 
+		+Theo chiều ngang: sử dụng thuộc tính text-align
+		+Theo chiều dọc: sử dụng thuộc tính vertical-align: value; với các giá trị của value là: top, bottom và center.
+
+	1.6/ Kiểm soát vị trí đặt caption của bảng
+Sử dụng thuộc tính caption-side: value; với các giá trị của value là top (đầu bảng) - là giá trị mặc định và bottom (cuối bảng)
+
+	1.7/ Xử lý các ô trống trong bảng
+Sử dụng thuộc tính empty-cells: value; với value là giá trị show và hide. 
+	+Giá trị mặc định là show, hiển thị các ô trống như các ô bình thường.
+	+Nếu giá trị hide được chọn, không có border hoặc background nào được vẽ xung quanh các ô trống.
+
+	1.8/ Tạo bảng sọc như ngựa vằn (các ô được tô màu xen kẽ)
+Hiệu ứng này có được nhờ sử dụng pesudo-class Selector trong CSS là: nth-child()
+Xem đoạn code mẫu sau để hiểu (với code này các hàng lẻ sẽ được làm nổi bật)
+
+table {
+    width: 100%;        
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+}
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+Trong đó có các thông tin sau dành cho giá trị value trong selector nth-child(value):
+	+odd/even: hàng chẵn/lẻ được tô và id bắt đầu từ 0
+	+number - đại diện cho một giá trị cụ thể của value, ví dụ value = 4 --> mục thứ 4 được đánh dấu
+	+(An+B): A là step, B là điểm bắt đầu lựa chọn.
+Ví dụ: A = 3, B = 2 
+--> Bắt đầu từ mục 2, cứ cách 3 step là tô một mục: 2,5,8,..
+	+(n+B): chọn từng mục n, bắt đầu từ mục thứ B. Là một dạng biến thể của trường hợp tổng quát trên, ở đây tương ứng A = 1, từ mục thứ B về sau đều được đánh dấu hết.
+	+(An-B): cũng ý nghĩa tương tự với A là step, tuy nhiên điểm đầu tiên được đánh dấu là (A-B)
+(Các giá trị A,B phía trên đều phải thỏa điều kiện là số tự nhiên)
+
+	1.9/ Tạo bảng Responsive
+Yếu tố này được sử dụng để hỗ trợ các thiết bị di động, khả năng này cho phép cuộn ngang trên màn hình nhỏ.
+
+Để làm điều này thì cần bọc bảng bằng phần tử <div> và áp dụng kiểu overflow-x: auto; 
+Áp dụng tất cả các bài học trên, tự code được bảng như sau:
+
+HTML:
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Hello guys</Title>
+  <link rel="stylesheet" href="style.css">
+<head> 
+  
+<body>
+  <div class="Title">
+    <center>
+      <h1>Let's create a table with our name!</h1>
+    </center>
+  </div>
+
+  <div class="responsive-table">
+    <div class="Container">
+      <p>Here is the table</p>
+      <table>
+        <tr>
+          <th>Order</th>
+          <th>Full name</th>
+          <th>Date of birth</th>
+          <th>Facebook account</th>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>La Anh Kiet</td>
+          <td>22/06/2001</td>
+          <td>
+            <a href="https://www.facebook.com/kiet.la226">Lã Anh Kiệt</a></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Dao Nhat Minh</td>
+          <td>17/05/2001</td>
+          <td>
+            <a href="https://www.facebook.com/profile.php?id=100041779815960">Đào Nhật Minh</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>Tran Duy Thanh</td>
+          <td>22/04/2001</td>
+          <td>
+            <a href="https://www.facebook.com/profile.php?id=100081281030609">Thanh Duy</a>
+          </td>
+        </tr>
+      </table> 
+    </div>
+</body>   
+</html>
+
+CSS:
+
+table{
+	table-layout: auto;
+	width: 100%;
+	border-collapse: collapse;
+	whitespace: nowrap;
+}
+    
+th,td{
+	border: 1px solid black;
+	padding: 8px;
+}
+
+td{
+	text-align: center;
+}
+
+tr:nth-child(odd) {
+	background-color: #f2f2f2;
+}
+
+.Title{
+	color: red;
+}
+
+.reponsive-table{
+	overflow-x: auto;
+}
+
+============================================================================================================================================================================================
+2/ CSS Flex-box
+Khi class mang thuộc tính display: flex; thì mặc định container chia làm 2 trục:
+	+Trục main: theo hàng ngang
+	+Trục cross: theo chiều dọc
+
+	2.1/ Thuộc tính cho container
+		2.1.1/ flex-direction
+			+row (từ trái sang): giá trị mặc định
+			+row-reverse (từ phải sang)
+			+column (từ trên xuống)
+			+column-reverse (từ dưới lên)
+Ngoài ra còn có flex-wrap (được ghi chú trong file: [Note]_outSource.txt)
+	
+		2.1.2/ align-items: căn chỉnh theo trục dọc
+			+flex-start: các element nằm ở trên cùng theo trục dọc
+			+flex-end: các element nằm ở dưới cùng theo trục dọc
+			+center: các element nằm ở giữa theo trục dọc
+			+stretch: các element được kéo dài để fit theo trục dọc
+
+		2.1.3/ justify-content: căn chỉnh theo trục main
+			+flex-start: các element nằm phía đầu theo hàng ngang
+			+flex-end: các element nằm phía cuối theo hàng ngang
+			+center: các element nằm ở giữa
+			+space-between: giữa các element sẽ có khoảng trắng bằng nhau (element đầu và cuối nằm sát ở 2 biên).
+			+space-around: giữa các element có khoảng trắng bằng nhau + ở 2 biên (tức element đầu và cuối không còn nằm sát biên nữa mà cũng cách một khoảng so với biên). Khoảng trắng giữa element đầu/cuối so với biên khác so với khoảng trắng giữa các element.
+			+space-evenly: giữa các element + ở 2 biên có khoảng trắng. Điểm khác so với space-around là các khoảng trắng này là đều nhau.
+
+		2.1.4/ align-content: tương tự như các phân tích trên
+			+flex-start
+			+flex-end
+			+center
+			+stretch
+			+space-between
+			+space-around
+
+	2.2/ Thuộc tính quan trọng cho các items
+		2.2.1/ flex-basis: xác định kích thước của từng items trước khi flex-grow/shrink được áp dụng. Ví dụ:
+
+		flex-basis: 200px; // giá trị mặc định là auto
+
+		2.2.2/ flex-grow: tăng kích thước theo trục main của flex items tính từ flex-basis theo tỉ lệ
+
+--> Giúp chiếm hết khoảng không gian khả dụng còn lại (theo trục main) của container
+Cú pháp:
+		flex-grow: value;
+
+Ví dụ có 3 box, nếu mỗi box đều có thuộc tính flex-grow với value = 1 thì kích thước cả 3 box sẽ bằng nhau. 
+
+Tuy nhiên, nếu để box 1 và box 3 mang giá trị value = 1,  box 2 có value = 3 thì kích thước theo trục main của box 3 sẽ chiếm 3/5, box 1 = box 2 = 1/5.
+
+		2.2.3/ flex-shrink: chỉ khả dụng khi khoảng không gian khả dụng là âm (các flex items nằm tràn ra ngoài container).
+
+--> Sau khi áp dụng thuộc tính này thì các flex items không còn nằm tràn nữa mà sẽ chiếm lấy tối đa không gian của container.
+Cú pháp:
+
+		flex-shrink: value; với value có ý nghĩa tương tự flex-grow
+
+--> Ngoài ra, cả 3 thuộc tính trên có thể gom về 1 câu lệnh như sau:
+
+	flex: grow shrink basis;
+
+Ví dụ:
+
+	flex: 1 1 auto;
+
+		2.3.4/ Bonus
+Thuộc tính giúp thay đổi thứ tự hiển thị của các item. Cú pháp:
+
+	order: value; với value = 0,1,2,3,.. tương ứng với thứ tự xuất hiện của từng item. Trong đó value = 0 là giá trị mặc định (không xét thứ tự).
+
+============================================================================================================================================================================================
+3/ CSS: Grid
+	3.1/ Một số khái niệm
+Gồm các đường giao nhau tạo thành lưới:
+	+Theo cột: mỗi cột được tạo bởi 2 grid line, bắt đầu từ line 1
+	+Theo hàng: mỗi hàng được tạo bởi 2 grid line, bắt đầu từ line 1
+	+Mỗi cột/hàng được gọi là grid track
+	+Mỗi ô được gọi là grid cell (đơn vị nhỏ nhất)
+Ngoài ra còn có:
+	+Grid container: khi khai báo display: grid; element được chọn sẽ thành một khối lớn bao quanh được gọi là grid. Bên trong là các grid items.
+	+Grid area: là một hình chữ nhật, cho phép ta điều chỉnh kích thước, khả năng chiếm dụng so với grid container (luôn lưu ý rằng, vùng chọn grid area phải là hình chữ nhật / hình vuông, các biến thể khác đều không được)
+
+	3.2/ Phân bổ các grid items
+Ví dụ có 5 grid items nằm thẳng hàng theo chiều dọc (mặc định là 1 column khi chưa khai báo số lượng column hay row sau khi set thuộc tính display: grid;), ta sẽ điều chỉnh vị trí các grid items này qua thuộc tính grid.
+
+	*Cách 1: 3.2.1/ Khai báo grid này gồm bao nhiêu cột, hàng - định nghĩa trong grid container
+Cú pháp:
+
+	grid-template-columns: value1 value2 .... value_n
+	grid-template-rows: value1 value2 .... value_n
+
+Trong đó, các giá trị của value có thể là:
+	+Đơn vị tuyệt đối, ví dụ: 100px 200px
+	+Đơn vị tương đối: fraction (fr), ví dụ: 1fr 2fr 1fr; (%), ví dụ: 20%
+	+Vừa có đơn vị tuyệt đối vừa có đơn vị tương đối: 100px 20% 1fr 2fr
+(Ở đây, đơn vị fr thể hiện tỉ lệ giữa các column với nhau và thay đổi khi kích thước khung bao thay đổi. Ví dụ:
+	Kích thước khung bao: x (px), và x có thể thay đổi khi kéo thả màn hình
+	Kích thước column được định nghĩa: 100px 20% 1fr 2fr 1fr
+--> 1fr = (x-100-20%x)/(1+2+1)
+
+Và nếu các cột hoặc hàng có các kích thước giống nhau, lặp đi lặp lại thì có thể sử dụng cú pháp sau thay vì ghi value1...value_n:
+
+	repeat(n,value1 value2 value_m)
+
+Trong đó:
+	+n: số lần lặp lại
+	+value1 value2 value_m: các giá trị kích thước định nghĩa
+Ví dụ:
+	repeat(4, 1fr) --> 1fr 1fr 1fr 1fr
+	repeat(3, 1fr 2fr) --> 1fr 2fr 1fr 2fr 1fr 2fr
+
+Lưu ý: 
+	+Nếu số lượng grid items > số lượng column được định nghĩa thì những column bị dư sẽ xuống hàng mới (thêm một rows). Lúc này có thể chưa có định nghĩa bao nhiêu rows. 
+--> Kích thước rows sẽ theo ô có nội dung dài nhất.
+	+Mặc định kích thước một grid cell sẽ được điều chỉnh theo lượng content nó chứa, tuy nhiên có thể điều chỉnh để flexible hơn bằng thuộc tính min-height: value; cho các grid items. Tuy nhiên, nếu lúc này ta có định nghĩa kích thước cho các rows thì kích thước sau sẽ được ưu tiên hơn.
+	+Khi không định nghĩa kích thước rows (grid-template-rows) thì ta có thể điều chỉnh auto như sau:
+
+	grid-auto-rows: value; 
+
+--> Tất cả các rows đều cùng mang giá trị value.
+Trong đó, các giá trị value có thể là:
+	+Kích thước cụ thể (đơn vị tương đối, tuyệt đối)
+	+Hàm minmax(min,max) nhận vào 2 giá trị min và max. Ví dụ: minmax(60px,auto).
+(sử dụng max = auto với mục đích là xử lý trường hợp content trong grid items vượt quá giá trị min).
+
+	*Cách 2: 3.2.2/ Phân bổ theo grid lines - định nghĩa trong grid items
+Ví dụ muốn item5 chiếm từ line a đến line b (của column), cú pháp:
+	grid-column-start: a;
+	grid-column-end: b;
+hoặc có thể viết gọn lại thành:
+	grid-column: a / b;
+Tương tự với grid-row-start, grid-row-end và grid-row. 
+
+	*Cách 3: 3.2.3/ Phân bổ theo grid area - định nghĩa trong grid-container
+Trước hết, phải hình dung số lượng và hình dáng của area như nào, rồi đặt tên cho từng vị trí tương ứng với hình dáng mong muốn. Cú pháp:
+	
+	grid-template-areas:
+	"name1 ... name_n"
+	"name_j... name_k"
+Trong đó, các ký hiệu "name" là tùy ý và nên đặt có ý nghĩa.
+Ví dụ 1:
+
+	grid-template-areas:
+	"aa aa"
+	"bb bb"
+
+--> Bố cục là khối 2x2 với: hàng 1 có các ô cùng ký hiệu "aa", hàng 2 có các ô cùng ký hiệu "bb"
+
+Lúc này, nếu muốn đặt item5 nằm ở những vị trí mang ký hiệu "aa" thì ta có cú pháp sau:
+	
+	grid-area: aa
+
+--> Các items còn lại sẽ tự động bị điều chỉnh 
+
+Ví dụ 2: Một template phổ biến
+
+	grid-template-areas:
+	"header header header"
+	"sidebar content content"
+	"sidebar comment comment"
+	"footer footer footer"
+Và ta có thể đặt tương đối các vị trí của grid items như sau:
+
+	item1: grid-area: header;
+	item2: grid-area: sidebar;
+	item3: grid-area: content;
+	item4: grid-area: comment;
+	item5: grid-area: footer;
+
+
+Ngoài ra, có thể chỉnh khoảng cách giữa các columns, các rows như sau:
+
+	column-gap: value;
+	row-gap: value;
+
+Thường thì sẽ set up template bằng css grid trước, còn các grid items bên trong được điều chỉnh bằng flexbox.
+
+	3.3/ Responsive layout 
+Mục đích là tạo template cho từng giao diện (ví dụ: PC với chiều rộng 2000px là vừa khung, tablet chỉ 900px và mobile là 500px). Việc responsive theo từng thay đổi của giao diện giúp content được hiển thị flexible hơn.
+		3.3.1/ Sử dụng media querry
+Cú pháp:
+
+	@media (max-width: value){ //Nếu giá trị width = value thì áp dụng
+ 		
+		//Ghi đè lên các class, các thuộc tính cần thay đổi
+		Ví dụ:
+			.item{
+				grid-template-columns: repeat(2,1fr);
+			}
+	}
+
+Trong đó, giả sử ban đầu giá trị của thuộc tính "grid-template-columns" của element item là:
+
+	grid-template-columns: repeat(3,1fr);
+
+Lúc đó lượng chiếm dụng theo cột trong một hàng của item5 sẽ thay đổi từ 3 cột về 2 cột.
+
+Tương tự, nếu muốn thay đổi cách sắp xếp của các grid items thì class, thuộc tính cần thay đổi là grid-template-areas: value;
+
+		3.3.2/ Sử dụng chính các thuộc tính cần thay đổi
+Hiện tại ở item, thuộc tính grid-template-columns đang bị fix cứng bởi repeat(3,1fr)
+
+--> Cố định 3 cột
+
+Thay đổi số lượng cột trong repeat theo cú pháp sau:
+
+	repeat(auto-fit,minmax(min,max))
+Trong đó:
+	+auto-fit: hệ thống tự tính toán dựa trên kích thước giao diện mà quyết định có bao nhiêu column
+	+minmax(min,max): bề ngang tối thiểu và tối đa của column. Ví dụ: min = 200px, max = 1fr
+
+		3.3.3/ Bonus
+Khi kích thước bề ngang không đủ hiển thị, mặc định các cột sẽ xuống hàng. Có thể tùy chỉnh để các cột không xuống hàng nữa, với cú pháp sau:
+
+	grid-auto-flow: column;
+
+Trong đó, giá trị mặc định của thuộc tính này là row.
+
+Tuy nhiên, còn một vấn đề nữa là, lúc này khi kéo thả thì có thể khiến nội dung bị co lại làm cho content khó theo dõi. Có thể sửa bằng cách thêm thuộc tính sau:
+
+	grid-auto-columns: minmax(min,max);
+
+============================================================================================================================================================================================
+4/ CSS: Position
+Có 5 giá trị chính:
+	4.1/ static - giá trị mặc định
+Các block element (ví dụ như thẻ p, thẻ div) sẽ được phân bổ theo normal flow, tức các block sẽ được dàn trải theo chiều dọc từ trên xuống dưới và chiếm hết chiều ngang của container. Còn các inline element như thẻ a, thẻ img,.. sẽ nằm cạnh nhau theo chiều từ trái sang phải
+
+Lúc này các thuộc tính như top, left, bottom, z-index khi điều chỉnh sẽ không ảnh hưởng đến thuộc tính này.
+
+	4.2/ relative - giá trị tương đối so với gốc ban đầu 
+Cũng tương tự như static khi cũng được theo normal flow của trang. Tuy nhiên điểm khác biệt duy nhất là các thuộc tính như top, left, bottom, z-index lại có giá trị trong thuộc tính này.
+
+Việc thay đổi vị trí của bất kỳ block element nào cũng không ảnh hưởng đến vị trí của các block element xung quanh.
+	4.3/ absolute
+Sẽ bị loại bỏ khỏi normal flow của trang.
+Mang giá trị tương đối so với phần tử cha gần nhất có thuộc tính position.
+Ví dụ block-1 nằm trong container, và container nằm trong html
+
+	+Giả sử, container có thuộc tính position: relative/absolute/fixed/sticky;
+Nếu set các giá trị vị trí của block-1 như top, left, bottom, z-index thì đều sẽ so với phần tử cha gần nhất là container (không quan tâm đến padding của container, mà chỉ quan tâm đến mép trái).
+
+	+Giả sử, container không có thuộc tính positon:
+Nếu set các giá trị vị trí của block-1 như top, left, bottom, z-index thì đều sẽ so với phần tử cha gần nhất lúc này là html.
+
+	4.4/ fixed
+Tương tự như absolute khi cũng bị loại bỏ khỏi normal flow, tuy nhiên điểm khác biệt duy nhất là nó chỉ hiển thị vị trí tương đối so với html element.
+
+	4.5/ sticky
+Là sự kết hợp của giá trị relative và fixed: 
+	+Mặc định sẽ là relative khi vẫn tuân theo normal flow của trang.
+	+Sẽ trở thành fixed khi cuộn trang và đạt đến các giá trị vị trí đã cài đặt (top, left, bottom, z-index).
+
+Lưu ý là giá trị này chỉ hoạt động trong container chứa nó (giả sử trang gồm container-chứa block-1 + section. Lúc này nếu cuộn trang đến phần của section thì block-1 khi mang giá trị thuộc tính position là sticky thì block-1 vẫn giữ nguyên vị trí đó).
+
+============================================================================================================================================================================================
+5/ CSS transtion và CSS animation 
+Các link tham khảo:
+	-Using CSS transitions: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Transitions/Using_CSS_transitions
+	-Animatable CSS properties: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+	-Using CSS animations: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Animations/Using_CSS_animations
+
+	5.1/ CSS transition  --> phải có hành động mới xảy ra hiệu ứng (tác động với UI)
+Chỉ có một số thuộc tính (background, width, height,...) là sử dụng được transition. Chi tiết các thuộc tính ở địa chỉ: (lát bổ sung sau)
+
+Ví dụ ta có block elements blue cần được style transition.
+
+Ta muốn sử dụng hiệu ứng là khi rê chuột vào block element này thì sẽ thay đổi (ví dụ về màu sắc, kích thước,..) thì ta có cú pháp sau:
+
+	.blue:hover{
+		//Các thuộc tính muốn thay đổi
+		Ví dụ:
+		background-color: brown; //giả sử trước đó block element blue có thuộc tính background-color: blue; --> sau khi rê chuột sẽ Ngay lập tức chuyển sang màu nâu
+	}
+
+--> Sử dụng transition để quản lý thời gian xảy ra hiệu ứng, cách hiệu ứng hoạt động,...
+
+Với css transition sẽ có 4 thuộc tính chính:
+	
+		5.1.1/ transition-property: value;
+Với value là các thuộc tính muốn áp dụng thuộc tính: ví dụ như background-color, color, width,..
+
+		5.1.2/ transition-duration: value;
+Có tác dụng xác định thời gian diễn ra hiệu ứng (sẽ không thay đổi Ngay lập tức như mặc định).
+
+Các giá trị của value là thời gian với đơn vị là s,ms. Ví dụ: 2s, 2ms
+
+		5.1.3/ transition-delay: value;
+Có tác dụng xác định thời gian sẽ diễn ra hiệu ứng với ý nghĩa của giá trị value tương tự ở 5.1.2/
+
+Ví dụ, nếu có transition-delay: 2s; thì sau 2s mới xảy ra hiệu ứng, và thời gian hiệu ứng xuất hiện sẽ theo giá trị được set up ở thuộc tính transition-duration.
+
+		5.1.4/ transition-timing-function: value;
+Có tác dụng xác định biểu hiện của hiệu ứng: nhanh dần, nhanh-chậm-nhanh,...
+Giá trị của value :
+	+Nếu là một function thì chính là hàm: cubic-bezier(parameter) (có bài riêng về function này sau).
+(Có thể vào trang: https://cubic-bezier.com/ để xem mô phỏng các giá trị này)
+	+Nếu là các giá trị thường gặp thì sẽ có:
+		*ease-in-out
+		*ease-in
+		*linear
+Các giá trị trên thực chất cũng chỉ là các hàm cubic-bezior (được viết tắt)
+
+--> Note: 
+	1/ CSS transitions có thể được áp dụng cho nhiều thuộc tính cùng lúc với các giá trị được cách nhau bởi dấu phẩy:
+
+		transition-property: prop-1, prop-2,...,prop-n;
+		transition-duration: dur-1, dur-2,...,dur-m;
+		transition-delay: del-1, del-2,...,del-k;
+		transiton-timing-function: func-1,func-2,...,func-p;
+
+	2/ Trong các thuộc tính trên thì transition-property có độ ưu tiên cao nhất với các tình huống sau:
+
+	*Số lượng property < Số lượng các thông số còn lại: Các thông số còn lại sẽ được áp dụng theo thứ tự so với property. Thông số nào dư thì chương trình sẽ mặc định bỏ qua.
+
+	*Số lượng property > Số lượng các thông số còn lại: tương tự, các thông số còn lại sẽ được áp dụng theo thứ tự so với property. Đến property nào mà không có thông số tương ứng thì sẽ quay lại thông số đầu. Ví dụ:
+
+		transition-property: prop-1, prop-2, prop-3;
+		transition-duration: dur-1, dur-2;
+Lúc này prop-3 sẽ tương ứng với dur-1. Và nếu có prop-4 thì sẽ tương ứng với dur-2. Cứ thế tiếp tục theo quy luật này cho đến prop-n.
+
+	3/Có thể viết tắt các tính chất trên vào một thuộc tính với cú pháp:
+
+		transition: prop-1 dur-1 del-1 func-1, prop-2 dur-2 del-2 func-2,..;
+
+--> Nếu muốn áp dụng một hiệu ứng cho tất cả các thuộc tính có thể thì có cú pháp sau:
+
+		transition: all dur del func;
+
+	4/Bonus: sử dụng pseudo class
+Giả sử bên code HTML ta có các dòng code sau:
+
+	<div class="container">
+	  <ul class="menu">
+	     <li>Home</li>
+	     <li>Profile</li>
+	     ....
+          </ul>
+        </div>
+
+Hiệu ứng mong muốn được áp dụng ở đây là, mỗi khi hover vô bất kỳ <li> nào cũng sẽ tạo ra dấu gạch chân bên dưới, biến đổi dần.
+
+Ta có code CSS như sau:
+
+	.menu li{
+	   display: inline-block; // sử dụng value này để các <li> nằm thẳng hàng theo phương ngang
+           position: relative;
+	}
+
+	.menu li::after{  
+/*
+	after/before là pseudo class của thẻ <li>, tương ứng là 2 tag <before> và <after>
+--> là con của thẻ <li>
+
+	Vị trí tương quan trong html:
+
+	<li>
+	   <before></before>element<after></after>
+	</li>
+
+*/
+
+	   width: 0;
+	   height: 4px;	
+           background-color: black;
+           content: ''; // mỗi pseudo đều có thuộc tính content. Mặc định để ở đây là empty string
+	   position: absolute; // để có vị trí tương đối so với element relative gần nhất
+	   bottom: -2px; // element giả này nằm dưới các element trong thẻ <li>, và giá trị âm để cách các element một khoảng về phía dưới.
+           left: 0;
+           transition: width 1.5s;
+	}
+
+	.menu li:hover::after{
+	    width: 100%;
+        }   
+	
+	5.2/ CSS animation --> không cần hành động để có hiệu ứng diễn ra
+Ví dụ block element ta muốn áp dụng vẫn tiếp tục là block blue như trên. Ta có cú pháp:
+
+	.blue{
+		animation-name: func_name-1, func_name-2,..;
+	
+	}
+
+	@keyframes func_name-1{
+
+		//Các trạng thái
+
+	}
+
+Các trạng thái ở đây là các phần giai đoạn diễn ra. Ví dụ:
+
+	1/ 
+		0%{
+	            //Các thuộc tính thay đổi
+		}
+		100%{
+	            //Các thuộc tính thay đổi
+		}
+
+--> Đây là giai đoạn đầu và cuối của một quá trình, có thể viết lại thành:
+
+		from{
+	            //Các thuộc tính thay đổi
+		}
+		to{
+	            //Các thuộc tính thay đổi
+		}
+
+--> Giá trị của from và to là không bắt buộc, có thể chỉ khai báo 1 trong 2
+
+	2/
+
+		0%{
+	            //Các thuộc tính thay đổi
+		}
+		50%{
+	            //Các thuộc tính thay đổi
+		}
+		75%{
+	            //Các thuộc tính thay đổi
+		}
+		100%{
+	            //Các thuộc tính thay đổi
+		}
+
+Ngoài ra, animation còn các thuộc tính sau (khá tương đồng so với transition)
+
+		5.2.1/ animation-duration: value;
+Cũng tuơng tự như ở transitions, giá trị value ở đây là thời gian diễn ra hiệu ứng (2s,1000ms,..)
+
+--> Sau khi kết thúc hiệu ứng sẽ trở về trạng thái ban đầu
+
+		5.2.2/ animation-iteration-count: value;
+Có tác dụng xác định số lần hiệu ứng xảy ra. Value lúc này có thể là một giá trị cụ thể (2,3,4,..) hoặc "infinite" (lặp vô tận)
+
+--> Tuy nhiên lúc này hiệu ứng diễn ra rất đột ngột. Lúc này sẽ cần thêm thuộc tính phía dưới.
+
+		5.2.3/ animation-direction: value;
+Có tác dụng giúp thay đổi hướng với giá trị thường dùng là alternate để hiệu ứng mượt mà hơn. Ví dụ: hiệu ứng chuyển từ blue -> brown. Khi áp dụng thuộc tính này thì từ brown->blue. Hiệu ứng mượt mà hơn.
+
+		5.2.4/ animation-delay: value;
+Tương tự như transitions.
+
+		5.2.5/ animation-timing-function: value;
+Tương tự như transitions.
+
+--> Note:
+	1/ Các lưu ý về tương quan giữa số lượng animation-name với các thuộc tính khác tương tự với sự tương quan giữa property với các thuộc tính khác trong transitions.
+
+	2/ Viết tắt cho animation
+
+		animation: animation-name animation-duration animation-iteration-count animation-direction animation-timing-function, (tương tự cho các animation-name khác).
+
+	3/ Một ví dụ về hiệu ứng thường thấy: tạo một hình tròn xoay tròn đều (hiệu ứng loading)
+
+	@keyframes func_name{
+
+		to{
+		    transform: rotate(360deg);
+		}
+	
+	}
+
+Và để hình tròn xoay tròn đều thì animation-timing-function sẽ mang giá trị là linear.
+============================================================================================END=============================================================================================
+
+
+
