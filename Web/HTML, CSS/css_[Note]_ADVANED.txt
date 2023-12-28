@@ -508,9 +508,11 @@ Giá trị của value :
 	+Nếu là một function thì chính là hàm: cubic-bezier(parameter) (có bài riêng về function này sau).
 (Có thể vào trang: https://cubic-bezier.com/ để xem mô phỏng các giá trị này)
 	+Nếu là các giá trị thường gặp thì sẽ có:
-		*ease-in-out
-		*ease-in
-		*linear
+		*ease: chuyển động chậm lúc bắt đầu, sau đó tăng nhanh dần và giảm tốc độ khi kết thúc.
+		*ease-in: Chuyển động chậm lúc bắt đầu và tăng tốc khi kết thúc.
+		*ease-out: chuyển động nhanh lúc bắt đầu và sau đó chuyển động chậm về cuối.
+		*ease-in-out: ease and ease-in-out have soft edges on both sides, but sometimes it’s more appropriate to use ease-in or ease-out
+		*linear: chuyển động cùng với một tốc độ từ đầu đến cuối.
 Các giá trị trên thực chất cũng chỉ là các hàm cubic-bezior (được viết tắt)
 
 --> Note: 
@@ -675,6 +677,695 @@ Tương tự như transitions.
 	}
 
 Và để hình tròn xoay tròn đều thì animation-timing-function sẽ mang giá trị là linear.
+
+============================================================================================================================================================================================
+6/ box-shadow
+Giúp tạo hiệu ứng đổ bóng
+
+Cú pháp:
+
+selector {
+  box-shadow: h-offset v-offset blur spread color inset;
+}
+
+Trong đó:
+
+	+h-offset: giá trị ngang của bóng, xác định khoảng cách từ phần tử tới bóng đổ theo chiều ngang. Dương (+) sẽ đi về phía bên phải và âm (-) sẽ đi về phía bên trái.
+	+v-offset: giá trị dọc của bóng, xác định khoảng cách từ phần tử tới bóng đổ theo chiều dọc. Dương (+) sẽ đi xuống và âm (-) sẽ đi lên.
+	+blur: giá trị xác định mức độ mờ của bóng. Giá trị càng lớn, bóng càng mờ đi và ngược lại.
+	+spread: giá trị xác định mức độ mở rộng hoặc co lại của bóng. Giá trị dương (+) sẽ làm bóng mở rộng và giá trị âm (-) sẽ làm bóng co lại.
+	+color: giá trị xác định màu sắc của bóng, có thể là một tên màu (ví dụ: red, #ff0000) hoặc giá trị RGBA.
+	+inset: là tùy chọn và có thể là inset hoặc không có. Khi được đặt là inset, bóng sẽ xuất hiện bên trong phần tử thay vì là bên ngoài (mặc định).
+
+Ví dụ:
+
+.box {
+  box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button {
+  box-shadow: 0 0 10px #f00 inset;
+}
+
+============================================================================================================================================================================================
+7/ Điều chỉnh độ mờ của một phần tử
+
+Trong CSS, thuộc tính opacity được sử dụng để xác định độ trong suốt của một phần tử HTML và nội dung bên trong nó. Nó làm thay đổi mức độ hiển thị của phần tử và các phần tử con bên trong từ 0 (hoàn toàn trong suốt) đến 1 (không có trong suốt).
+
+Cú pháp:
+
+selector {
+  opacity: value;
+}
+
+Trong đó, giá trị của value là một số nằm từ 0 đến 1, với:
+
+	+Giá trị 1 biểu thị mức độ trong suốt là 0 (hiển thị hoàn toàn).
+	+Giá trị 0.5 biểu thị mức độ trong suốt là mờ.
+	+Giá trị 0 biểu thị mức độ hoàn toàn trong suốt.
+
+--> Note: opacity ảnh hưởng đến tất cả các thành phần bên trong phần tử, bao gồm cả văn bản và hình ảnh. Nếu chỉ muốn làm mờ nội dung nhất định mà không ảnh hưởng đến phần tử chứa, bạn có thể sử dụng thuộc tính background-color hoặc rgba() để làm trong suốt phần nền mà không làm trong suốt phần tử chứa.
+
+===========================================================================================================================================================================================8/ Sử dụng text-transform để điều chỉnh chữ HOA/thường
+
+Cú pháp:
+
+selector {
+  text-transform: value;
+}
+
+Trong đó, các giá trị của value là:
+
+	+none: giá trị mặc định, chữ viết trong văn bản không thay đổi.
+	+capitalize: chữ cái đầu của từ trong văn bản sẽ được viết hoa, các chữ cái còn lại viết thường.
+	+uppercase: tất cả các chữ cái trong văn bản sẽ được viết hoa.
+	+lowercase: tất cả các chữ cái trong văn bản sẽ được viết thường.
+	+full-width: chữ cái và ký tự trong văn bản sẽ được viết dạng full-width (toàn bộ chiều rộng), tương tự như trong các ký tự tiếng Nhật.
+
+===========================================================================================================================================================================================
+9/ Đẩy các phần tử sang trái hoặc phải với thuộc tính float
+
+Cú pháp:
+
+selector {
+  float: value;
+}
+
+Trong đó, giá trị của value là:
+
+	+left: phần tử sẽ nổi sang bên trái, và các phần tử khác sẽ chen vào bên phải.
+	+right: phần tử sẽ nổi sang bên phải, và các phần tử khác sẽ chen vào bên trái.
+	+none (giá trị mặc định): phần tử không nổi lên và sẽ tuân thủ luồng tự nhiên của tài liệu.
+
+===========================================================================================================================================================================================
+10/ Kiến thức về tạo độ tương phản về màu sắc để tăng khả năng đọc của người dùng
+
+Theo chuẩn quy tắc thế giới Web Content Accessibility Guidelines (WCAG), tỷ lệ tương phản là tối thiểu từ 4,5 đến 1 đối với một đoạn văn bản thông thường. Tỷ lệ này được tính toán dựa trên cường độ ánh sáng tương đối giữa 2 màu sắc, tỷ lệ này sẽ ở mức 1:1 trong cùng một màu (không có độ tương phản) đến 21:1 đối với màu trắng và màu đen (đây là mức độ tương phản tối đa). 
+
+Có thể dùng phần mềm online để check.
+
+===========================================================================================================================================================================================
+11/ linear-gradient() và repeat-linear-gradient() - cả 2 đều nằm trong background/background-image property
+
+	11.1/ linear-gradient()
+
+Cú pháp:
+
+	background: linear-gradient(direction,color-stop_list)
+
+Trong đó:
+
+	+direction:
+		*to top/bottom, to left/right, to left/right top/bottom.
+		*angle (deg)
+	+color-stop_list:
+		Ví dụ có 3 màu A,B,C và % chiếm là a,b,c (dĩ nhiên a+b+c=100%). Và % chiếm ở đây được tính dựa vào quãng đường mà màu đi theo hướng của direction đã xác định.
+Ví dụ:
+
+	1/ linear-gradient(to right,A a%,B b%, C c%)
+
+-> Lúc này màu sẽ thay đổi từ trái sang phải (góc 90deg) và % chiếm dụng của các màu sẽ tương ứng với a%, b% và c% theo thứ tự. 
+Tuy nhiên lúc này, nếu:
+	(a = b) || (b = c)
+thì 2 vị trí màu liền kề nhau có color_stop giống nhau sẽ pha trộn vào nhau, thay vì tách ra hẳn.
+
+	2/ linear-gradient(to right,A a%,B a% b%, C b% c%)
+-> Lúc này màu sẽ thay đổi từ trái sang phải (góc 90deg) và % chiếm dụng của các màu sẽ tương ứng với a%, b% và c% theo thứ tự. 
+Đồng thời 3 màu cũng sẽ được tách riêng biệt
+
+	3/ linear-gradient(to right,A a%,B a% b%, C 0%)
+-> Lúc này màu sẽ thay đổi từ trái sang phải (góc 90deg) và % chiếm dụng của các màu sẽ tương ứng với a%, b% và c% theo thứ tự.
+Và kết quả lúc này cũng sẽ tương tự như ví dụ 2.
+
+	Tương tự cho direction là angle.
+
+	11.2/ repeat-linear-gradient()
+
+Cức năng giống với hàm linear-gradient().  Điểm khác biệt duy nhất đó là repeating-linear-gradient() có chức năng lặp lại các dải màu mà chúng ta đã thực hiện với hàm linear-gradient(). Nó cho phép xác định một gradient tuyến tính và lặp lại nó theo một khoảng cách xác định.
+
+Ví dụ:
+
+background: repeating-linear-gradient(
+      45deg,
+      red 0px,
+      yellow 40px,
+      coral 40px
+);
+
+===========================================================================================================================================================================================
+12/ Một số thuộc tính làm sinh động nội dung
+
+	12.1/ Tạo hình nền cho background bằng hình ảnh
+
+Cú pháp:
+
+	background/background-image: url("path_to_file");
+
+	12.2/ Sử dụng scale() để thay đổi kích thước của một phần tử
+
+Cú pháp:
+
+	transform: scale(sx, sy);
+
+Trong đó: 
+	+sx là tỷ lệ theo chiều ngang (scale theo trục x).
+	+sy là tỷ lệ theo chiều dọc (scale theo trục y). Giá trị sy là tùy chọn và mặc định là giống như sx.
+
+Giá trị của sx và sy có thể là một số thực hoặc một số nguyên. Giá trị 1 sẽ giữ nguyên kích thước ban đầu của phần tử, giá trị 0.5 sẽ thu nhỏ phần tử xuống 50%, và giá trị 2 sẽ phóng to phần tử lên gấp đôi.
+
+	12.3/ Tạo góc nghiêng cho phần tử với skewX, skewY
+
+Trong CSS, hàm skewX() được sử dụng để xoay một phần tử theo trục x (ngang) với góc xoay xác định. Nó là một phần của thuộc tính transform trong CSS và cho phép bbiến đổi hình dạng của một phần tử bằng cách nghiêng nó theo chiều ngang.
+
+Cú pháp:
+
+	transform: skewX(angle);
+
+Trong đó, angle là góc xoay trong đơn vị góc (degrees hoặc radians) để nghiêng phần tử theo trục x. Góc xoay dương sẽ nghiêng phần tử về phía bên trái, trong khi góc xoay âm sẽ nghiêng phần tử về phía bên phải.	
+
+Tương tự cho skewY để xoay theo trục y.
+
+===========================================================================================================================================================================================
+13/ Bổ sung kiến thức về CSS animation
+
+	13.1/ Trạng thái khi kết thúc hiệu ứng với animation-fill-mode
+
+Thuộc tính animation-fill-mode trong CSS được sử dụng để xác định giá trị thuộc tính của phần tử trước và sau khi animation chạy.
+
+Có các giá trị sau cho animation-fill-mode:
+
+		+none: đây là giá trị mặc định. Khi animation không chạy, thuộc tính của phần tử sẽ không được thay đổi.
+		+forwards: phần tử sẽ giữ lại giá trị cuối cùng của animation sau khi hoàn thành.
+		+backwards: phần tử sẽ sử dụng giá trị của giai đoạn đầu tiên trong animation trước khi animation bắt đầu (nếu có giá trị animation-delay).
+		+both: kết hợp giá trị của forwards và backwards, đồng thời giữ lại giá trị cuối cùng của animation và sử dụng giá trị của giai đoạn đầu tiên.
+
+--> Note: animation-fill-mode chỉ áp dụng khi animation kết thúc. Nếu animation không hoàn thành, ví dụ như nếu nó bị ngắt do animation-iteration-count hoặc animation-fill-mode được đặt thành none, thuộc tính của phần tử sẽ trở lại giá trị ban đầu.
+
+	13.2/ Tạo chuyển động bằng CSS Animation
+
+Theo dõi những đoạn code sau trong ví dụ bài học:
+
+	Ví dụ 1:
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+<style>
+  div {
+    height: 80px;
+    width: 40%;
+    background: yellow;
+    margin: 40% auto;
+    border-radius: 10px;
+    position: relative;
+  }
+ 
+  #box {
+    animation-name: moving;
+    animation-duration: 4s;
+  }
+ 
+  @keyframes moving {
+    0% {
+      background-color: yellow;
+      top:20px;
+      left:20px;
+    }
+ 
+    25% {
+      background-color: coral;
+      top:20px;
+      left:20px;
+    }
+ 
+    50% {
+      background-color: orange;
+      top:20px;
+      left:20px;
+    }
+ 
+    75% {
+      background-color: aqua;
+      top:20px;
+      left:20px;
+    }
+ 
+    100% {
+      background-color: yellow;
+      top:20px;
+      left:20px;
+    }
+  }
+</style>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+
+	Ví dụ 2: tạo trái tim đập
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+<style>
+  .background {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: coral;
+    animation-name: background;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+ 
+  p{
+    position: absolute;
+    left: 15%;
+    font-size: 50px;
+    text-align: center;
+    color: white;
+    animation-name: changeColor;
+    animation-duration: 1s;
+  }
+ 
+  .heart {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: pink;
+    height: 150px;
+    width: 150px;
+    transform: rotate(-45deg);
+    animation-name: heartbeat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+  }
+ 
+  .heart:after {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: 0px;
+    left: 85px;
+  }
+ 
+  .heart:before {
+    background-color: pink;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    top: -85px;
+    left: 0px;
+  }
+ 
+  @keyframes background {
+    50% {
+      background: LightCoral;
+    }
+  }
+ 
+  @keyframes changeColor {
+    50% {
+      color: DarkOrange;
+    }
+  }
+ 
+  @keyframes heartbeat {
+    50% {
+      transform: scale(0.5) rotate(-45deg);
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="background">
+  <p>Mãi yêu em!</p>
+</div>
+<div class="heart"></div>
+</body>
+
+	Ví dụ 3: 2 ngôi sao nhấp nháy
+
+<head>
+<meta charset="UTF-8">
+<title>Học HTML CSS </title>
+<style>
+  .stars {
+    background-color: white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    animation-iteration-count: infinite;
+  }
+
+  .star-1 {
+    margin-top: 15%;
+    margin-left: 60%;
+    animation-name: twinkle-1;
+    animation-duration: 1s;
+  }
+
+  .star-2 {
+    margin-top: 25%;
+    margin-left: 25%;
+    animation-name: twinkle-2;
+    animation-duration: 1s;
+  }
+
+  @keyframes twinkle-1 {
+    50% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes twinkle-2 {
+    20% {
+      transform: scale(0.5);
+      opacity: 0.5;
+    }
+  }
+
+  #back {
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(black, #000099, #66c2ff, #ffcccc, #ffeee6);
+  }
+</style>
+</head>
+
+<body>
+<div id="back"></div>
+<div class="star-1 stars"></div>
+<div class="star-2 stars"></div>
+</body>
+
+	13.3/ Hoạt cảnh với đường cong Bezier
+
+Trong CSS, cubic-bezier là một hàm được sử dụng để xác định hình dạng của đường cong trong một chuyển động hoạt hình hoặc chuyển động. Nó là một phần của thuộc tính transition-timing-function và animation-timing-function.
+
+Hàm cubic-bezier nhận bốn tham số, thường được gọi là P1, P2, P3, và P4. Các tham số này đại diện cho các điểm trong không gian 2D, và hình dạng của đường cong được xác định bởi vị trí tương đối của các điểm này. Thông thường, P1 và P4 đã được cố định ở (0,0) và (1,1), trong khi P2 và P3 có thể di chuyển tự do.
+
+Giá trị của cubic-bezier có thể được chỉnh sửa trực tiếp trong mã CSS, hoặc bạn có thể sử dụng các công cụ trực tuyến để "vẽ" đường cong và nhận giá trị tương ứng. Các giá trị này sau đó có thể được sử dụng để kiểm soát cách mà một chuyển động hoặc chuyển tiếp diễn ra, cho phép tạo ra nhiều hiệu ứng hoạt hình phức tạp và tự nhiên.
+
+Hình dáng của đường cong biểu diễn cách hiệu ứng chuyển động. Đường cong được biểu diễn trên một trục toạ độ 2 chiều Oxy, trong đó, trục X biểu diễn thời gian hiệu ứng xảy ra và trục Y biểu thị sự thay đổi của hiệu ứng trong thời gian tương ứng.
+
+Hàm cubic-bezier bao gồm 4 điểm cùng nằm trên 1 hệ trục toạ độ 2 chiều: p0, p1, p2 và p3, trong đó, hai điểm p0 và p3 là điểm bắt đầu và điểm kết thúc, đã được thiết lập giá trị sẵn, nằm lần lượt tại hai điểm trên trục tọa độ là (0,0) và (1,1). Như vậy, chúng ta sẽ phải thiết lập giá trị x và y cho hai điểm p1 và p2 và vị trí của các điểm sẽ xác định hình dáng của đường cong khi hiệu ứng diễn ra. Điều này được thực hiện trong CSS bằng cách khai báo các giá trị của các điểm p1 và p2 dưới dạng (x1, y1, x2, y2). 
+
+===========================================================================================================================================================================================
+14/ Các nguyên tắc đảm bảo tính Responsive
+
+	14.1/ Lý thuyết
+
+Tạo ra một website responsive không chỉ giúp tăng trải nghiệm người dùng, mà còn là một yếu tố quan trọng trong SEO. Dưới đây là một số nguyên tắc cơ bản để đảm bảo website của bạn responsive:
+
+	+Thiết kế mobile-first: Bắt đầu thiết kế từ phiên bản di động và sau đó mở rộng để phù hợp với các màn hình lớn hơn. Điều này giúp đảm bảo rằng nội dung quan trọng nhất của bạn có thể được hiển thị trên bất kỳ thiết bị nào.
+
+	+Sử dụng lưới linh hoạt (flexible grids): Lưới linh hoạt giúp nội dung thích ứng với kích thước màn hình khác nhau. Thay vì sử dụng pixel cố định, hãy sử dụng đơn vị tỷ lệ phần trăm để định cỡ các phần tử.
+
+	+Hình ảnh linh hoạt: Hãy đảm bảo hình ảnh có thể thay đổi kích thước mà không làm ảnh hưởng đến chất lượng. Một số cách để đạt được điều này bao gồm sử dụng CSS để điều chỉnh kích thước, sử dụng ảnh vector khi có thể, và sử dụng thuộc tính srcset trong HTML5 để chỉ định nhiều phiên bản của cùng một hình ảnh.
+
+	+Media queries: Media queries cho phép bạn áp dụng các phong cách CSS khác nhau dựa trên các điều kiện nhất định, chẳng hạn như kích thước màn hình hoặc độ phân giải. Hãy sử dụng chúng để điều chỉnh cách hiển thị nội dung trên các thiết bị khác nhau.
+
+	+Sử dụng Bootstrap hoặc các thư viện CSS khác: Thư viện như Bootstrap cung cấp một lưới linh hoạt và các thành phần responsive sẵn có, giúp quá trình thiết kế trở nên dễ dàng hơn.
+
+	+Thử nghiệm trên nhiều thiết bị và trình duyệt: Đảm bảo rằng trang web của bạn hoạt động tốt trên cả máy tính để bàn, máy tính bảng và điện thoại di động, cũng như trên nhiều trình duyệt khác nhau.
+
+	+Tối ưu hiệu suất: Đảm bảo trang web tải nhanh trên mọi thiết bị bằng cách tối ưu hóa hình ảnh, sử dụng lazy loading, giảm thiểu số lượng yêu cầu HTTP và sử dụng minified và concatenated versions của CSS và JavaScript.
+
+	+Chú ý đến UI và UX: Một trang web responsive phải dễ sử dụng và dễ hiểu. Điều này có nghĩa là nó cần có cấu trúc rõ ràng, chú thích và hướng dẫn đúng đắn, và cung cấp cho người dùng một cách dễ dàng để điều hướng.
+
+Việc tuân theo những nguyên tắc này sẽ giúp tạo ra một trang web responsive chất lượng, hỗ trợ trải nghiệm người dùng tốt trên mọi thiết bị.
+
+Các kỹ thuật sử dụng để tạo web responsive
+Để tạo một website responsive, có một số kỹ thuật quan trọng mà bạn nên sử dụng:
+
+Media Queries: Media Queries là một phần quan trọng của CSS3, cho phép bạn áp dụng các quy tắc CSS đặc biệt cho các loại thiết bị và kích cỡ màn hình khác nhau.
+
+CSS Flexbox: Flexbox, hay Flexible Box Layout, là một mô hình layout dựa trên CSS cho phép bạn dễ dàng thay đổi chiều cao, chiều rộng, và thứ tự của các phần tử con bên trong một container, không phụ thuộc vào kích thước ban đầu của chúng. Flexbox rất phù hợp cho các layout một chiều (một hàng hoặc một cột).
+
+CSS Grid: Grid Layout là một mô hình layout mạnh mẽ cho phép bạn thiết kế các layout dựa trên lưới, với khả năng điều chỉnh và định vị các phần tử trên hai trục (hàng và cột). CSS Grid cho phép bạn tạo ra các layout phức tạp và linh hoạt mà không cần phải sử dụng các kỹ thuật CSS khác như float hay positioning.
+
+Viewport Meta Tag: Tag này được sử dụng trong HTML để điều khiển cách mà trình duyệt hiển thị trang web trên các thiết bị di động. Nó cho phép trình duyệt biết cách điều chỉnh kích thước và tỷ lệ của nội dung.
+
+	14.2/ Nội dung
+
+		14.2.1/ Tạo Media query
+Cú pháp:
+
+@media mediaType and (mediaFeature) {
+  /* Các quy tắc CSS dành riêng cho media query */
+}
+
+Trong đó:
+	+mediaType: có thể là một trong các giá trị sau
+		-all: áp dụng cho tất cả các thiết bị truyền thông.
+		-screen: áp dụng cho màn hình máy tính, máy tính bảng và điện thoại thông minh.
+		-print: áp dụng cho máy in hoặc chế độ xem trước in.
+		-speech: áp dụng cho trình đọc màn hình và trình tổng hợp giọng nói.
+
+	+mediaFeature: chỉ định các điều kiện hoặc ràng buộc cho media query. Dưới đây là một số media feature thường được sử dụng:
+		-width: chỉ định chiều rộng của viewport.
+		-height: chỉ định chiều cao của viewport.
+		-min-width và max-width: chỉ định chiều rộng tối thiểu và tối đa của viewport.
+		-min-height và max-height: chỉ định chiều cao tối thiểu và tối đa của viewport.
+		
+		14.2.2/ Tùy biến kích thước ảnh theo màn hình
+
+	+Sử dụng thuộc tính max-width: Điều này sẽ giúp hình ảnh tự động co lại sao cho không vượt quá kích thước của phần tử chứa nó. Ví dụ:
+
+		img {
+  		  max-width: 80%;
+  		  height: auto;
+  		}
+
+	+Sử dụng thuộc tính width với đơn vị vw (viewport width): Điều này sẽ giúp hình ảnh có kích thước tỷ lệ với chiều rộng của viewport. Ví dụ:
+
+		img {
+  		  width: 50vw;
+  		  height: auto;
+		}
+
+	+Sử dụng media query để áp dụng các kích thước khác nhau cho hình ảnh tùy thuộc vào kích thước màn hình. Ví dụ:
+
+		img {
+  		  width: 100%;
+ 		  height: auto;
+		}
+
+		@media screen and (min-width: 768px) {
+  		  img {
+    		    width: 50%;
+    		    height: auto;
+  		  }
+		}
+
+		14.2.3/ Sử dụng hình ảnh Retina cho màn hình có độ phân giải cao
+
+Với sự phát triển của công nghệ thông tin ngày nay, ngày càng xuất hiện đa dạng các loại thiết bị với các kích thước, hình dạng và thông số kỹ thuật khác nhau. Mật độ điểm ảnh Pixel có thể khác nhau giữa các thiết bị, được gọi là PPP (Pixel Per Inch) hoặc DPI (Dots Per Inch).
+
+Cách thức hiển thị nổi tiếng nhất hiện nay là Retina Display, được sử dụng trên máy tính xách tay Apple Macbook Pro phiên bản mới nhất và máy tính iMac. Do sự khác nhau về mật độ điểm ảnh Pixel giữa màn hình “Retina" và “Non-retina", nên một số hình ảnh không được tạo trên màn hình có độ phân giải cao sẽ trông không rõ nét khi hiển thị trên màn hình có độ phân giải cao.
+
+Một cách đơn giản để điều chỉnh cho hình ảnh vẫn có thể hiển thị rõ nét trên các màn hình có độ phân giải cao là thay đổi giá trị của thuộc tính width và height bằng một nửa giá trị của ảnh gốc như ví dụ dưới đây:
+
+<style>
+img {
+    height: 140px; 
+    width: 140px; 
+}
+</style>
+
+<img src="img280x280" alt="test picture">
+
+		14.2.4/ Làm cho Typography Responsive
+
+Thay vì sử dụng đơn vị em hoặc px đối với kích thước của đoạn văn bản, chúng ta có thể sử dụng các đơn vị khác để điều chỉnh kích thước nội dung một cách linh hoạt hơn. Các đơn vị đo lường này (ví dụ %) có tính chất tương đối, được đo lường dựa trên các màn hình khác nhau hoặc các phần tử. Nó có liên quan đến kích thước viewpoint (chiều rộng hoặc chiều cao).
+
+Có 4 đơn vị đo lường màn hình khác nhau như sau:
+
+	+vw (chiều rộng của màn): 27vw biểu diễn 27% kích thước chiều rộng của màn hình hiển thị.
+	+vh (chiều cao của màn): 8vh biểu diễn 8% kích thước chiều cao của màn hình hiển thị.
+	+vmin (kích thước theo chiều nhỏ hơn của màn hình): 82vmin biểu diễn 82% kích thước của chiều không gian hiển thị nhỏ hơn của màn hình hiện tại.
+	+vmax (kích theo chiều lớn hơn của màn hình): 92vmax biểu diễn 92% kích thước của chiều không gian hiển thị lớn hơn của màn hình hiện tại.
+Dưới đây là ví dụ về cách thiết lập giá trị chiều rộng của phần tử div bằng 87% chiều rộng của màn hình hiển thị:
+
+div {
+  width: 87vw;
+}
+Trong ví dụ trên, thuộc tính width của phần tử <div> được đặt thành 87vw, có nghĩa là nó sẽ chiếm 87% chiều rộng của viewport (màn hình hiển thị).
+
+Lưu ý rằng giá trị vw được tính dựa trên chiều rộng của viewport, với 1vw tương đương với 1% chiều rộng của viewport. Vì vậy, giá trị 87vw sẽ là 87% chiều rộng của màn hình hiển thị.
+
+===========================================================================================================================================================================================
+15/ Bổ sung về CSS Flex-box
+
+	15.1/ Sử dụng thuộc tính flex-shrink để thu nhỏ các mục
+
+Thuộc tính flex-shrink được áp dụng nhằm đảm bảo các phần tử con trong container có thể thu nhỏ kích thước khi kích thước của container là không đủ. Nói một cách khác, khi kích thước chiều rộng của container nhỏ hơn kích thước chiều rộng của các phần tử con cộng lại, các phần tử này sẽ tự động thu nhỏ kích thước.
+
+Giá trị của thuộc tính flex-shrink là một giá trị số (thường là số nguyên) không âm. Giá trị càng cao thì phần tử càng bị thu hẹp lại so với các phần tử khác trong container. Giá trị mặc định của flex-shrink là 1, có nghĩa là mỗi item flex sẽ thu nhỏ đều nếu cần.
+
+Ví dụ, nếu có ba items trong một flex container, mà item đầu tiên có flex-shrink: 1, item thứ hai có flex-shrink: 2, và item thứ ba có flex-shrink: 3, thì item thứ ba sẽ thu nhỏ nhanh nhất khi không còn đủ không gian. Tức là, item thứ ba sẽ thu nhỏ gấp ba lần item đầu tiên và gấp một lần rưỡi so với item thứ hai.
+
+Thuộc tính flex-shrink trong CSS rất hữu ích khi xây dựng các giao diện responsive, đặc biệt khi muốn các phần tử trong một container flex có thể thu nhỏ một cách linh hoạt khi kích thước của viewport thay đổi.
+
+Ví dụ, có thể muốn một số phần tử thu nhỏ nhanh hơn so với các phần tử khác khi không gian trở nên hạn hẹp. Để làm điều này, bạn có thể chỉ định cho các phần tử đó một giá trị flex-shrink lớn hơn.
+
+Dưới đây là một ví dụ về cách sử dụng flex-shrink trong một giao diện responsive:
+
+.container {
+  display: flex;
+}
+
+.item1 {
+  flex-shrink: 1;  /* item này sẽ thu nhỏ ở tốc độ mặc định */
+}
+
+.item2 {
+  flex-shrink: 2;  /* item này sẽ thu nhỏ nhanh hơn item1 */
+}
+
+-> Trong ví dụ trên, .item1 sẽ thu nhỏ ở tốc độ mặc định khi không gian trở nên hạn hẹp, trong khi .item2 sẽ thu nhỏ nhanh hơn, giúp giữ cho .item1 có không gian hiển thị đủ khi không gian viewport giảm.
+
+	15.2/ Sử dụng thuộc tính flex-grow để mở rộng các mục
+
+Ngược lại so với thuộc tính flex-shrink là thuộc tính flex-grow. Nếu như thuộc tính flex-shrink làm các phần tử con trong container có thể thu nhỏ kích thước thì thuộc tính flex-grow làm cho các phần tử con trong container tăng kích thước khi kích thước của phần tử container tăng dần lên.
+
+Thuộc tính này xác định khả năng mở rộng của một item flex nếu có không gian còn trống trong flex container.
+
+flex-grow nhận một giá trị không âm, thường là một số nguyên. Giá trị mặc định của flex-grow là 0, có nghĩa là mặc định, các item flex không mở rộng để chiếm thêm không gian còn trống.
+
+Ví dụ, nếu có ba items trong một flex container, mà item đầu tiên có flex-grow: 1, item thứ hai có flex-grow: 2, và item thứ ba có flex-grow: 3, thì khi có không gian còn trống, item thứ ba sẽ mở rộng nhanh nhất. Tức là, item thứ ba sẽ mở rộng gấp ba lần item đầu tiên và gấp một lần rưỡi so với item thứ hai.
+
+Thuộc tính flex-grow trong CSS là một công cụ quan trọng khi xây dựng các giao diện responsive. Nó cho phép các item flex mở rộng để chiếm không gian còn trống trong flex container, giúp tận dụng tốt hơn không gian màn hình, đặc biệt khi kích thước màn hình tăng.
+
+	15.3/ Sử dụng thuộc tính flex-basis để đặt kích thước ban đầu của một mục
+
+Thuộc tính flex-basis chỉ định kích thước ban đầu của phần tử con (flex item) trong container trước khi áp dụng các thuộc tính flex-shrink hoặc flex-grow.
+
+flex-basis là một thuộc tính trong CSS Flexbox, một công cụ mạnh mẽ giúp kiểm soát cách các phần tử được hiển thị và sắp xếp trong CSS. Đây là một phần của bộ ba thuộc tính CSS: flex-grow, flex-shrink, và flex-basis.
+
+Trong các trường hợp thực tế, flex-basis thường được sử dụng để xác định kích thước cơ bản của một mục flex, trước khi phân phối không gian còn lại.
+
+flex-basis hoạt động giống như thuộc tính width hoặc height nhưng dành riêng cho Flexbox. Giá trị của flex-basis có thể là auto (mặc định), 0 hoặc bất kỳ giá trị độ dài nào khác.
+
+Ví dụ về flex-basis:
+
+.item {
+  flex-basis: 200px;
+}
+
+Ở đây, mục flex sẽ có kích thước cơ bản là 200px trước khi phân phối không gian còn lại.
+
+Thuộc tính flex-basis sử dụng các đơn vị đo lường bao gồm px, em, %, và các đơn vị khác. Khi thuộc tính được thiết lập giá trị là auto, kích thước của phần tử con (flex item) sẽ phụ thuộc vào phần nội dung bên trong.
+
+Trong trường hợp responsive design, flex-basis cực kì hữu ích. Bằng cách sử dụng các media queries, có thể thay đổi flex-basis của các mục flex dựa trên kích thước màn hình. Điều này cho phép kiểm soát cách các mục flex sắp xếp và thay đổi kích thước theo điều kiện.
+
+Ví dụ về flex-basis trong thiết kế responsive:
+
+.item {
+  flex-basis: 100%;
+}
+
+@media (min-width: 600px) {
+  .item {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 900px) {
+  .item {
+    flex-basis: 33.33%;
+  }
+}
+Trong ví dụ trên, mỗi mục flex sẽ chiếm 100% chiều rộng của container trên màn hình nhỏ. Khi màn hình rộng hơn 600px, mỗi mục flex sẽ chiếm 50% chiều rộng. Và khi màn hình rộng hơn 900px, mỗi mục flex sẽ chiếm khoảng 1/3 (33.33%) chiều rộng.
+
+===========================================================================================================================================================================================
+16/ Bổ sung kiến thức về CSS Grid
+
+	16.1/ Chỉnh khoảng cách giữa các cột và các hàng
+
+Cú pháp để chỉnh khoảng cách giữa các cột và các hàng lần lượt là: column-gap:value; và row-gap:value; Có thể viết gọn lại thành: gap: row_gap column_gap;
+
+	16.2/ Sử dụng grid-column thiết lập khoảng cách -> Tương tự cho grid-row
+
+Cú pháp như đã học:
+
+	grid-column: grid-column-start/grid-column-end
+
+Tuy nhiên, grid-column còn nhận những giá trị sau:
+
+	+auto: giá trị mặc định, mục grid sẽ chiếm các cột theo trật tự tự nhiên.
+	+<number>: xác định cột cụ thể mà mục grid sẽ chiếm.
+	+<name>: xác định tên của một grid line cụ thể mà mục grid sẽ nằm trên đó.
+	+span <number>: xác định số cột mà mục grid sẽ chiếm.
+	+span <name>: xác định số cột mà mục grid sẽ chiếm, bắt đầu từ grid line có tên xác định.
+
+Ví dụ:
+
+	.grid-item {
+     	   grid-column: 2; /* Mục grid chiếm cột thứ 2 */
+    /* hoặc */
+    	   grid-column: span 3; /* Mục grid chiếm 3 cột liên tiếp */
+    /* hoặc */
+    	   grid-column: 1 / span 2; /* Mục grid chiếm từ cột 1 đến 2 */
+   /*hoặc*/
+   	   grid-column: 2 / 4; /*mục grid sẽ nằm trên hai cột liên tiếp, bắt đầu từ cột thứ 2 và kết thúc ở cột thứ 4. Nó sẽ chiếm không gian giữa các grid line của cột 2 và cột 4 trên trục cột trong grid container.*/
+	}
+
+	16.3/ Sử dụng grid-area mà không cần tạo mẫu
+
+Thuộc tính grid-area mà chúng ta tìm hiểu trong bài trước có thể được sử dụng theo một cách khác. Trong trường hợp grid chưa được chia thành các nhóm, chúng ta có thể đặt phần tử con vào trong một nhóm cụ thể theo một cách nhanh chóng như sau:
+
+	.item1 { 
+	  grid-area: 1/1/2/4; 
+	}
+
+Phương thức này sử dụng số thứ tự của dòng kẻ để xác định vị trí đặt các phần tử, trong đó các giá trị biểu thị lần lượt như sau:
+
+	grid-area: Dòng kẻ ngang đánh dấu điểm bắt đầu / Đường kẻ dọc đánh dấu điểm kết thúc / Dòng kẻ ngang đánh dấu điểm kết thúc / Đường kẻ dọc đánh dấu điểm kết thúc;
+
+Ví dụ trên có ý nghĩa là phần tử có lớp .item1 sẽ được đặt trong khu vực của grid container bắt đầu từ hàng 1 và cột 1, và kết thúc ở hàng 2 và cột 4.
+
+Trong thuộc tính grid-area, giá trị đầu tiên 1 đại diện cho hàng bắt đầu, giá trị thứ hai 1 đại diện cho cột bắt đầu, giá trị thứ ba 2 đại diện cho hàng kết thúc, và giá trị thứ tư 4 đại diện cho cột kết thúc.
+
+Ví dụ này xác định rằng phần tử .item1 sẽ chiếm không gian trong grid container từ hàng 1 đến hàng 2 (bao gồm cả hai hàng) và từ cột 1 đến cột 4 (bao gồm cả bốn cột). Điều này sẽ làm mở rộng phần tử trên hai hàng đầu tiên và kéo dãn nó qua bốn cột trong grid container.
+
+	16.4/ Tạo bố cục linh hoạt bằng auto-fill
+
+Trong CSS Grid, auto-fill và auto-fit là hai từ khóa bạn có thể sử dụng trong hàm repeat() để tự động tạo ra số lượng cột hoặc hàng dựa trên kích thước của grid container và kích thước tối thiểu của các cột và hàng.
+
+Khi sử dụng auto-fill trong hàm repeat(), trình duyệt sẽ tạo ra nhiều cột/hàng nhất có thể phù hợp với kích thước tối thiểu mà bạn chỉ định, mà không cần phải làm cho bất kỳ cột/hàng nào rộng hơn so với đơn vị fr được chỉ định.
+
+Ví dụ:
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+Trong ví dụ này, trình duyệt sẽ cố gắng điền nhiều cột nhất có thể vào container, với mỗi cột có kích thước tối thiểu là 200px và tối đa là 1fr (chiếm tất cả không gian còn lại). Khi kích thước viewport thay đổi, số lượng cột sẽ tăng hoặc giảm để điền vào không gian còn lại.
+
+Cần lưu ý rằng với auto-fill, nếu có không gian còn lại trong container, trình duyệt sẽ tạo ra các cột "rỗng" không chứa mục nào. Điều này có thể gây ra vấn đề nếu bạn muốn các cột có độ rộng fr mở rộng để chiếm không gian còn lại. Trong trường hợp đó, bạn có thể muốn sử dụng auto-fit thay vì auto-fill.
+
+-> Cũng giống như auto-fill, auto-fit sẽ tạo ra càng nhiều cột (hoặc hàng) càng tốt trong grid dựa trên kích thước tối thiểu bạn chỉ định. Tuy nhiên, khác với auto-fill, auto-fit sẽ co các cột "rỗng" (không chứa mục nào) để các cột khác có thể mở rộng hơn.
 ============================================================================================END=============================================================================================
 
 
