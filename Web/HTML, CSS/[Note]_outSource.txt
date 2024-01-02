@@ -372,6 +372,33 @@ Kiểm tra thuộc tính CSS đó có được hỗ trợ bởi trình duyệt h
 	   }
 	}
 
+9/ HTML: Một số tag tiện dụng ít được biết đến
+
+	9.1/ DataList Tag
+used to provide an "autocomplete" feature for elements. Users wil see a drop-down ist of pre-defined options as they input data.
+
+Ex:
+
+<form action="action_name" method="get">
+  <label for="browser">Choose your browser from the list:</label>
+  <input list="browsers" name="browser" id="browser">
+  <datalist id="browsers">
+    <option value="Edge">
+    <option value="Chrome">
+    <option value="Mozila FireFox">
+  </datalist>
+  <input type="submit">
+</form>
+
+	9.2/ color picker Tag
+<input> element of type color provide a user interface element that lets a user specify a color. either by using a visual color picker interface or by entering the color into a text field in #rrggbb hexadecimal format
+
+Ex:
+
+<body>
+  <label for="colorPicker">Color Picker:</label>
+  <input type="color" id="colorPicker" value="#000ff">
+</body>
 
 	
 	  
